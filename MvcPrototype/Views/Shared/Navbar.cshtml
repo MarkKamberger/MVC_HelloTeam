@@ -1,0 +1,50 @@
+﻿@using MvcPrototype.Models
+@using MvcPrototype.BaseModels
+
+@{
+    ViewBag.Title = "Navbar";
+    var viewModel = (BaseModel)ViewData["BaseModel"];
+}
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+      <div class="container">
+          
+          <div class="userName">
+           
+              @if (viewModel.ClientModel.IsLoggedIn)
+              {
+                  <a id="currentUserName">Welcome Back!  @viewModel.BusinessLogicObject.UserFirstName  @viewModel.BusinessLogicObject.UserLastName</a>
+                  <input id="postLogOut" type="button" value="Logout"/> 
+              } 
+          </div>
+      </div>
+  </div>
+</div>
+<div class="container">
+    
+</div>
+   <script type="text/javascript">
+       $(function () {
+           $('#postLogOut').click(function (e) {
+               e.preventDefault();
+               $.ajax(
+                {
+                    url: '/Login/UserLogOut',
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (data) {
+                        var message = data["Message"];
+                        var success = Boolean(data["Success"]);
+                        if (!success) {
+                            alert(message);
+                        }
+                        if (success) {
+                            window.location.href = "/Login";
+                        }
+                    }
+                });
+           });
+       });
+    
+</script>

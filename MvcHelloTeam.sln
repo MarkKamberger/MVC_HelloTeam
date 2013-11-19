@@ -1,0 +1,176 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcHelloTeam", "MvcHelloTeam\MvcHelloTeam.csproj", "{ACCB5700-9F51-482B-AD69-42FB1A489DA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SALIDataAccess", "..\Intranet\SALI\SALIDataAccess\SALIDataAccess\SALIDataAccess.csproj", "{9E4F2CD2-C2BE-4C54-ADF3-80433339E5CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SALIBusinessLogic", "..\Intranet\SALI\SALIBusinessLogic\SALIBusinessLogic.csproj", "{1D720031-D85A-4111-A758-4517CE3610A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SALIBaseClasses", "..\Intranet\SALI\SALIBaseClasses\SALIBaseClasses.csproj", "{2D673F88-6BA8-43E9-A209-FAE6E9D6BAE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SALIEnums", "..\Intranet\SALI\SALIEnums\SALIEnums\SALIEnums.csproj", "{B7EDFC85-F05C-46A5-BFCF-9A757742F0F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SALIInterfaces", "..\Intranet\SALI\SALIInterfaces\SALIInterfaces.csproj", "{675A18CC-494D-44AD-8557-1E3A8D71EC1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SALIObjects", "..\Intranet\SALI\SALIObjects\ClassLibrary1\SALIObjects.csproj", "{716CB639-85BD-4ECA-A910-4FA7F9384775}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFAFGlobalObjects", "..\Intranet\SALI\SFAFGlobalConstants\SFAFGlobalObjects.csproj", "{8B4A3F4A-94FD-4691-9B59-7AA2A025EA6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFAFUtilityObjects", "..\Intranet\SALI\SFAFUtilityObjects\SFAFUtilityObjects.csproj", "{C2B52801-7D15-4DDD-9D66-8F980B6BECCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SALISecurityObjects", "..\Intranet\SALI\SALISecurityObjects\SALISecurityObjects\SALISecurityObjects.csproj", "{5B189977-9A24-4C05-A2B3-D3FD4052F600}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFAFDataExtraction", "..\Intranet\SALI\SFAFDataExtraction\SFAFDataExtraction.csproj", "{A83F91A8-875C-4BCA-B35A-FACCFD11D8FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFABaseClasses", "..\Intranet\SALI\SFABaseClasses\SFABaseClasses\SFABaseClasses.csproj", "{E2853D08-FB18-4B24-94C3-902B56F1D6E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer", "DomainLayer\DomainLayer.csproj", "{C7058A01-D6B2-4605-97A8-89D0FBE441FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{021CD98E-8379-4437-912C-4A9D4CDF8F44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{6C220487-B123-40A1-AECD-C4269E413E26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_ORM_TEST", "MVC_ORM_TEST\MVC_ORM_TEST.csproj", "{25747AA7-388E-4A8F-9012-A9AFC211EEA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcPrototype", "MvcPrototype\MvcPrototype.csproj", "{1FCFACF0-7658-4B73-BA03-3CF4B3C4DB55}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 18
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sfa-tfs01:8080/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\Intranet\\SALI\\SALIDataAccess\\SALIDataAccess\\SALIDataAccess.csproj
+		SccProjectName1 = ../../SALI/SALIDataAccess/SALIDataAccess
+		SccLocalPath1 = ..\\Intranet\\SALI\\SALIDataAccess\\SALIDataAccess
+		SccProjectUniqueName2 = ..\\Intranet\\SALI\\SALIBusinessLogic\\SALIBusinessLogic.csproj
+		SccProjectName2 = ../../SALI/SALIBusinessLogic
+		SccLocalPath2 = ..\\Intranet\\SALI\\SALIBusinessLogic
+		SccProjectUniqueName3 = ..\\Intranet\\SALI\\SALIBaseClasses\\SALIBaseClasses.csproj
+		SccProjectName3 = ../../SALI/SALIBaseClasses
+		SccLocalPath3 = ..\\Intranet\\SALI\\SALIBaseClasses
+		SccProjectUniqueName4 = ..\\Intranet\\SALI\\SALIEnums\\SALIEnums\\SALIEnums.csproj
+		SccProjectName4 = ../../SALI/SALIEnums/SALIEnums
+		SccLocalPath4 = ..\\Intranet\\SALI\\SALIEnums\\SALIEnums
+		SccProjectUniqueName5 = ..\\Intranet\\SALI\\SALIInterfaces\\SALIInterfaces.csproj
+		SccProjectName5 = ../../SALI/SALIInterfaces
+		SccLocalPath5 = ..\\Intranet\\SALI\\SALIInterfaces
+		SccProjectUniqueName6 = ..\\Intranet\\SALI\\SALIObjects\\ClassLibrary1\\SALIObjects.csproj
+		SccProjectName6 = ../../SALI/SALIObjects/ClassLibrary1
+		SccLocalPath6 = ..\\Intranet\\SALI\\SALIObjects\\ClassLibrary1
+		SccProjectUniqueName7 = ..\\Intranet\\SALI\\SFAFGlobalConstants\\SFAFGlobalObjects.csproj
+		SccProjectName7 = ../../SALI/SFAFGlobalConstants
+		SccLocalPath7 = ..\\Intranet\\SALI\\SFAFGlobalConstants
+		SccProjectUniqueName8 = ..\\Intranet\\SALI\\SFAFUtilityObjects\\SFAFUtilityObjects.csproj
+		SccProjectName8 = ../../SALI/SFAFUtilityObjects
+		SccLocalPath8 = ..\\Intranet\\SALI\\SFAFUtilityObjects
+		SccProjectUniqueName9 = ..\\Intranet\\SALI\\SALISecurityObjects\\SALISecurityObjects\\SALISecurityObjects.csproj
+		SccProjectName9 = ../../SALI/SALISecurityObjects/SALISecurityObjects
+		SccLocalPath9 = ..\\Intranet\\SALI\\SALISecurityObjects\\SALISecurityObjects
+		SccProjectUniqueName10 = ..\\Intranet\\SALI\\SFAFDataExtraction\\SFAFDataExtraction.csproj
+		SccProjectName10 = ../../SALI/SFAFDataExtraction
+		SccLocalPath10 = ..\\Intranet\\SALI\\SFAFDataExtraction
+		SccProjectUniqueName11 = ..\\Intranet\\SALI\\SFABaseClasses\\SFABaseClasses\\SFABaseClasses.csproj
+		SccProjectName11 = ../../SALI/SFABaseClasses/SFABaseClasses
+		SccLocalPath11 = ..\\Intranet\\SALI\\SFABaseClasses\\SFABaseClasses
+		SccProjectUniqueName12 = DomainLayer\\DomainLayer.csproj
+		SccProjectName12 = DomainLayer
+		SccLocalPath12 = DomainLayer
+		SccProjectUniqueName13 = Infrastructure\\Infrastructure.csproj
+		SccProjectName13 = Infrastructure
+		SccLocalPath13 = Infrastructure
+		SccProjectUniqueName14 = MVC_ORM_TEST\\MVC_ORM_TEST.csproj
+		SccProjectName14 = MVC_ORM_TEST
+		SccLocalPath14 = MVC_ORM_TEST
+		SccProjectUniqueName15 = MvcHelloTeam\\MvcHelloTeam.csproj
+		SccProjectName15 = MvcHelloTeam
+		SccLocalPath15 = MvcHelloTeam
+		SccProjectUniqueName16 = Services\\Services.csproj
+		SccProjectName16 = Services
+		SccLocalPath16 = Services
+		SccProjectUniqueName17 = MvcPrototype\\MvcPrototype.csproj
+		SccProjectName17 = MvcPrototype
+		SccLocalPath17 = MvcPrototype
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACCB5700-9F51-482B-AD69-42FB1A489DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACCB5700-9F51-482B-AD69-42FB1A489DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACCB5700-9F51-482B-AD69-42FB1A489DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACCB5700-9F51-482B-AD69-42FB1A489DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E4F2CD2-C2BE-4C54-ADF3-80433339E5CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E4F2CD2-C2BE-4C54-ADF3-80433339E5CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E4F2CD2-C2BE-4C54-ADF3-80433339E5CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E4F2CD2-C2BE-4C54-ADF3-80433339E5CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D720031-D85A-4111-A758-4517CE3610A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D720031-D85A-4111-A758-4517CE3610A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D720031-D85A-4111-A758-4517CE3610A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D720031-D85A-4111-A758-4517CE3610A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D673F88-6BA8-43E9-A209-FAE6E9D6BAE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D673F88-6BA8-43E9-A209-FAE6E9D6BAE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D673F88-6BA8-43E9-A209-FAE6E9D6BAE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D673F88-6BA8-43E9-A209-FAE6E9D6BAE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7EDFC85-F05C-46A5-BFCF-9A757742F0F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7EDFC85-F05C-46A5-BFCF-9A757742F0F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7EDFC85-F05C-46A5-BFCF-9A757742F0F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7EDFC85-F05C-46A5-BFCF-9A757742F0F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{675A18CC-494D-44AD-8557-1E3A8D71EC1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{675A18CC-494D-44AD-8557-1E3A8D71EC1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{675A18CC-494D-44AD-8557-1E3A8D71EC1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{675A18CC-494D-44AD-8557-1E3A8D71EC1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{716CB639-85BD-4ECA-A910-4FA7F9384775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{716CB639-85BD-4ECA-A910-4FA7F9384775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{716CB639-85BD-4ECA-A910-4FA7F9384775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{716CB639-85BD-4ECA-A910-4FA7F9384775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B4A3F4A-94FD-4691-9B59-7AA2A025EA6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B4A3F4A-94FD-4691-9B59-7AA2A025EA6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B4A3F4A-94FD-4691-9B59-7AA2A025EA6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B4A3F4A-94FD-4691-9B59-7AA2A025EA6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2B52801-7D15-4DDD-9D66-8F980B6BECCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B52801-7D15-4DDD-9D66-8F980B6BECCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2B52801-7D15-4DDD-9D66-8F980B6BECCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2B52801-7D15-4DDD-9D66-8F980B6BECCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B189977-9A24-4C05-A2B3-D3FD4052F600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B189977-9A24-4C05-A2B3-D3FD4052F600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B189977-9A24-4C05-A2B3-D3FD4052F600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B189977-9A24-4C05-A2B3-D3FD4052F600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A83F91A8-875C-4BCA-B35A-FACCFD11D8FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A83F91A8-875C-4BCA-B35A-FACCFD11D8FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A83F91A8-875C-4BCA-B35A-FACCFD11D8FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A83F91A8-875C-4BCA-B35A-FACCFD11D8FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2853D08-FB18-4B24-94C3-902B56F1D6E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2853D08-FB18-4B24-94C3-902B56F1D6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2853D08-FB18-4B24-94C3-902B56F1D6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2853D08-FB18-4B24-94C3-902B56F1D6E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7058A01-D6B2-4605-97A8-89D0FBE441FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7058A01-D6B2-4605-97A8-89D0FBE441FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7058A01-D6B2-4605-97A8-89D0FBE441FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7058A01-D6B2-4605-97A8-89D0FBE441FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{021CD98E-8379-4437-912C-4A9D4CDF8F44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021CD98E-8379-4437-912C-4A9D4CDF8F44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021CD98E-8379-4437-912C-4A9D4CDF8F44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021CD98E-8379-4437-912C-4A9D4CDF8F44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C220487-B123-40A1-AECD-C4269E413E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C220487-B123-40A1-AECD-C4269E413E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C220487-B123-40A1-AECD-C4269E413E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C220487-B123-40A1-AECD-C4269E413E26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25747AA7-388E-4A8F-9012-A9AFC211EEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25747AA7-388E-4A8F-9012-A9AFC211EEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25747AA7-388E-4A8F-9012-A9AFC211EEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25747AA7-388E-4A8F-9012-A9AFC211EEA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FCFACF0-7658-4B73-BA03-3CF4B3C4DB55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FCFACF0-7658-4B73-BA03-3CF4B3C4DB55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FCFACF0-7658-4B73-BA03-3CF4B3C4DB55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FCFACF0-7658-4B73-BA03-3CF4B3C4DB55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,13 @@
+2013-08-22 15:25:38,948 [1] DEBUG HibernatingRhinos.Profiler.Client.Host.ClientService [(null)] - Profiler initialized. Build: 2204
+2013-08-22 15:25:39,713 [1] DEBUG HibernatingRhinos.Profiler.Client.Host.ClientService [(null)] - Attempt to start HTTP listener
+2013-08-22 15:25:39,713 [1] DEBUG HibernatingRhinos.Profiler.Client.Host.ClientService [(null)] - HTTP listener started successfully
+2013-08-22 15:25:44,416 [8] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 09/22/2013 00:00:00
+2013-08-22 15:25:44,468 [8] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - Not accepting 'hprof' license for 'NHibernate Profiler'
+2013-08-22 15:32:54,847 [1] DEBUG HibernatingRhinos.Profiler.Client.Host.ClientService [(null)] - Profiler initialized. Build: 2204
+2013-08-22 15:32:55,507 [1] DEBUG HibernatingRhinos.Profiler.Client.Host.ClientService [(null)] - Attempt to start HTTP listener
+2013-08-22 15:32:55,507 [1] DEBUG HibernatingRhinos.Profiler.Client.Host.ClientService [(null)] - HTTP listener started successfully
+2013-08-22 15:33:02,387 [10] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 09/22/2013 00:00:00
+2013-08-22 15:33:02,440 [10] DEBUG Rhino.Licensing.AbstractLicenseValidator [(null)] - License accepted for NHibernate Profiler
+2013-08-22 15:33:02,505 [10] WARN  Rhino.Licensing.AbstractLicenseValidator [(null)] - License expiration date is 09/22/2013 00:00:00
+2013-08-22 15:33:02,520 [10] DEBUG Rhino.Licensing.AbstractLicenseValidator [(null)] - License accepted for NHibernate Profiler
+2013-08-22 15:33:02,523 [8] INFO  HibernatingRhinos.Profiler.Client.Infrastructure.AutoUpdate.ProfilerAutoUpdate [(null)] - Checking for updates...

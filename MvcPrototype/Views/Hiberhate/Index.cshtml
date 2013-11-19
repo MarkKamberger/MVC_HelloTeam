@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>HiberHate</h2>
+@if (User.IsInRole("Developer"))
+{
+    <h1>You are a Developer</h1>
+}

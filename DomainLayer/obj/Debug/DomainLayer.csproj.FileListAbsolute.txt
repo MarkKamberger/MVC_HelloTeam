@@ -1,0 +1,12 @@
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\DomainLayer.dll
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\DomainLayer.pdb
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\FluentNHibernate.dll
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\SharpArch.Domain.dll
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\SharpArch.NHibernate.dll
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\FluentNHibernate.xml
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\SharpArch.Domain.pdb
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\SharpArch.NHibernate.pdb
+C:\Development\Projects\MvcHelloTeam\DomainLayer\obj\Debug\DomainLayer.dll
+C:\Development\Projects\MvcHelloTeam\DomainLayer\obj\Debug\DomainLayer.pdb
+C:\Development\Projects\MvcHelloTeam\DomainLayer\obj\Debug\DomainLayer.csprojResolveAssemblyReference.cache

@@ -1,0 +1,27 @@
+﻿@using MvcHelloTeam.Models.TWAModels
+@model MvcHelloTeam.Models.TWAModels.View.TWAPageViewModel
+@{
+    ViewBag.Title = "Student Activity";
+}
+ @if (Model != null)
+    {
+        foreach (TWAStudentActivityViewModel item in @Model.TwaStudentActivityListViewModel.StudentActivity)
+        {
+        <div class="">
+            <label>Activity ID @item.ActivityId, Activity Name: @item.TwaTutoringActivitiesTemplateActivity.TutoringActivitiesTemplateActivityName, Last Assessed on: @item.DateLastAssessed</label>
+           @* <label>Activity Name: @item.TwaTutoringActivitiesTemplateActivity.TutoringActivitiesTemplateActivityName</label>
+            <label>Last Assessed on: @item.DateLastAssessed</label>*@
+            <ul>
+            @for (var i = 0; i < @item.TwaActivity2StudentLevelMasterys.Count(); i++)
+            {
+                
+                <li>MeasureIndex: @item.TwaActivity2StudentLevelMasterys[i].MeasureIndex, Shared Story Id: @item.TwaActivity2StudentLevelMasterys[i].SharedStoryId</li> 
+                <ul>
+                <li>Mastered: @item.TwaActivity2StudentLevelMasterys[i].Mastered, Date: @item.TwaActivity2StudentLevelMasterys[i].DateLastAssessed</li> 
+                </ul>
+                }
+            </ul>
+
+        </div>
+        } 
+    } 

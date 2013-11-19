@@ -1,0 +1,40 @@
+﻿@using MvcHelloTeam.Models.TWAModels
+@model MvcHelloTeam.Models.TWAModels.View.TWAPageViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TWA Data - Using NHibernate - NO SQL stored procedures or queries were written to get this data Use Student # 4237520</h2>
+<input type="text" id="studentIdnput" placeholder="Student ID"/>
+<input  type="button" id="studentSubmit" value="Search"/>
+
+<div id="ActivityList" class="">
+    @Html.Partial("PartialTwaActivity", Model)             
+   
+</div>
+<script type="text/javascript">
+    $(function () {
+        hideProcessing();
+    });
+    $("#studentSubmit").click(function () {
+        showProcessing();
+        var studentId = $('#studentIdnput').val();
+        $.ajax(
+            {
+                url: '@Url.Action("GetTwaActivityMastery", "TWA")',
+                type: "POST",
+                data: { studentId: studentId },
+                success: function (data) {
+                    if (!data)
+                        alert("no data");
+                    else {
+
+                        $("#ActivityList").html(data);
+
+                    }
+                    hideProcessing();
+                }
+            });
+    });
+</script>

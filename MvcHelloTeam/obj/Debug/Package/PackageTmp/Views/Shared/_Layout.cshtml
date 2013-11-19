@@ -1,0 +1,23 @@
+﻿@using MemberCenter20NS.Models
+@using MvcHelloTeam.Models
+@{
+    ViewBag.Title = "Navbar";
+    //var viewModel = (BaseModel)ViewData["BaseModel"];
+}
+<!DOCTYPE html> 
+    
+    @Html.Partial("Header")
+
+    <body class="@ViewBag.BodyClass">
+
+        @Html.Partial("Navbar")
+
+        <div id="main">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+  
+        @Html.Partial("Footer")
+    </body>
+</html>

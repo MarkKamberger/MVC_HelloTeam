@@ -1,0 +1,63 @@
+﻿@using System.Web.Mvc.Html
+@using MemberCenter20NS.Models;
+@using System.Data;
+@using MemberCenter20NS.Controllers;
+@using Telerik.Web.Mvc.UI
+@using System.Web.Mvc;
+
+
+@model MemberCenter20NS.Models.ClassRoomDataCenterCycles
+
+@{
+    ViewBag.Title = "ClassLessons";
+}
+
+
+ <div class="well">
+     <div>
+       @if (Model.ClassLessonList.ClassLessons.Count == 0)
+         {
+             <h1>No Lessons Found</h1>
+         }
+       
+       
+         else
+         {
+              @*@(Html.Telerik().Grid(Model.ClassLessonList.ClassLessons)
+                .Name("ClassLessons")
+                .Columns(columns =>
+                {
+                    columns.Bound(c => c.StartDate).Format("{0:MM/DD/YYYY}");
+                    columns.Bound(c => c.LessonCycles).Width(75);
+                    columns.Bound(c => c.Source);
+                    columns.Bound(c => c.StrategyTarget);
+                    columns.Bound(c => c.SubStrategy);
+                }).DataBinding(binding =>
+                    {
+                        binding.Server().Select("FirstLook", "Grid", new {Ajax = ViewData["ajax"]});
+                        binding.Ajax().Select("FirstLook", "Grid").Enabled(true);
+                    }).Scrollable(s => s.Enabled(true)).Sortable(s => s.Enabled(true)))*@
+             <table class="table-bordered table-striped table-hover">
+                 <tr>
+                     <td><strong>Start Date</strong></td>
+                     <td><strong>Source</strong></td>
+                     <td><strong>Lesson Cycles</strong></td>
+                     <td><strong>Reading Objectives</strong></td>
+                     <td><strong>Strategy Target</strong></td>
+                     <td><strong>Sub-Strategy</strong></td>
+                 </tr>
+                 @foreach (var lesson in Model.ClassLessonList.ClassLessons)
+                 {
+                     <tr>
+                         <td>@lesson.StartDate</td>
+                         <td>@lesson.Source</td>
+                         <td>@lesson.LessonCycles</td>
+                         <td>@lesson.ReadingObjectives</td>
+                         <td>@lesson.StrategyTarget</td>
+                         <td>@lesson.SubStrategy</td>
+                     </tr>
+                 }
+             </table>
+         }
+        </div>
+      </div>
