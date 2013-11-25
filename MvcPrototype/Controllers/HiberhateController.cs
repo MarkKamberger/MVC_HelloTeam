@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DomainLayer;
+using Infrastructure.ApplicationRepository;
+using Infrastructure.TWARepository;
 using MvcPrototype.Models;
 using SALISecurityObjects;
 using Services;
@@ -14,10 +16,10 @@ namespace MvcPrototype.Controllers
     {
         //
         // GET: /Hiberhate/
-        private readonly StrongSecurityObject securityObject;
+         private readonly StrongSecurityObject securityObject;
          private readonly ITWAService _twaService;
-         public HiberhateController(ITWAService twaService)
-        {
+         public HiberhateController(ITWAService twaService) : base(new TWAService(new Student2ActivityRepository(), new ListNavigationLinksRepository()))
+         {
             _twaService = twaService;
              securityObject = new StrongSecurityObject();
         }

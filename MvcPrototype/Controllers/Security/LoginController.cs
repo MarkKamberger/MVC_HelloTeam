@@ -7,6 +7,9 @@ using System.Web.Mvc;
 using System.Web.Providers.Entities;
 using System.Web.Security;
 using DomainLayer;
+using DomainLayer.NavigationModels;
+using Infrastructure.ApplicationRepository;
+using Infrastructure.TWARepository;
 using MvcPrototype.BaseModels;
 using MvcPrototype.Injection;
 using MvcPrototype.Models;
@@ -14,6 +17,7 @@ using SALI;
 using SALISecurityObjects;
 using SFABase;
 using SFAFGlobalObjects;
+using Services;
 
 namespace MvcPrototype.Controllers.Security
 {
@@ -21,7 +25,13 @@ namespace MvcPrototype.Controllers.Security
     {
         //
         // GET: /Login/
-
+         private readonly StrongSecurityObject _securityObject;
+         private readonly ITWAService _twaService;
+         public LoginController(ITWAService twaService) : base(new TWAService(new Student2ActivityRepository(), new ListNavigationLinksRepository()))
+         {
+            _twaService = twaService;
+            _securityObject = new StrongSecurityObject();
+        }
         /// <summary>
         /// Indexes this instance.
         /// </summary>
@@ -83,6 +93,8 @@ namespace MvcPrototype.Controllers.Security
                         vm.UserName = _baseModel.BusinessLogicObject.UserFirstName + " " +
                                       _baseModel.BusinessLogicObject.UserLastName;
                         vm.Message = "Success";
+                        
+                        ViewData["BaseModel"] = _baseModel;
                     }
                 }
                 else
@@ -248,14 +260,25 @@ namespace MvcPrototype.Controllers.Security
                     _baseModel.ClientModel.CurrentSessionId = _baseModel.BusinessLogicObject.SetInvalidSession();
                     _baseModel.ClientModel.Message = "Success";
                     _baseModel.ClientModel.IsLoggedIn = true;
+                   
+                    
                     FormsAuthentication.SetAuthCookie(_baseModel.BusinessLogicObject.UserName, false);
                     IsDemo = _baseModel.BusinessLogicObject.IsDemo;
                     //_baseModel.UserPermissions = new UserPermissions(_baseModel.UserName, _baseModel.ClientModel.CurrentLoginId, DataAccessTypes.NetworkDatabase, _baseModel.ClientModel.CurrentSessionId).AsDataTable();
                     SessionAuthenticated = true;
                     Session["UseSession"] = 1;
-                    UserSecurityObject = SSOFactory.MakeObject(new UserPermissions(_baseModel.ClientModel.UserName, _baseModel.ClientModel.CurrentLoginId, DataAccessTypes.NetworkDatabase, _baseModel.ClientModel.CurrentSessionId).AsDataTable());
+                    UserSecurityObject = SSOFactory.MakeObject(new UserPermissions(_baseModel.ClientModel.UserName
+                        , _baseModel.ClientModel.CurrentLoginId
+                        ,DataAccessTypes.NetworkDatabase
+                        , _baseModel.ClientModel.CurrentSessionId).AsDataTable());
+                    _baseModel.UserSecurityObject = UserSecurityObject;
+                    _baseModel.NavigationLinks = _twaService.LisNavigationLinks(1
+                        ,_baseModel.UserSecurityObject
+                        ,_baseModel.BusinessLogicObject.UserId
+                        ,_baseModel.BusinessLogicObject.UserCustomerId);
                     HttpRuntime.Cache.GetOrStore<StrongSecurityObject>("UserSecurityObject",UserSecurityObject);
                     HttpRuntime.Cache.GetOrStore<ClientModel>("ClientModel", _baseModel.ClientModel);
+                    HttpRuntime.Cache.GetOrStore<IList<_Mvc_ListNavigationLinks>>("NavigationLinks", _baseModel.NavigationLinks);
                 }
 
             }

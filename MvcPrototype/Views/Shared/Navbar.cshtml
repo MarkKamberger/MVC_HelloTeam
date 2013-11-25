@@ -1,5 +1,6 @@
 ﻿@using MvcPrototype.Models
 @using MvcPrototype.BaseModels
+@using NavigationType = DomainLayer.NavigationModels.NavigationType
 
 @{
     ViewBag.Title = "Navbar";
@@ -9,31 +10,66 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
       <div class="container">
-          
-          <div class="userName">
-           
-              @if (viewModel.ClientModel.IsLoggedIn)
+           @if (@viewModel.ClientModel.IsLoggedIn)
               {
-                  <a id="currentUserName">Welcome Back!  @viewModel.BusinessLogicObject.UserFirstName  @viewModel.BusinessLogicObject.UserLastName</a>
-                  <input id="postLogOut" type="button" value="Logout"/> 
+                  <ul class="nav navbar-nav">
+                      @foreach (var link in viewModel.NavigationLinks)
+                      {
+                          if (@link.TypeId == NavigationType.Dropdown)
+                          {
+                              
+                              <li class="dropdown open">
+                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">@link.Name <b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                     @foreach (var child in link.NavigationChildren)
+                                     {
+                                         <li><a href="@child.Url">@child.Name</a></li>
+                                     }
+                             
+                                  </ul>
+                      </li>
+                          }
+                          if (link.TypeId == NavigationType.Link)
+                          {
+                               <li><a href="@link.Url">@link.Name</a></li>
+                          }
+
+                      }
+                     
+                      
+                  </ul>
+          <div class="userName">
+             
+              <a id="currentUserName">Welcome Back!  @viewModel.BusinessLogicObject.UserFirstName  @viewModel.BusinessLogicObject.UserLastName</a>
+              <input id="postLogOut" type="button" value="Logout" /> 
+                </div>
               } 
-          </div>
+        
       </div>
   </div>
 </div>
 <div class="container">
     
 </div>
-   <script type="text/javascript">
-       $(function () {
-           $('#postLogOut').click(function (e) {
-               e.preventDefault();
-               $.ajax(
+<div id="showProcessing" class="processingAlertHide">
+    <div>
+         <img src="../../Content/images/SFAFAnimationProcessing.gif"/>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(function () {
+        $('.dropdown-toggle').click();
+        $('#postLogOut').click(function (e) {
+            showProcessing();
+            e.preventDefault();
+            $.ajax(
                 {
                     url: '/Login/UserLogOut',
                     type: "POST",
                     dataType: 'json',
                     success: function (data) {
+                        hideProcessing();
                         var message = data["Message"];
                         var success = Boolean(data["Success"]);
                         if (!success) {
@@ -44,7 +80,7 @@
                         }
                     }
                 });
-           });
-       });
-    
+        });
+    });
+
 </script>

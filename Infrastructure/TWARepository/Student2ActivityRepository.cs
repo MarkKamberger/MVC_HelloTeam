@@ -8,6 +8,12 @@ namespace Infrastructure.TWARepository
 {
     public class Student2ActivityRepository : LinqRepository<TWAActivity2Student>, IStudent2ActivityRepository
     {
+        /// <summary>
+        /// Searches the specified filter.
+        /// </summary>
+        /// <param name="filter">The filter.</param>
+        /// <param name="totalRecords">The total records.</param>
+        /// <returns></returns>
         public IEnumerable<TWAActivity2Student> Search(ActivityMasteryFilter filter, ref int totalRecords)
         {
             TWAActivity2Student studentAlias = null;
@@ -29,6 +35,11 @@ namespace Infrastructure.TWARepository
             return query.Take(totalRecords).ToList();
         }
 
+        /// <summary>
+        /// Searches the specified filter.
+        /// </summary>
+        /// <param name="filter">The filter.</param>
+        /// <returns></returns>
         public IList<TWAActivity2Student> Search(ActivityMasteryFilter filter)
         {
             TWAActivity2Student studentAlias = null;

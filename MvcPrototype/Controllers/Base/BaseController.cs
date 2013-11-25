@@ -8,10 +8,12 @@ using System.Web.Providers.Entities;
 using System.Web.Security;
 using System.Web.SessionState;
 using DomainLayer;
+using DomainLayer.NavigationModels;
 using MvcPrototype.BaseModels;
 using MvcPrototype.Injection;
 using SALIBusinessLogic;
 using SFAFGlobalObjects;
+using Services;
 
 namespace MvcPrototype
 {
@@ -27,6 +29,7 @@ namespace MvcPrototype
         public User CurrentUser { get; set; }
         public bool SessionAuthenticated = false;
         private HttpSessionState _sessionState;
+        private ITWAService _twaService;
         protected enum LoginType
         {
             Staff = 1,
@@ -43,12 +46,11 @@ namespace MvcPrototype
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseController"/> class.
         /// </summary>
-        public BaseController()
+        public BaseController(ITWAService twaService)
         {
-            //UserSecurityObject = new StrongSecurityObject();
-            
-
+            _twaService = twaService;
             _baseModel = new BaseModel();
+            _baseModel.NavigationLinks = new List<_Mvc_ListNavigationLinks>();
             _baseModel.ENABLE_GLOBAL_CACHE = false;
             if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["SFAFAppName"]))
                 _baseModel.SFAFAppName = ConfigurationManager.AppSettings["SFAFAppName"];
@@ -58,13 +60,11 @@ namespace MvcPrototype
             _presenter = new BondedContentPage.BondedPresenter(System.Web.HttpContext.Current.Session, _baseModel.SFAFAppName,
                                                          _baseModel.ENABLE_GLOBAL_CACHE,
                                                          System.Web.HttpContext.Current.Cache);
-
-            
-            bool sessionOK = false;
-
             _baseModel.BusinessLogicObject = new SALIMainBusinessLogic(_presenter, true);
             UserSecurityObject = HttpRuntime.Cache.Get<StrongSecurityObject>("UserSecurityObject") ?? new StrongSecurityObject();
             _baseModel.ClientModel = HttpRuntime.Cache.Get<ClientModel>("ClientModel") ?? new ClientModel();
+            _baseModel.NavigationLinks =HttpRuntime.Cache.Get<IList<_Mvc_ListNavigationLinks>>("NavigationLinks") ?? new List<_Mvc_ListNavigationLinks>();
+            _baseModel.UserSecurityObject = UserSecurityObject;
             ViewData["BaseModel"] = _baseModel; 
 
         }
@@ -117,6 +117,8 @@ namespace MvcPrototype
         {
             _baseModel.ClientModel = new ClientModel();
             UserSecurityObject = new StrongSecurityObject();
+            _baseModel.NavigationLinks = new List<_Mvc_ListNavigationLinks>();
+            _baseModel.UserSecurityObject = new StrongSecurityObject();
             Session["UseSession"] = 0;
             FormsAuthentication.SignOut();
             HttpContext.User = new GenericPrincipal(new GenericIdentity(string.Empty), null);
@@ -124,6 +126,7 @@ namespace MvcPrototype
             _presenter.ClearPresenterCache();
             HttpRuntime.Cache.Remove("ClientModel");
             HttpRuntime.Cache.Remove("UserSecurityObject");
+            HttpRuntime.Cache.Remove("NavigationLinks");
         }
     }
 }

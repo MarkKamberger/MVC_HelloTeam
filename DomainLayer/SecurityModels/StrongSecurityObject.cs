@@ -91,6 +91,7 @@ namespace DomainLayer
         StudentTransfer,
         TeamSessionVisitLetter,
         TestReports,
+        All
     }
 
     public enum PrivilegeSSO

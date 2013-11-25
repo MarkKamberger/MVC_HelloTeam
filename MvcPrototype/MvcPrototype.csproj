@@ -207,6 +207,7 @@
     <Compile Include="Models\BaseControllerModels\BaseModel.cs" />
     <Compile Include="Models\BaseControllerModels\BaseViewModel.cs" />
     <Compile Include="Models\BaseControllerModels\ClientModel.cs" />
+    <Compile Include="Models\BaseControllerModels\NavigationLinkModel.cs" />
     <Compile Include="Models\PageModels\HomePageModel.cs" />
     <Compile Include="Models\PageModels\TestPageViewModel.cs" />
     <Compile Include="Models\Security\LoginModel\Input\LoginInputModel.cs" />
@@ -238,6 +239,7 @@
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\SFAFAnimationProcessing.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -404,6 +406,7 @@
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="NHibernate.config" />
+    <None Include="Scripts\jquery.min.map" />
     <None Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />

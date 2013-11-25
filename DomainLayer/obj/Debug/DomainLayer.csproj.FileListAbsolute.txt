@@ -9,4 +9,3 @@ C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\SharpArch.Domain.pdb
 C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\SharpArch.NHibernate.pdb
 C:\Development\Projects\MvcHelloTeam\DomainLayer\obj\Debug\DomainLayer.dll
 C:\Development\Projects\MvcHelloTeam\DomainLayer\obj\Debug\DomainLayer.pdb
-C:\Development\Projects\MvcHelloTeam\DomainLayer\obj\Debug\DomainLayer.csprojResolveAssemblyReference.cache

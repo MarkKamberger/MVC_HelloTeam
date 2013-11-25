@@ -1,4 +1,5 @@
 ﻿using Infrastructure;
+using Infrastructure.ApplicationRepository;
 using Infrastructure.SecutiryRepository;
 using Infrastructure.TWARepository;
 using Services;
@@ -21,7 +22,8 @@ namespace DotFramework.Tests
         /// <returns></returns>
         public static TWAService CreateTWAService()
         {
-            return new TWAService(new Student2ActivityRepository());
+            return new TWAService(new Student2ActivityRepository()
+                , new ListNavigationLinksRepository());
         }
         public static SecurityService CreateSecurityService()
         {

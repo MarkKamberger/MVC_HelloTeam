@@ -69,6 +69,8 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationRepository\INavigationRepository.cs" />
+    <Compile Include="ApplicationRepository\NavigationRepository.cs" />
     <Compile Include="DataMapping\AutomappinConfiguration.cs" />
     <Compile Include="DataMapping\AutoPersistenceModelGenerator.cs" />
     <Compile Include="DataMapping\Conversions\BinaryColumnLengthConvention.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="DataMapping\Conversions\TableNameConvention.cs" />
     <Compile Include="DataMapping\DataTablePrimaryKeyTranslator.cs" />
     <Compile Include="DataMapping\Members.Dbo.Maps\LifetimeIndividualScoreMap.cs" />
+    <Compile Include="DataMapping\NavigationMaps\_Mvc_NavigationMap.cs" />
     <Compile Include="DataMapping\SecurityMaps\_SALI_LoginWebUserMap.cs" />
     <Compile Include="DataMapping\TWADataMaps\Student2ActivitMap.cs" />
     <Compile Include="DataMapping\TWADataMaps\StudentActivityMasteryMap.cs" />

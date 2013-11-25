@@ -24,6 +24,24 @@ namespace Infrastructure.DataMapping
                 case "_SALI_LoginWebUser":
                     identityName = "CustomerId";
                     break;
+                case "_Mvc_ListNavigationLinks":
+                    identityName = "Id";
+                    break;
+                case "_Mvc_ListNavigationChild":
+                    identityName = "Id";
+                    break;
+                case "_Mvc_ListNavigationSpecialCustomer":
+                    identityName = "Id";
+                    break;
+                case "_Mvc_ListNavigationSpecialUser":
+                    identityName = "Id";
+                    break;
+                case "_Mvc_ListNavigationRole":
+                    identityName = "Id";
+                    break;
+                case "_Mvc_ListNavigationChildRole":
+                    identityName = "Id";
+                    break;
                 case "Members.dbo.LifetimeIndividualScore":
                     identityName = "StudentId";
                     break;

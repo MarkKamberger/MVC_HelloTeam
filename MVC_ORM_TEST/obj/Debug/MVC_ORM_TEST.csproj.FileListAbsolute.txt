@@ -83,3 +83,4 @@ C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\obj\Debug\MVC_ORM_TEST.pdb
 C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\MVC_ORM_TEST.dll.config
 C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\obj\Debug\MVC_ORM_TEST.csprojResolveAssemblyReference.cache
 C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\LoadTest1.loadtest

@@ -66,6 +66,7 @@
     <Compile Include="Helper\EnumToClass.cs" />
     <Compile Include="Helper\StringEnumConversion.cs" />
     <Compile Include="Members.Dbo\Members.Dbo.LifetimeIndividualScore.cs" />
+    <Compile Include="NavigationModels\_Mvc_GetNavigationLinks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecurityModels\StrongSecurityObject.cs" />
     <Compile Include="SecurityModels\_SALI_LoginWebUser.cs" />

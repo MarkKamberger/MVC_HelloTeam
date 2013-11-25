@@ -4,18 +4,27 @@
 }
 
 <h2>Login</h2>
- <div class="loginNav">
-            <input id="userNameInput" type="text" placeholder="User Name"/>
-            <input id="passwordInput" type="password" placeholder="Password"/>
-            <input id="postLogin" type="button" value="Login"/>
-            
-        </div>
+<div class="loginNav">
+    <dl>
+        <dt><input id="userNameInput" type="text" placeholder="User Name"/></dt>
+        <dt><input id="passwordInput" type="password" placeholder="Password"/></dt>
+        <dt><input id="postLogin" type="button" value="Login"/></dt>
+    </dl>
+         
+</div>
 
         <script type="text/javascript">
             $(function () {
+                $(document).keydown(function (event) {
+                    switch (event.keyCode) {
+                    case 13:
+                        $('#postLogin').click();
+                        break;
+                    }
+                });
 
                 $('#postLogin').click(function (e) {
-              
+                    showProcessing();
                     e.preventDefault();
                     var p = { UserName: $('#userNameInput').val(), Password: $('#passwordInput').val() };
                     $.ajax(
@@ -25,6 +34,7 @@
                     data: p,
                     dataType: 'json',
                     success: function (data) {
+                        hideProcessing();
                         var message = data["Message"];
                         var success = Boolean(data["Success"]);
                         if (!success) {
@@ -33,7 +43,7 @@
                         if (success) {
                             window.location.href = "/Home/";
                         }
-                    
+
                     }
                 });
                 });
