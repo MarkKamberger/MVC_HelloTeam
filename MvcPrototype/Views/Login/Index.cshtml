@@ -9,6 +9,7 @@
         <dt><input id="userNameInput" type="text" placeholder="User Name"/></dt>
         <dt><input id="passwordInput" type="password" placeholder="Password"/></dt>
         <dt><input id="postLogin" type="button" value="Login"/></dt>
+        <dt><input id="loginOrm" type="button" value="Login Orm"/></dt>
     </dl>
          
 </div>
@@ -48,6 +49,30 @@
                 });
                 });
 
+            $('#loginOrm').click(function (e) {
+                showProcessing();
+                e.preventDefault();
+                var p = { UserName: $('#userNameInput').val(), Password: $('#passwordInput').val() };
+                $.ajax(
+                {
+                    url: '/Login/UserLoginMethodOrm',
+                    type: "POST",
+                    data: p,
+                    dataType: 'json',
+                    success: function (data) {
+                        hideProcessing();
+                        var message = data["Message"];
+                        var success = Boolean(data["Success"]);
+                        if (!success) {
+                            alert(message);
+                        }
+                        if (success) {
+                            window.location.href = "/Home/";
+                        }
+
+                    }
+                });
+            });
 
                 /* $('#postLogin').click(function (e) {
                 e.preventDefault();

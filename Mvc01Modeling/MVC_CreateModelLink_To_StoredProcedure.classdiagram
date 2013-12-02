@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="d39e9562-373e-4892-8b22-4e5d2a51a2e8" name="MVC_CreateModelLink_To_DB" linkedPackageId="79b691fc-39da-4f46-b264-ecfb4205efcc" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="7c205c85-a944-4218-af84-ae3f52b8f935">
+      <profileInstance Id="256a896d-404a-4f48-b968-635204261c3a" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="06f3def8-49b7-4257-b590-0a99e2e65269">
+      <profileInstance Id="7d48fe80-46c8-43d5-88b7-d73f69c0f0ec" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="18fb0514-ccb9-494f-bd25-982fc263878c" name="Domain">
+        <ownedCommentsInternal>
+          <comment Id="165bd4dc-d410-4d98-b533-62722859db91">
+            <elementDefinition Id="1aa10228-9677-453a-812d-40f493aa16a1" />
+            <body>Create data model
+Example:
+
+public class Student : Entity
+{
+     public  Student()
+    {
+    }
+    public virtual string FirstName {get;set;}
+    public virtual string LastName {get;set;}
+}</body>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="a5386eee-2490-47c9-991e-8a60fe309f76" />
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="a2f32823-c98f-4e95-84ea-54aba18a50e9" name="Infrastructure">
+        <ownedCommentsInternal>
+          <comment Id="042eeb92-80f2-425b-afef-92e68464529f">
+            <elementDefinition Id="7b2be168-3dd9-4d22-ba40-1096f057d6be" />
+            <body>Create Mapping Class
+Example:
+
+public class StudetMap : IMappingOverride&lt;Student&gt;
+{
+    public void override(AutoMapping&lt;Student&gt; mapping)
+      {
+           mapping.Id(x =&gt; x.Id).GeneratedBy.Identity();
+           mapping.Map(x =&gt; FirstName
+           mapping.Map(x =&gt; x.LastName);
+      }
+}</body>
+          </comment>
+          <comment Id="c4f8396c-2dfb-4d07-8469-7dbfc3dd081c">
+            <elementDefinition Id="d48da69a-f2c1-4738-b5aa-66d0c341332a" />
+            <body>Create Repository
+Example:
+
+Create an Interface-
+
+public interface IStudentRepository : ILinqRepositoryWithTypedId&lt;Student, int&gt;
+{
+    Student GetStudentById(int studentId);
+    List&lt;Student&gt; GetStudentsBySomeParameters(int somparameter, string otherParameter);
+}
+
+Create Repository - (bound to stored procedure) 
+public class StudentRepository : LinqRepository&lt;Student&gt;, IStudentRepository 
+{
+     public Student GetStudentByID(int studentId)
+            {
+                const string sql = "EXEC _GetStudentById :@StudentId";
+
+                return (Student)Session.CreateSQLQuery(sql)
+                                     .AddEntity(typeof(Student))
+                                     .SetParameter("@StudentId", studentId)
+            }
+
+    public IList&lt;Student&gt; GetStudentsBySomeParameters(int someparameterm, string otherParameter)
+                {
+                    const string sql = "EXEC _ListStudent :@someparameter, :@otherParameter ";
+
+                    return (List&lt;Student&gt;)Session.CreateSQLQuery(sql)
+                                         .AddEntity(typeof(Student))
+                                         .SetParameter("@someparameter", someparameter)
+                                         .SetParameter("@otherParameter",otherParameter)
+                                         .List&lt;Student&gt;();
+                }
+
+}</body>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="a3505edf-4457-4a56-8cb4-767db7b58cbb" />
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="708302cc-d736-456f-8cac-8b70658bea0a" name="Service">
+        <ownedCommentsInternal>
+          <comment Id="ed04edf4-3e7c-44d3-bac9-5a98d8ec616d">
+            <elementDefinition Id="948eed12-6495-46b9-ae6c-bd59d474f72c" />
+            <body>You can either add the repository to an existing related service or create a new one
+
+public Interface IStudentService
+{
+    Student GetStudentByID(int studentId);
+    IList&lt;Student&gt; ListStudents(int param1, string param2)
+}
+
+Create the student service  class
+
+public class StudentService : IStudentService
+{
+    private read only IStudentRepository _studentRepoitory;
+    public class StudentService(IStudentReposiotory studentRepository)
+    {
+        _studentRepository = studentRepository;
+    }
+   
+    public IList&lt;Student&gt; ListStudents(int param1, string param2)
+        {
+            var students = _studentRepository.GetStudentsBySomeParameters(param1, param2)
+				     .ToList();
+            return students;
+        }
+    public Student GetStudentByID(int studentId)
+    {
+        return _studentRepository.GetStudentById(studentId);
+    }
+    
+}</body>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="0a75a943-fff5-4c89-b998-52b916d64997" />
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="79b691fc-39da-4f46-b264-ecfb4205efcc" name="Mvc01Modeling">
+    <elementDefinition Id="593808da-2356-4e1d-acc7-d778abb25344" />
+  </package>
+</logicalClassDesignerModel>

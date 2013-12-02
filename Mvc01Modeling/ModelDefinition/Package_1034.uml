@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="0a75a943-fff5-4c89-b998-52b916d64997"
+  name="Service" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="948eed12-6495-46b9-ae6c-bd59d474f72c">
+      <body>You can either add the repository to an existing related service or create a new one
+
+public Interface IStudentService
+{
+    Student GetStudentByID(int studentId);
+    IList&lt;Student&gt; ListStudents(int param1, string param2)
+}
+
+Create the student service  class
+
+public class StudentService : IStudentService
+{
+    private read only IStudentRepository _studentRepoitory;
+    public class StudentService(IStudentReposiotory studentRepository)
+    {
+        _studentRepository = studentRepository;
+    }
+   
+    public IList&lt;Student&gt; ListStudents(int param1, string param2)
+        {
+            var students = _studentRepository.GetStudentsBySomeParameters(param1, param2)
+				     .ToList();
+            return students;
+        }
+    public Student GetStudentByID(int studentId)
+    {
+        return _studentRepository.GetStudentById(studentId);
+    }
+    
+}</body>
+    </comment>
+  </ownedCommentsInternal>
+</package>

@@ -50,6 +50,8 @@ namespace Services
             return student2Activities;
         }
 
+    
+
         /// <summary>
         /// Lises the navigation links.
         /// </summary>

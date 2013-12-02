@@ -35,9 +35,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_ORM_TEST", "MVC_ORM_TES
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcPrototype", "MvcPrototype\MvcPrototype.csproj", "{1FCFACF0-7658-4B73-BA03-3CF4B3C4DB55}"
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Mvc01Modeling", "Mvc01Modeling\Mvc01Modeling.modelproj", "{9CB32903-2C4D-483B-A056-1580CE5571A4}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 18
+		SccNumberOfProjects = 19
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://sfa-tfs01:8080/
 		SccLocalPath0 = .
@@ -92,6 +94,9 @@ Global
 		SccProjectUniqueName17 = MvcPrototype\\MvcPrototype.csproj
 		SccProjectName17 = MvcPrototype
 		SccLocalPath17 = MvcPrototype
+		SccProjectUniqueName18 = Mvc01Modeling\\Mvc01Modeling.modelproj
+		SccProjectName18 = Mvc01Modeling
+		SccLocalPath18 = Mvc01Modeling
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -166,6 +171,10 @@ Global
 		{1FCFACF0-7658-4B73-BA03-3CF4B3C4DB55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FCFACF0-7658-4B73-BA03-3CF4B3C4DB55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FCFACF0-7658-4B73-BA03-3CF4B3C4DB55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB32903-2C4D-483B-A056-1580CE5571A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB32903-2C4D-483B-A056-1580CE5571A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB32903-2C4D-483B-A056-1580CE5571A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB32903-2C4D-483B-A056-1580CE5571A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

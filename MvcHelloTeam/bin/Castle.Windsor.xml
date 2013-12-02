@@ -5899,11 +5899,6 @@
             <param name="info">The object that holds the serialized object data.</param>
             <param name="context">The contextual information about the source or destination.</param>
         </member>
-        <member name="T:Castle.MicroKernel.Resolvers.LazyOfTComponentLoader">
-            <summary>
-              Lazily adds component for <see cref="T:System.Lazy`1"/>.
-            </summary>
-        </member>
         <member name="T:Castle.MicroKernel.Resolvers.SpecializedResolvers.ArrayResolver">
             <summary>
               Handle dependencies of services in the format of typed arrays.

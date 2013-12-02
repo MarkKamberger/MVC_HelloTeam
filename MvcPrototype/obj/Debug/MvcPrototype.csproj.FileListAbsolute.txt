@@ -2,12 +2,9 @@ C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Reports\SFAFDataExtraction
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\MvcPrototype.dll
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\MvcPrototype.pdb
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Antlr3.Runtime.dll
-C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Castle.Core.dll
-C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Castle.Windsor.dll
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\CommonServiceLocator.WindsorAdapter.dll
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\DomainLayer.dll
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\EntityFramework.dll
-C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\FluentNHibernate.dll
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\HibernatingRhinos.Profiler.Appender.dll
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Iesi.Collections.dll
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Infrastructure.dll
@@ -71,10 +68,7 @@ C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\SFAFUtilityObjects.pdb
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\DomainLayer.pdb
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Infrastructure.pdb
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Services.pdb
-C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Castle.Core.xml
-C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Castle.Windsor.xml
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\CommonServiceLocator.WindsorAdapter.pdb
-C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\FluentNHibernate.xml
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Iesi.Collections.xml
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Microsoft.Practices.ServiceLocation.pdb
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Microsoft.Practices.ServiceLocation.xml
@@ -104,3 +98,9 @@ C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Microsoft.Practices.Enterp
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\obj\Debug\MvcPrototype.csprojResolveAssemblyReference.cache
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\obj\Debug\MvcPrototype.dll
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\obj\Debug\MvcPrototype.pdb
+C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Castle.Core.dll
+C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Castle.Windsor.dll
+C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\FluentNHibernate.dll
+C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Castle.Core.xml
+C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Castle.Windsor.xml
+C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\FluentNHibernate.xml

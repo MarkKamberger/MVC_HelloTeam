@@ -1,7 +1,5 @@
 C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\MVC_ORM_TEST.dll
 C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\MVC_ORM_TEST.pdb
-C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\Castle.Core.dll
-C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\Castle.Windsor.dll
 C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\CommonServiceLocator.WindsorAdapter.dll
 C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\DomainLayer.dll
 C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\FluentNHibernate.dll
@@ -84,3 +82,5 @@ C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\MVC_ORM_TEST.dll.con
 C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\obj\Debug\MVC_ORM_TEST.csprojResolveAssemblyReference.cache
 C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\LoadTest1.loadtest
+C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\Microsoft.VisualStudio.TestTools.UITesting.dll
+C:\Development\Projects\MvcHelloTeam\MVC_ORM_TEST\bin\Debug\Microsoft.VisualStudio.TestTools.UITesting.xml

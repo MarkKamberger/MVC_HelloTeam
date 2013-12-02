@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="1036333b-5a40-489e-a301-ea7240df6712" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="2e9c4825-897d-4587-872c-be2151c51d08" name="Database" />
+    <layer Id="0bef9344-9193-46b3-b570-14d33c93ed58" name="DataAcess">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="89b5ec0f-3771-4f0c-8da1-6e8a35b7347c" direction="Forward">
+          <layerMoniker Id="2e9c4825-897d-4587-872c-be2151c51d08" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="9917bc40-0822-4c13-8a16-f5af2b96a07f" direction="Forward">
+          <layerMoniker Id="65a69160-3f40-41e9-8f26-4b8a513f5a0a" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="49c67c1c-7a37-4343-90bf-13985cb0eeed" name="MVC Prototype">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="25ff22f7-1dc5-4376-8223-de67aa9edf61" direction="Forward">
+          <layerMoniker Id="33dba581-2c2f-4be0-b29d-9ff38ff4c2a3" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="c5e89584-9e3a-4fe1-8d4a-71c1d4e25f05" direction="Forward">
+          <layerMoniker Id="dada4aed-e002-467b-aad1-a6faed67ef66" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="f376672b-45f1-44c4-932b-70bc5e415df3" direction="Forward">
+          <layerMoniker Id="1f5c796b-2c3f-4173-be34-864f9ac98237" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="968cbae1-fd0b-4948-87c9-53bf448aa143" direction="Forward">
+          <layerMoniker Id="cff7a9b8-5c13-474e-8f91-a9da9d61cff3" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="96f3dfcf-3f13-4586-8d6d-6eab937a5565" direction="Forward">
+          <layerMoniker Id="0bef9344-9193-46b3-b570-14d33c93ed58" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="846c8daf-7a55-42df-9660-a594bcefe42e" direction="Forward">
+          <layerMoniker Id="97acf55d-253f-424a-a13d-1d5c4b5f34f2" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="a28b0e38-4049-43df-b9a4-7ebc88747c61" direction="Forward">
+          <layerMoniker Id="2ec40556-dea0-4bfd-842a-6a14fe395757" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="37b37ad1-2c16-4b2a-b8f0-c8f896c4ae73" direction="Forward">
+          <layerMoniker Id="6811bdad-77a4-4118-b392-b85bafda82c6" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="808792d1-9b47-4cbe-97d2-f928cdbc9fdd" direction="Forward">
+          <layerMoniker Id="0384a97e-94fd-4a40-a205-a3f9ba6c7c4c" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="33dba581-2c2f-4be0-b29d-9ff38ff4c2a3" name="Domain">
+      <comments>
+        <comment Id="98cb58f8-2df2-474c-9ea3-bdd7d3a163b7" name="Comment1">
+          <body>Data Models / Objects</body>
+        </comment>
+      </comments>
+    </layer>
+    <layer Id="dada4aed-e002-467b-aad1-a6faed67ef66" name="Service">
+      <comments>
+        <comment Id="1a87be50-8a1e-4220-8556-5bd09c8f28e4" name="Comment1">
+          <body>Business Logic</body>
+        </comment>
+      </comments>
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="da10222c-0877-4cac-b6a8-fddc7a2e5b71" direction="Forward">
+          <layerMoniker Id="1f5c796b-2c3f-4173-be34-864f9ac98237" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="3e4c43cd-b523-4f5c-a020-041b7b84fbb3" direction="Forward">
+          <layerMoniker Id="33dba581-2c2f-4be0-b29d-9ff38ff4c2a3" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="cff7a9b8-5c13-474e-8f91-a9da9d61cff3" name="SALIBusinessLogic">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="494a6bbb-d741-4f08-b839-2f37dae3d40b" direction="Forward">
+          <layerMoniker Id="97acf55d-253f-424a-a13d-1d5c4b5f34f2" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="b5b70fad-793e-4a88-8645-9a30bfbb0c77" direction="Forward">
+          <layerMoniker Id="86d25767-049a-4343-b034-df025d56012f" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="fe40de52-e400-4d97-9e92-8162dceb7120" direction="Forward">
+          <layerMoniker Id="0384a97e-94fd-4a40-a205-a3f9ba6c7c4c" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="54bfb9ee-c607-4736-a03f-8669b191e747" direction="Forward">
+          <layerMoniker Id="6811bdad-77a4-4118-b392-b85bafda82c6" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="6d6426cc-3f24-4de0-8be1-f19d322449a8" direction="Forward">
+          <layerMoniker Id="2b666eab-7aec-474d-b1c6-a44932a3249d" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="a5cccded-be88-468f-be94-8ccfafa7e1cb" direction="Forward">
+          <layerMoniker Id="3c575c5d-dbe8-4b85-b0b0-f8c0a50d0c67" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="7bf5fec3-ab19-480d-940e-e658ef3b9f0c" direction="Forward">
+          <layerMoniker Id="f1fda2f1-08ec-4dc9-a8bb-478c360ca0a8" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="97acf55d-253f-424a-a13d-1d5c4b5f34f2" name="SALIEnums">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="e5e18074-d7f5-4bbf-b67c-9ed1f73d772d" direction="Forward">
+          <layerMoniker Id="65a69160-3f40-41e9-8f26-4b8a513f5a0a" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="6811bdad-77a4-4118-b392-b85bafda82c6" name="SALIObjects">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="3b1a85b0-3758-4d4a-9eda-ae19bf0155e5" direction="Forward">
+          <layerMoniker Id="0bef9344-9193-46b3-b570-14d33c93ed58" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="7bab808c-72a9-4c13-bbc8-c98112eb9694" direction="Forward">
+          <layerMoniker Id="97acf55d-253f-424a-a13d-1d5c4b5f34f2" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="2785dab6-c656-45a2-a633-9b5da0245310" direction="Forward">
+          <layerMoniker Id="65a69160-3f40-41e9-8f26-4b8a513f5a0a" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="0384a97e-94fd-4a40-a205-a3f9ba6c7c4c" name="SALISecurityObjects">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="b201b28a-11c5-4898-bb60-04cda6a80360" direction="Forward">
+          <layerMoniker Id="0bef9344-9193-46b3-b570-14d33c93ed58" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="2afee452-b677-46e6-ae66-1a5f6d7770ec" direction="Forward">
+          <layerMoniker Id="65a69160-3f40-41e9-8f26-4b8a513f5a0a" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="55617b28-6809-46ed-a236-b392e7070a7d" direction="Forward">
+          <layerMoniker Id="86d25767-049a-4343-b034-df025d56012f" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="86d25767-049a-4343-b034-df025d56012f" name="SFABaseClasses">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="27f5b6a4-c3d4-4aed-9aab-3e8407560607" direction="Forward">
+          <layerMoniker Id="0bef9344-9193-46b3-b570-14d33c93ed58" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="9fed9d03-cf1a-44df-ab79-13e727c49d12" direction="Forward">
+          <layerMoniker Id="65a69160-3f40-41e9-8f26-4b8a513f5a0a" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="8e5ce1de-c7f4-40d9-a5b9-42b009fba6d2" direction="Bidirectional">
+          <layerMoniker Id="6811bdad-77a4-4118-b392-b85bafda82c6" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="2b666eab-7aec-474d-b1c6-a44932a3249d" name="SFAFLogFactory" />
+    <layer Id="3c575c5d-dbe8-4b85-b0b0-f8c0a50d0c67" name="SFAFLoggers" />
+    <layer Id="f1fda2f1-08ec-4dc9-a8bb-478c360ca0a8" name="SFAFUtilityObjects">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="b8619bac-dd46-4c85-b65e-53d33dcb8a3f" direction="Forward">
+          <layerMoniker Id="6811bdad-77a4-4118-b392-b85bafda82c6" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="20782d8d-06a0-4715-aaac-fbb13190a9d0" direction="Forward">
+          <layerMoniker Id="86d25767-049a-4343-b034-df025d56012f" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="08cf6425-6526-447a-8660-18d22ca4f6b2" direction="Forward">
+          <layerMoniker Id="65a69160-3f40-41e9-8f26-4b8a513f5a0a" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="65a69160-3f40-41e9-8f26-4b8a513f5a0a" name="SFAFGlobalObjects" />
+    <layer Id="2ec40556-dea0-4bfd-842a-6a14fe395757" name="SALIInterfaces">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="8f6b9703-d4f4-4420-9bee-e813cda1cc02" direction="Forward">
+          <layerMoniker Id="86d25767-049a-4343-b034-df025d56012f" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="9849f0a8-cc7c-4b92-8f10-628c2de730be" direction="Forward">
+          <layerMoniker Id="97acf55d-253f-424a-a13d-1d5c4b5f34f2" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="67b61c18-6b5b-44a8-ba45-9b3bf324bc18" direction="Forward">
+          <layerMoniker Id="6811bdad-77a4-4118-b392-b85bafda82c6" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="1f5c796b-2c3f-4173-be34-864f9ac98237" name="Infrastructure">
+      <comments>
+        <comment Id="e6338483-a7d5-49c4-8fc9-4c8064cda4d2" name="Comment1">
+          <body>Object Mapping &amp; Repository</body>
+        </comment>
+      </comments>
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="7875d9db-4644-4b75-a784-46734bafc2cd" direction="Forward">
+          <layerMoniker Id="33dba581-2c2f-4be0-b29d-9ff38ff4c2a3" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="b0f0c78e-94e8-4eee-bd71-f4a6579bb082" direction="Forward">
+          <layerMoniker Id="2e9c4825-897d-4587-872c-be2151c51d08" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+  </layers>
+</layerModel>

@@ -33,6 +33,7 @@ namespace Infrastructure.TWARepository
             }
             //allRecords = query.Count();
             return query.Take(totalRecords).ToList();
+      
         }
 
         /// <summary>
@@ -59,8 +60,8 @@ namespace Infrastructure.TWARepository
             }
             return query.ToList();
         }
-       
 
-     
+       
+        
     }
 }

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="a3505edf-4457-4a56-8cb4-767db7b58cbb"
+  name="Infrastructure" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="7b2be168-3dd9-4d22-ba40-1096f057d6be">
+      <body>Create Mapping Class
+Example:
+
+public class StudetMap : IMappingOverride&lt;Student&gt;
+{
+    public void override(AutoMapping&lt;Student&gt; mapping)
+      {
+           mapping.Table("Students");
+           mapping.Id(x =&gt; x.Id, "StudentId");
+           mapping.Map(x =&gt; FirstName);
+           mapping.Map(x =&gt; x.LastName);
+      }
+}</body>
+    </comment>
+    <comment
+      Id="d48da69a-f2c1-4738-b5aa-66d0c341332a">
+      <body>Create Repository
+Example:
+
+Create an Interface-
+
+public interface IStudentRepository : ILinqRepositoryWithTypedId&lt;Student, int&gt;
+{
+    Student GetStudentById(int studentId);
+    List&lt;Student&gt; GetStudentsBySomeParameters(int somparameter, string otherParameter);
+}
+
+Create Repository - (bound to stored procedure) 
+public class StudentRepository : LinqRepository&lt;Student&gt;, IStudentRepository 
+{
+     public  Student GetStudentByID(int studentId)
+            {
+               var studentAlias = null;
+               var query = Session.Query&lt;Student&gt;();
+               query = query.Where(x=&gt;x.StudentId = studentId)
+               return query.FirstOrDefault();
+               
+            }
+
+    public IList&lt;Student&gt; GetStudentsBySomeParameters(int someparameterm, string otherParameter)
+            {
+               var studentAlias = null;
+               var query = Session.Query&lt;Student&gt;();
+               query = query.Where(x=&gt;x.StudentId = studentId)
+               return query.ToList(); 
+            }
+
+}</body>
+    </comment>
+  </ownedCommentsInternal>
+</package>

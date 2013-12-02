@@ -11,6 +11,7 @@ using DomainLayer.NavigationModels;
 using Infrastructure.ApplicationRepository;
 using Infrastructure.TWARepository;
 using MvcPrototype.BaseModels;
+using MvcPrototype.Helpers;
 using MvcPrototype.Injection;
 using MvcPrototype.Models;
 using SALI;
@@ -18,6 +19,7 @@ using SALISecurityObjects;
 using SFABase;
 using SFAFGlobalObjects;
 using Services;
+using Services.SecurityService;
 
 namespace MvcPrototype.Controllers.Security
 {
@@ -27,11 +29,13 @@ namespace MvcPrototype.Controllers.Security
         // GET: /Login/
          private readonly StrongSecurityObject _securityObject;
          private readonly ITWAService _twaService;
-         public LoginController(ITWAService twaService) : base(new TWAService(new Student2ActivityRepository(), new ListNavigationLinksRepository()))
+        private readonly ISecurityService _securityService;
+         public LoginController(ITWAService twaService, ISecurityService securityService) : base(new TWAService(new Student2ActivityRepository(), new ListNavigationLinksRepository()))
          {
             _twaService = twaService;
             _securityObject = new StrongSecurityObject();
-        }
+             _securityService = securityService;
+         }
         /// <summary>
         /// Indexes this instance.
         /// </summary>
@@ -111,12 +115,85 @@ namespace MvcPrototype.Controllers.Security
         }
 
 
+        public ActionResult UserLoginMethodOrm(LoginInputModel inputViewModel)
+        {
+            var vm = new LoginResponseModel();
+            var isValid = true;
+            if (String.IsNullOrEmpty(inputViewModel.UserName) || String.IsNullOrEmpty(inputViewModel.Password))
+            {
+                vm.Success = false;
+                vm.Message = "You must enter a user name & password";
+                isValid = false;
+            }
+            if (isValid)
+            {
+                if (LoginOrm(inputViewModel))
+                {
+                    vm.Message = "Welcome";
+                    vm.Success = true;
+                }
+                else
+                {
+                    vm.Success = false;
+                    vm.Message = "Sorry you do not have permission to log into Member Center";
+                    _baseModel.BusinessLogicObject.WriteAuditHistory(AuditTypesEnum.Trace, AuditSubjectsEnum.Login,
+                                                                     "User " + inputViewModel.UserName +
+                                                                     " attempted to login but does not have permission");
+                }
+
+            }
+            return Json(vm, JsonRequestBehavior.AllowGet);
+        }
+
 
 
 
 
 
         #region  Private Methods
+
+        private bool LoginOrm(LoginInputModel inputViewModel)
+        {
+            var user = _securityService.LoginWebUser(inputViewModel.UserName, inputViewModel.Password, false).First();
+
+            if (user != null)
+            {
+                
+                UserSecurityObject = SSOFactory.MakeObject(new UserPermissions(
+                 userName: inputViewModel.UserName
+               , customerId: user.Id
+               , accessType: DataAccessTypes.NetworkDatabase
+               , sessionId: _baseModel.ClientModel.CurrentSessionId).AsDataTable());
+                if (SecurityPermissionHelper.CheckObjectPermission(UserSecurityObject, ObjectsSSO.Login, ScopeSSO.SELF,
+                                                                   PrivilegeSSO.SELECT))
+                {
+                    _baseModel.ClientModel.UserName = inputViewModel.UserName;
+                    _baseModel.ClientModel.LoginSuccess = true;
+                    _baseModel.ClientModel.CurrentSessionId = _baseModel.BusinessLogicObject.SetInvalidSession();
+                    _baseModel.ClientModel.Message = "Success";
+                    _baseModel.ClientModel.IsLoggedIn = true;
+                    FormsAuthentication.SetAuthCookie(_baseModel.BusinessLogicObject.UserName, false);
+                    IsDemo = _baseModel.BusinessLogicObject.IsDemo;
+                    SessionAuthenticated = true;
+                    Session["UseSession"] = 1;
+                    UserSecurityObject = SSOFactory.MakeObject(new UserPermissions(_baseModel.ClientModel.UserName
+                        , _baseModel.ClientModel.CurrentLoginId
+                        , DataAccessTypes.NetworkDatabase
+                        , _baseModel.ClientModel.CurrentSessionId).AsDataTable());
+                    _baseModel.UserSecurityObject = UserSecurityObject;
+                    _baseModel.NavigationLinks = _twaService.LisNavigationLinks(1
+                        , _baseModel.UserSecurityObject
+                        , _baseModel.BusinessLogicObject.UserId
+                        , _baseModel.BusinessLogicObject.UserCustomerId);
+                    HttpRuntime.Cache.GetOrStore<StrongSecurityObject>("UserSecurityObject", UserSecurityObject);
+                    HttpRuntime.Cache.GetOrStore<ClientModel>("ClientModel", _baseModel.ClientModel);
+                    HttpRuntime.Cache.GetOrStore<IList<_Mvc_ListNavigationLinks>>("NavigationLinks", _baseModel.NavigationLinks);
+                    return true;  
+                }
+            }
+            return false;
+        }
+
 
         /// <summary>
         /// Logins the customer contact.

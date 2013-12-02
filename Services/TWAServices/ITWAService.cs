@@ -32,5 +32,7 @@ namespace Services
         /// <param name="customerId">The customer id.</param>
         /// <returns></returns>
         IList<_Mvc_ListNavigationLinks> LisNavigationLinks(int applicationId, StrongSecurityObject sso, int  userId, int  customerId);
+
+
     }
 }
