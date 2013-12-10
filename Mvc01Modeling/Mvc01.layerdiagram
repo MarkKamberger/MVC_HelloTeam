@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="1036333b-5a40-489e-a301-ea7240df6712" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="46718d3e-1a96-4395-bf55-effe720181ff" name="Comment1">
+      <body>Current SALI Architecture</body>
+    </comment>
+  </comments>
   <layers>
     <layer Id="2e9c4825-897d-4587-872c-be2151c51d08" name="Database" />
     <layer Id="0bef9344-9193-46b3-b570-14d33c93ed58" name="DataAcess">
@@ -88,6 +93,9 @@
         <dependencyFromLayerToLayer Id="7bf5fec3-ab19-480d-940e-e658ef3b9f0c" direction="Forward">
           <layerMoniker Id="f1fda2f1-08ec-4dc9-a8bb-478c360ca0a8" />
         </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="bb2e8ddb-edf8-4884-a9c0-82982c9648db" direction="Forward">
+          <layerMoniker Id="2e9c4825-897d-4587-872c-be2151c51d08" />
+        </dependencyFromLayerToLayer>
       </dependencyToLayers>
     </layer>
     <layer Id="97acf55d-253f-424a-a13d-1d5c4b5f34f2" name="SALIEnums">
@@ -107,6 +115,9 @@
         </dependencyFromLayerToLayer>
         <dependencyFromLayerToLayer Id="2785dab6-c656-45a2-a633-9b5da0245310" direction="Forward">
           <layerMoniker Id="65a69160-3f40-41e9-8f26-4b8a513f5a0a" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="ba8b68eb-04ab-4e13-8526-7f21539f0b74" direction="Forward">
+          <layerMoniker Id="2e9c4825-897d-4587-872c-be2151c51d08" />
         </dependencyFromLayerToLayer>
       </dependencyToLayers>
     </layer>
@@ -148,6 +159,9 @@
         </dependencyFromLayerToLayer>
         <dependencyFromLayerToLayer Id="08cf6425-6526-447a-8660-18d22ca4f6b2" direction="Forward">
           <layerMoniker Id="65a69160-3f40-41e9-8f26-4b8a513f5a0a" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="65909999-e82c-4b6e-ba10-030420f64e1f" direction="Forward">
+          <layerMoniker Id="2e9c4825-897d-4587-872c-be2151c51d08" />
         </dependencyFromLayerToLayer>
       </dependencyToLayers>
     </layer>

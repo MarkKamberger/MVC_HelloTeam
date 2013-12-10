@@ -1,16 +1,11 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Castle.Windsor.Installer;
 using Infrastructure.DataMapping;
-using Infrastructure.NHibernateMaps;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using CommonServiceLocator.WindsorAdapter;
 using Microsoft.Practices.ServiceLocation;
 using NHibernate;
-using NHibernate.Cfg;
 using NHibernate.Metadata;
 using SharpArch.Domain.PersistenceSupport;
 using SharpArch.NHibernate;
@@ -33,12 +28,17 @@ namespace Tests
         public InitSessionConnection()
         {
             
-            HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize(); 
+            //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize(); 
             _configuration = NHibernateSession.Init(
                   new SimpleSessionStorage(),
                   new[] { "Infrastructure.dll" },
                   new AutoPersistenceModelGenerator().Generate(),
-                  "../../../../MvcHelloTeam/MvcHelloTeam/NHibernate.config");
+                  "../../../../MvcHelloTeam/MvcPrototype/NHibernate.config");
+            NHibernateSession.AddConfiguration(GlobalConstants.MvcApplication,
+                                                 new[] { "Infrastructure.dll" },
+                                                 new AutoPersistenceModelGenerator().Generate(),
+                                                  "../../../../MvcHelloTeam/MvcPrototype/NHibernateMvcApplicationDB.config", null, null, null);
+
             IWindsorContainer container = new WindsorContainer();
 
             container.Register(
@@ -66,6 +66,7 @@ namespace Tests
         {
             return _configuration;
         }
+
         /// <summary>
         /// Sessions this instance.
         /// </summary>
@@ -73,6 +74,7 @@ namespace Tests
         public ISession Session()
         {
             return _session = NHibernateSession.GetDefaultSessionFactory().OpenSession();
+            //return _session = NHibernateSession.CurrentFor()
         }
 
         /// <summary>

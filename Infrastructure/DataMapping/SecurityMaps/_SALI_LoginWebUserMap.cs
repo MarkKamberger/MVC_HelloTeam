@@ -13,7 +13,7 @@ namespace Infrastructure.DataMapping.SecurityMaps
     {
         public void Override(AutoMapping<_SALI_LoginWebUser> mapping)
         {
-            mapping.Id(x => x.Id).GeneratedBy.Identity();
+            mapping.Id(x => x.Id).Column("CustomerId").GeneratedBy.Assigned();
             mapping.Map(x => x.CustomerName);
             mapping.Map(x => x.UserType);
         }

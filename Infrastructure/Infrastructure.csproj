@@ -54,12 +54,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NHibernate.3.3.1.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="SharpArch.Domain">
-      <HintPath>..\packages\SharpArch.Domain.2.0.4\lib\NET40\SharpArch.Domain.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpArch.NHibernate">
-      <HintPath>..\packages\SharpArch.NHibernate.2.0.4\lib\NET40\SharpArch.NHibernate.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -81,7 +75,9 @@
     <Compile Include="DataMapping\Conversions\StringColumnLengthConvention.cs" />
     <Compile Include="DataMapping\Conversions\TableNameConvention.cs" />
     <Compile Include="DataMapping\DataTablePrimaryKeyTranslator.cs" />
+    <Compile Include="DataMapping\Global\GlobalConstants.cs" />
     <Compile Include="DataMapping\Members.Dbo.Maps\LifetimeIndividualScoreMap.cs" />
+    <Compile Include="DataMapping\NavigationMaps\NavigationLinkMap.cs" />
     <Compile Include="DataMapping\NavigationMaps\_Mvc_NavigationMap.cs" />
     <Compile Include="DataMapping\SecurityMaps\_SALI_LoginWebUserMap.cs" />
     <Compile Include="DataMapping\TWADataMaps\Student2ActivitMap.cs" />
@@ -100,6 +96,14 @@
     <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
       <Project>{C7058A01-D6B2-4605-97A8-89D0FBE441FD}</Project>
       <Name>DomainLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpArch.Domain\SharpArch.Domain.csproj">
+      <Project>{E12E99BB-8732-441F-B3A6-861F0CE23D3D}</Project>
+      <Name>SharpArch.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpArch.NHibernate\SharpArch.NHibernate.csproj">
+      <Project>{0BD77F13-8DF6-4C16-9508-33AA4CF0677A}</Project>
+      <Name>SharpArch.NHibernate</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

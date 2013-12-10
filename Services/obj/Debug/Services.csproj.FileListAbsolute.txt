@@ -19,3 +19,8 @@ C:\Development\Projects\MvcHelloTeam\Services\bin\Debug\SharpArch.NHibernate.pdb
 C:\Development\Projects\MvcHelloTeam\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
 C:\Development\Projects\MvcHelloTeam\Services\obj\Debug\Services.dll
 C:\Development\Projects\MvcHelloTeam\Services\obj\Debug\Services.pdb
+C:\Development\Projects\MvcHelloTeam\Services\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Development\Projects\MvcHelloTeam\Services\bin\Debug\Newtonsoft.Json.dll
+C:\Development\Projects\MvcHelloTeam\Services\bin\Debug\SharpArch.Wcf.dll
+C:\Development\Projects\MvcHelloTeam\Services\bin\Debug\Newtonsoft.Json.xml
+C:\Development\Projects\MvcHelloTeam\Services\bin\Debug\SharpArch.Wcf.pdb

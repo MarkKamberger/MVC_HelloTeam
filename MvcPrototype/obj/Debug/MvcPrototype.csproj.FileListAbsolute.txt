@@ -104,3 +104,6 @@ C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\FluentNHibernate.dll
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Castle.Core.xml
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\Castle.Windsor.xml
 C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\FluentNHibernate.xml
+C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\SharpArch.Wcf.dll
+C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\SharpArch.Wcf.pdb
+C:\Development\Projects\MvcHelloTeam\MvcPrototype\bin\NHibernateMvcApplicationDB.config

@@ -8,6 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Castle.Windsor;
 using CommonServiceLocator.WindsorAdapter;
+using FluentNHibernate.Automapping;
 using Infrastructure.DataMapping;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
@@ -102,10 +103,16 @@ namespace MvcPrototype
 
             NHibernateSession.Init(
                 this._webSessionStorage,
-                new[] { Server.MapPath("~/bin/Infrastructure.dll") },
+                new[] {Server.MapPath("~/bin/Infrastructure.dll")},
                 new AutoPersistenceModelGenerator().Generate(),
                 Server.MapPath("~/NHibernate.config"));
+
+            NHibernateSession.AddConfiguration(GlobalConstants.MvcApplication,
+                                               new string[] {Server.MapPath("~/bin/Infrastructure.dll")},
+                                               new AutoPersistenceModelGenerator().Generate(),
+                                               Server.MapPath("~/NHibernateMvcApplicationDB.config"), null, null, null);
         }
+
         #endregion
     }
 }

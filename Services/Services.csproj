@@ -53,9 +53,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NHibernate.3.3.1.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="SharpArch.Domain">
-      <HintPath>..\packages\SharpArch.Domain.2.0.4\lib\NET40\SharpArch.Domain.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -81,6 +78,14 @@
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{021CD98E-8379-4437-912C-4A9D4CDF8F44}</Project>
       <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpArch.Domain\SharpArch.Domain.csproj">
+      <Project>{E12E99BB-8732-441F-B3A6-861F0CE23D3D}</Project>
+      <Name>SharpArch.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpArch.NHibernate\SharpArch.NHibernate.csproj">
+      <Project>{0BD77F13-8DF6-4C16-9508-33AA4CF0677A}</Project>
+      <Name>SharpArch.NHibernate</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

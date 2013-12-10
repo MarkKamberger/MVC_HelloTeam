@@ -8,6 +8,12 @@ using SharpArch.Domain.PersistenceSupport;
 namespace Infrastructure.ApplicationRepository
 {
 
+    public interface INavigationLinkOrmRepository : ILinqRepositoryWithTypedId<NavigationLink, int>
+    {
+        List<NavigationLink> ListNavigationLinks(int applicationId);
+      
+    }
+
     public interface IListNavigationLinksRepository : ILinqRepositoryWithTypedId<_Mvc_ListNavigationLinks, int>
     {
         /// <summary>
@@ -72,5 +78,8 @@ namespace Infrastructure.ApplicationRepository
         /// <param name="navchildId">The navchild id.</param>
         /// <returns></returns>
         List<_Mvc_ListNavigationChildRole> ListNavigationChildRoles(int applicationId, int navchildId);
+
+
+
     }
 }

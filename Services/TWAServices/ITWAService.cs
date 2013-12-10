@@ -33,6 +33,9 @@ namespace Services
         /// <returns></returns>
         IList<_Mvc_ListNavigationLinks> LisNavigationLinks(int applicationId, StrongSecurityObject sso, int  userId, int  customerId);
 
+        IList<NavigationLink> ListNavigationLinkORM(int applicationId);
+     
+
 
     }
 }

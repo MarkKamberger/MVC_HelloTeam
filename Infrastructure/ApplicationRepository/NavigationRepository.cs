@@ -4,11 +4,28 @@ using System.Linq;
 using System.Text;
 using DomainLayer.NavigationModels;
 using DomainLayer.SecurityModels;
+using Infrastructure.DataMapping;
 using Infrastructure.SecutiryRepository;
+using NHibernate.Linq;
 using SharpArch.NHibernate;
 
 namespace Infrastructure.ApplicationRepository
 {
+
+    [SessionFactory(GlobalConstants.MvcApplication)]
+    public class ListNavigationLinksOrmRepository : LinqRepository<NavigationLink>, INavigationLinkOrmRepository
+    {
+        public List<NavigationLink> ListNavigationLinks(int applicationId)
+        {
+            
+            var query = Session.Query<NavigationLink>();
+            query = query.Where(l => l.ApplicationId == applicationId);
+            return query.ToList();
+        }
+
+       
+    }
+
     public class ListNavigationLinksRepository : LinqRepository<_Mvc_ListNavigationLinks>, IListNavigationLinksRepository
     {
         /// <summary>
@@ -127,6 +144,10 @@ namespace Infrastructure.ApplicationRepository
                                    .SetParameter("@NavChildId", navChildId)
                                  .List<_Mvc_ListNavigationChildRole>();
         }
+
+       
+
+       
 
         /// <summary>
         /// Lists the navigation roles.

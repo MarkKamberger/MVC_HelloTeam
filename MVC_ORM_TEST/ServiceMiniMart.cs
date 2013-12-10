@@ -23,7 +23,7 @@ namespace DotFramework.Tests
         public static TWAService CreateTWAService()
         {
             return new TWAService(new Student2ActivityRepository()
-                , new ListNavigationLinksRepository());
+                , new ListNavigationLinksRepository(), new ListNavigationLinksOrmRepository());
         }
         public static SecurityService CreateSecurityService()
         {

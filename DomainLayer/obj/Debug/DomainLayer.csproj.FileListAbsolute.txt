@@ -10,3 +10,11 @@ C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\SharpArch.NHibernate.
 C:\Development\Projects\MvcHelloTeam\DomainLayer\obj\Debug\DomainLayer.dll
 C:\Development\Projects\MvcHelloTeam\DomainLayer\obj\Debug\DomainLayer.pdb
 C:\Development\Projects\MvcHelloTeam\DomainLayer\obj\Debug\DomainLayer.csprojResolveAssemblyReference.cache
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\NHibernate.dll
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\SharpArch.Wcf.dll
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\Iesi.Collections.dll
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\NHibernate.xml
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\SharpArch.Wcf.pdb
+C:\Development\Projects\MvcHelloTeam\DomainLayer\bin\Debug\Iesi.Collections.xml

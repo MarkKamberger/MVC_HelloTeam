@@ -23,11 +23,7 @@ namespace DomainLayer.NavigationModels
         public virtual IList<_Mvc_ListNavigationSpecialUser> SpecialUsers { get; set; } 
     }
 
-    public enum NavigationType
-    {
-        Link = 1,
-        Dropdown
-    }
+   
 
     public class _Mvc_ListNavigationChild :Entity
     {

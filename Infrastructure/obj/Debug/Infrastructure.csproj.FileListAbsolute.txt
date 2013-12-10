@@ -17,3 +17,7 @@ C:\Development\Projects\MvcHelloTeam\Infrastructure\bin\Debug\SharpArch.NHiberna
 C:\Development\Projects\MvcHelloTeam\Infrastructure\obj\Debug\Infrastructure.csprojResolveAssemblyReference.cache
 C:\Development\Projects\MvcHelloTeam\Infrastructure\obj\Debug\Infrastructure.dll
 C:\Development\Projects\MvcHelloTeam\Infrastructure\obj\Debug\Infrastructure.pdb
+C:\Development\Projects\MvcHelloTeam\Infrastructure\bin\Debug\Newtonsoft.Json.dll
+C:\Development\Projects\MvcHelloTeam\Infrastructure\bin\Debug\SharpArch.Wcf.dll
+C:\Development\Projects\MvcHelloTeam\Infrastructure\bin\Debug\Newtonsoft.Json.xml
+C:\Development\Projects\MvcHelloTeam\Infrastructure\bin\Debug\SharpArch.Wcf.pdb

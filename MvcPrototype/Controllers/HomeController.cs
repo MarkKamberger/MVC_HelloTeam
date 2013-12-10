@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using DomainLayer;
 using Infrastructure.ApplicationRepository;
 using Infrastructure.TWARepository;
+using MvcPrototype.Providers;
 using Services;
 
 namespace MvcPrototype.Controllers
@@ -18,7 +19,7 @@ namespace MvcPrototype.Controllers
 
          private readonly ITWAService _twaService;
          public HomeController(ITWAService twaService)
-             : base(new TWAService(new Student2ActivityRepository(), new ListNavigationLinksRepository()))
+             : base(ServiceFactory.CreateTWAService())
          {
             _twaService = twaService;
 

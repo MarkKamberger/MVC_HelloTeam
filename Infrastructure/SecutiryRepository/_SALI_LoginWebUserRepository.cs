@@ -18,14 +18,6 @@ namespace Infrastructure.SecutiryRepository
                                  .SetParameter("@Password", password)
                                  .SetParameter("@IsDemo", isDemo)
                                  .List<_SALI_LoginWebUser>();
-            /*.Select(x => new _SALI_LoginWebUser
-                        {
-                            CustomerId = x.CustomerId,
-                            CustomerName = x.CustomerName,
-                            UserType =  x.UserType
-
-                        }).ToList();*/
-
         }
     }
 }

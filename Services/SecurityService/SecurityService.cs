@@ -19,7 +19,8 @@ namespace Services.SecurityService
         #endregion
         public IList<_SALI_LoginWebUser> LoginWebUser(string userName, string password, bool isDemo)
         {
-            return _loginWebUserRepository.Login(userName, password, isDemo);
+            var result = _loginWebUserRepository.Login(userName, password, isDemo);
+            return result;
         }
     }
 }

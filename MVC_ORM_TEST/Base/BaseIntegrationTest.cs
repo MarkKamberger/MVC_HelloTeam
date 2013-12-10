@@ -26,7 +26,9 @@ namespace MVC_ORM_TEST.Base
         {
             new InitSessionConnection();
             ServiceLocatorInitializer.Init();
-           // HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
+            //Note* when using multiple databases use NHibernateSession.CurrentFor()
+            //NHibernateSession.Current.BeginTransaction();
+            //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
         }
 
 
@@ -37,6 +39,8 @@ namespace MVC_ORM_TEST.Base
         [TearDown]
         public virtual void TearDown()
         {
+            //Note* when using multiple databases use NHibernateSession.CurrentFor()
+            //NHibernateSession.Current.Transaction.Rollback();
             NHibernateSession.CloseAllSessions();
             NHibernateSession.Reset();
         }

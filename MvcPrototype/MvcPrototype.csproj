@@ -78,17 +78,6 @@
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="SharpArch.Domain, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SharpArch.Domain.2.0.4\lib\NET40\SharpArch.Domain.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpArch.NHibernate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SharpArch.NHibernate.2.0.4\lib\NET40\SharpArch.NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpArch.Web.Mvc">
-      <HintPath>..\packages\SharpArch.Web.Mvc.Castle.2.0.4\lib\NET40\SharpArch.Web.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -232,6 +221,7 @@
     <Compile Include="Providers\FormsAuthWrapper.cs" />
     <Compile Include="Providers\IAuth.cs" />
     <Compile Include="Providers\ISessionProvider.cs" />
+    <Compile Include="Providers\ServiceFactory.cs" />
     <Compile Include="Providers\SessionProvider.cs" />
     <Compile Include="Providers\UserMembershipProvider.cs" />
     <Compile Include="Providers\UserRoleProvider.cs" />
@@ -395,6 +385,18 @@
       <Project>{6C220487-B123-40A1-AECD-C4269E413E26}</Project>
       <Name>Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharpArch.Domain\SharpArch.Domain.csproj">
+      <Project>{E12E99BB-8732-441F-B3A6-861F0CE23D3D}</Project>
+      <Name>SharpArch.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpArch.NHibernate\SharpArch.NHibernate.csproj">
+      <Project>{0BD77F13-8DF6-4C16-9508-33AA4CF0677A}</Project>
+      <Name>SharpArch.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpArch.Web.Mvc\SharpArch.Web.Mvc.csproj">
+      <Project>{BF4E3D18-2EFB-49E3-9D8D-0F9F9BE1094A}</Project>
+      <Name>SharpArch.Web.Mvc</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Footer.cshtml" />
@@ -410,6 +412,9 @@
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="NHibernate.config" />
+    <Content Include="NHibernateMvcApplicationDB.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Scripts\jquery.min.map" />
     <None Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Home\Index.cshtml" />

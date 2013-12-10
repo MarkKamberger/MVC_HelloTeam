@@ -37,9 +37,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcPrototype", "MvcPrototyp
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Mvc01Modeling", "Mvc01Modeling\Mvc01Modeling.modelproj", "{9CB32903-2C4D-483B-A056-1580CE5571A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpArch.Domain", "SharpArch.Domain\SharpArch.Domain.csproj", "{E12E99BB-8732-441F-B3A6-861F0CE23D3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpArch.NHibernate", "SharpArch.NHibernate\SharpArch.NHibernate.csproj", "{0BD77F13-8DF6-4C16-9508-33AA4CF0677A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpArch.Testing.NUnit", "SharpArch.Testing.NUnit\SharpArch.Testing.NUnit.csproj", "{D6DDE603-4678-44B9-A2D1-101BF5D12AD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpArch.Web.Mvc", "SharpArch.Web.Mvc\SharpArch.Web.Mvc.csproj", "{BF4E3D18-2EFB-49E3-9D8D-0F9F9BE1094A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpArch.Wcf", "SharpArch.Wcf\SharpArch.Wcf.csproj", "{F7F5E614-3B4E-43EC-8F8A-CB46B89A3827}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 19
+		SccNumberOfProjects = 24
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://sfa-tfs01:8080/
 		SccLocalPath0 = .
@@ -97,6 +107,21 @@ Global
 		SccProjectUniqueName18 = Mvc01Modeling\\Mvc01Modeling.modelproj
 		SccProjectName18 = Mvc01Modeling
 		SccLocalPath18 = Mvc01Modeling
+		SccProjectUniqueName19 = SharpArch.Domain\\SharpArch.Domain.csproj
+		SccProjectName19 = SharpArch.Domain
+		SccLocalPath19 = SharpArch.Domain
+		SccProjectUniqueName20 = SharpArch.NHibernate\\SharpArch.NHibernate.csproj
+		SccProjectName20 = SharpArch.NHibernate
+		SccLocalPath20 = SharpArch.NHibernate
+		SccProjectUniqueName21 = SharpArch.Testing.NUnit\\SharpArch.Testing.NUnit.csproj
+		SccProjectName21 = SharpArch.Testing.NUnit
+		SccLocalPath21 = SharpArch.Testing.NUnit
+		SccProjectUniqueName22 = SharpArch.Web.Mvc\\SharpArch.Web.Mvc.csproj
+		SccProjectName22 = SharpArch.Web.Mvc
+		SccLocalPath22 = SharpArch.Web.Mvc
+		SccProjectUniqueName23 = SharpArch.Wcf\\SharpArch.Wcf.csproj
+		SccProjectName23 = SharpArch.Wcf
+		SccLocalPath23 = SharpArch.Wcf
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -175,6 +200,26 @@ Global
 		{9CB32903-2C4D-483B-A056-1580CE5571A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CB32903-2C4D-483B-A056-1580CE5571A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CB32903-2C4D-483B-A056-1580CE5571A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E12E99BB-8732-441F-B3A6-861F0CE23D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E12E99BB-8732-441F-B3A6-861F0CE23D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E12E99BB-8732-441F-B3A6-861F0CE23D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E12E99BB-8732-441F-B3A6-861F0CE23D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BD77F13-8DF6-4C16-9508-33AA4CF0677A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BD77F13-8DF6-4C16-9508-33AA4CF0677A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BD77F13-8DF6-4C16-9508-33AA4CF0677A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BD77F13-8DF6-4C16-9508-33AA4CF0677A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6DDE603-4678-44B9-A2D1-101BF5D12AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6DDE603-4678-44B9-A2D1-101BF5D12AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6DDE603-4678-44B9-A2D1-101BF5D12AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6DDE603-4678-44B9-A2D1-101BF5D12AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF4E3D18-2EFB-49E3-9D8D-0F9F9BE1094A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF4E3D18-2EFB-49E3-9D8D-0F9F9BE1094A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF4E3D18-2EFB-49E3-9D8D-0F9F9BE1094A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF4E3D18-2EFB-49E3-9D8D-0F9F9BE1094A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7F5E614-3B4E-43EC-8F8A-CB46B89A3827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7F5E614-3B4E-43EC-8F8A-CB46B89A3827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7F5E614-3B4E-43EC-8F8A-CB46B89A3827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7F5E614-3B4E-43EC-8F8A-CB46B89A3827}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

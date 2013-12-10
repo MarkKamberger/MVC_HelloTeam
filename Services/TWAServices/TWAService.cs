@@ -6,8 +6,10 @@ using DomainLayer;
 using DomainLayer.NavigationModels;
 using DomainLayer.TWADataModels;
 using Infrastructure.ApplicationRepository;
+using Infrastructure.DataMapping;
 using Infrastructure.TWARepository;
 using Services.Helper;
+using SharpArch.NHibernate.Web.Mvc;
 
 
 namespace Services
@@ -17,15 +19,18 @@ namespace Services
         #region Fields
         private readonly IStudent2ActivityRepository _repository;
         private readonly IListNavigationLinksRepository _navigationLinksRepository;
+        private readonly INavigationLinkOrmRepository _navigationLinkOrm;
+        
         #endregion
 
         #region Constructor
         public TWAService(IStudent2ActivityRepository repository
-            , IListNavigationLinksRepository navigationLinksRepository)
+            , IListNavigationLinksRepository navigationLinksRepository, INavigationLinkOrmRepository navigationLinkOrm)
         {
             _repository = repository;
             _navigationLinksRepository = navigationLinksRepository;
-     
+            _navigationLinkOrm = navigationLinkOrm;
+
         }
         #endregion
 
@@ -168,5 +173,13 @@ namespace Services
             }
             return returnList;
         }
+
+        
+        public IList<NavigationLink> ListNavigationLinkORM(int applicationId)
+        {
+            return _navigationLinkOrm.ListNavigationLinks(applicationId);
+        }
+
+     
     }
 }
