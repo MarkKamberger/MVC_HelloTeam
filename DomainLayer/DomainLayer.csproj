@@ -63,6 +63,7 @@
     <Compile Include="Base\BaseModel.cs" />
     <Compile Include="Helper\EnumToClass.cs" />
     <Compile Include="Helper\StringEnumConversion.cs" />
+    <Compile Include="LFSTools\LFSToolModels.cs" />
     <Compile Include="Members.Dbo\Members.Dbo.LifetimeIndividualScore.cs" />
     <Compile Include="NavigationModels\SharedNavigationEnum.cs" />
     <Compile Include="NavigationModels\NavigationLinkModels.cs" />

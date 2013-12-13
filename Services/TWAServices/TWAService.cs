@@ -119,6 +119,8 @@ namespace Services
                             var specialChildCustomers = _navigationLinksRepository.ListNavigationChildSpecialCustomers(1,
                                                                                                                   child
                                                                                                                       .Id);
+                            child.SpecialCustomers = specialChildCustomers;
+                            child.SpecialUsers = specialChildUsers;
                             var addChildItem = childItemObject == ObjectsSSO.All;
                             if (inChildRole)
                             {
@@ -146,15 +148,7 @@ namespace Services
                             }
                             if (addChildItem)
                             {
-                                var aChild = new _Mvc_ListNavigationChild
-                                    {
-                                        Name = child.Name,
-                                        Object = child.Object,
-                                        TypeId = child.TypeId,
-                                        Url = child.Url
-
-                                    };
-                                allowedNavChildren.Add(aChild);
+                                allowedNavChildren.Add(child);
                             }
                         }
                     } 

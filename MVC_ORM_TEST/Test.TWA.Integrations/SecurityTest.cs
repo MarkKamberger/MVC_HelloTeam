@@ -24,7 +24,7 @@ namespace MVC_ORM_TEST.Test.TWA.Integrations
         public void Test_NavigationLinks()
         {
             var service = ServiceMiniMart.CreateTWAService();
-            var results = service.LisNavigationLinks(1, new StrongSecurityObject(),0,0);
+            var results = service.LisNavigationLinks(1, Mock.MockStrongSecurityObject(), 19394, 261711);
         }
 
         [Test]

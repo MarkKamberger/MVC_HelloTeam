@@ -47,9 +47,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpArch.Web.Mvc", "SharpA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpArch.Wcf", "SharpArch.Wcf\SharpArch.Wcf.csproj", "{F7F5E614-3B4E-43EC-8F8A-CB46B89A3827}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFSTools", "LFSTools\LFSTools.csproj", "{3755B58C-8F4C-4007-98B7-B4FD43011338}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 24
+		SccNumberOfProjects = 25
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://sfa-tfs01:8080/
 		SccLocalPath0 = .
@@ -122,6 +124,9 @@ Global
 		SccProjectUniqueName23 = SharpArch.Wcf\\SharpArch.Wcf.csproj
 		SccProjectName23 = SharpArch.Wcf
 		SccLocalPath23 = SharpArch.Wcf
+		SccProjectUniqueName24 = LFSTools\\LFSTools.csproj
+		SccProjectName24 = LFSTools
+		SccLocalPath24 = LFSTools
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -220,6 +225,10 @@ Global
 		{F7F5E614-3B4E-43EC-8F8A-CB46B89A3827}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7F5E614-3B4E-43EC-8F8A-CB46B89A3827}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7F5E614-3B4E-43EC-8F8A-CB46B89A3827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3755B58C-8F4C-4007-98B7-B4FD43011338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3755B58C-8F4C-4007-98B7-B4FD43011338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3755B58C-8F4C-4007-98B7-B4FD43011338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3755B58C-8F4C-4007-98B7-B4FD43011338}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

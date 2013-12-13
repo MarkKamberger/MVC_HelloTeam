@@ -32,13 +32,10 @@ namespace Infrastructure.DataMapping.NavigationMaps
         public void Override(AutoMapping<_Mvc_ListNavigationChild> mapping)
         {
             mapping.Id(x => x.Id).Column("NavigationChildId").GeneratedBy.Assigned();
-            mapping.Map(x => x.NavigationLinkId);
             mapping.Map(x => x.Name);
             mapping.Map(x => x.Url);
             mapping.Map(x => x.Object);
             mapping.Map(x => x.TypeId);
-
-
         }
     }
     public class _Mvc_ListNavigationSpecialUserMap : IAutoMappingOverride<_Mvc_ListNavigationSpecialUser>
@@ -74,20 +71,20 @@ namespace Infrastructure.DataMapping.NavigationMaps
         /// <param name="mapping">The mapping.</param>
         public void Override(AutoMapping<_Mvc_ListNavigationChildSpecialCustomer> mapping)
         {
-            mapping.Id(x => x.Id).Column("NavigationChildSpecialUserId").GeneratedBy.Assigned();
+            mapping.Id(x => x.Id).Column("NavigationChildSpecialCustomerId").GeneratedBy.Assigned();
             mapping.Map(x => x.CustomerId);
         }
     }
-    public class _Mvc_ListNavigationChildSpecialUserMap : IAutoMappingOverride<_Mvc_ListNavigationChildSpecialCustomer>
+    public class _Mvc_ListNavigationChildSpecialUserMap : IAutoMappingOverride<_Mvc_ListNavigationChildSpecialUser>
     {
         /// <summary>
         /// Overrides the specified mapping.
         /// </summary>
         /// <param name="mapping">The mapping.</param>
-        public void Override(AutoMapping<_Mvc_ListNavigationChildSpecialCustomer> mapping)
+        public void Override(AutoMapping<_Mvc_ListNavigationChildSpecialUser> mapping)
         {
-            mapping.Id(x => x.Id).Column("NavigationChildSpecialCustomerId").GeneratedBy.Assigned();
-            mapping.Map(x => x.CustomerId);
+            mapping.Id(x => x.Id).Column("NavigationChildSpecialUserId").GeneratedBy.Assigned();
+            mapping.Map(x => x.UserId);
         }
     }
 
@@ -97,7 +94,6 @@ namespace Infrastructure.DataMapping.NavigationMaps
         {
             mapping.Id(x => x.Id).Column("NavigationLinkRoleId").GeneratedBy.Assigned();
             mapping.Map(x => x.Role);
-            mapping.Map(x => x.NavigationLinkId);
         }
     }
 
@@ -107,7 +103,6 @@ namespace Infrastructure.DataMapping.NavigationMaps
         {
             mapping.Id(x => x.Id).Column("NavigationChildRoleId").GeneratedBy.Assigned();
             mapping.Map(x => x.Role);
-            mapping.Map(x => x.NavigationChildId);
         }
     }
 }

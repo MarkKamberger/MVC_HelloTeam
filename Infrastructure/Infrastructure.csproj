@@ -76,6 +76,7 @@
     <Compile Include="DataMapping\Conversions\TableNameConvention.cs" />
     <Compile Include="DataMapping\DataTablePrimaryKeyTranslator.cs" />
     <Compile Include="DataMapping\Global\GlobalConstants.cs" />
+    <Compile Include="DataMapping\LFSTools\LFSToolMap.cs" />
     <Compile Include="DataMapping\Members.Dbo.Maps\LifetimeIndividualScoreMap.cs" />
     <Compile Include="DataMapping\NavigationMaps\NavigationLinkMap.cs" />
     <Compile Include="DataMapping\NavigationMaps\_Mvc_NavigationMap.cs" />
@@ -83,6 +84,8 @@
     <Compile Include="DataMapping\TWADataMaps\Student2ActivitMap.cs" />
     <Compile Include="DataMapping\TWADataMaps\StudentActivityMasteryMap.cs" />
     <Compile Include="DataMapping\TWADataMaps\TutoringActivitiesTemplateActivityMap.cs" />
+    <Compile Include="LFSRepository\ILFSRepository.cs" />
+    <Compile Include="LFSRepository\LFSRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecutiryRepository\I_SALI_LoginWebUserRepository.cs" />
     <Compile Include="SecutiryRepository\_SALI_LoginWebUserRepository.cs" />

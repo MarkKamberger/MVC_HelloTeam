@@ -1,8 +1,10 @@
 ﻿using Infrastructure;
 using Infrastructure.ApplicationRepository;
+using Infrastructure.LFSRepository;
 using Infrastructure.SecutiryRepository;
 using Infrastructure.TWARepository;
 using Services;
+using Services.LFSService;
 using Services.SecurityService;
 
 
@@ -28,6 +30,11 @@ namespace DotFramework.Tests
         public static SecurityService CreateSecurityService()
         {
             return new SecurityService(new _SALI_LoginWebUserRepository());
+        }
+
+        public static LFSService CreateLFSService()
+        {
+            return new LFSService(new LFSRepository());
         }
         #endregion
     }

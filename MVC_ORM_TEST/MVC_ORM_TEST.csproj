@@ -111,12 +111,14 @@
   <ItemGroup>
     <Compile Include="App_Start\NHibernateProfilerBootstrapper.cs" />
     <Compile Include="Base\BaseIntegrationTest.cs" />
+    <Compile Include="Base\Mock.cs" />
     <Compile Include="CodedUITest1.cs" />
     <Compile Include="CodedUITest2.cs" />
     <Compile Include="InitSessionConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLocatorInitializer.cs" />
     <Compile Include="ServiceMiniMart.cs" />
+    <Compile Include="Test.TWA.Integrations\LFSIntegrationTest.cs" />
     <Compile Include="UIMap.cs">
       <DependentUpon>UIMap.uitest</DependentUpon>
     </Compile>

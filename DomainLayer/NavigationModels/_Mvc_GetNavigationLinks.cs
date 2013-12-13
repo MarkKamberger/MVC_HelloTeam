@@ -32,7 +32,6 @@ namespace DomainLayer.NavigationModels
             SpecialCustomers = new List<_Mvc_ListNavigationChildSpecialCustomer>();
             SpecialUsers = new List<_Mvc_ListNavigationChildSpecialUser>();
         }
-        public virtual string NavigationLinkId { get; set; }
         public virtual string Name { get; set; }
         public virtual string Url { get; set; }
         public virtual string Object { get; set; }
@@ -42,32 +41,26 @@ namespace DomainLayer.NavigationModels
     }
     public class _Mvc_ListNavigationSpecialCustomer :Entity
     {
-        public virtual int NavigationLinkId { get; set; }
         public virtual int CustomerId { get; set; }
     }
     public class _Mvc_ListNavigationSpecialUser : Entity
     {
-        public virtual int NavigationLinkId { get; set; }
         public virtual int UserId { get; set; }
     }
     public class _Mvc_ListNavigationChildSpecialCustomer : Entity
     {
-        public virtual int NavigationChildId { get; set; }
         public virtual int CustomerId { get; set; }
     }
     public class _Mvc_ListNavigationChildSpecialUser : Entity
     {
-        public virtual int NavigationChildId { get; set; }
         public virtual int UserId { get; set; }
     }
     public class _Mvc_ListNavigationRole :Entity
     {
-        public virtual int NavigationLinkId { get; set; }
         public virtual RoleSSO Role { get; set; }
     }
     public class _Mvc_ListNavigationChildRole : Entity
     {
-        public virtual int NavigationChildId { get; set; }
         public virtual RoleSSO Role { get; set; }
         
     }

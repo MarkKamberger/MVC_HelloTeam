@@ -53,12 +53,10 @@ namespace DomainLayer.NavigationModels
     }
     public class NavigationChildSpecialCustomer : Entity
     {
-        public virtual int NavigationChildId { get; set; }
         public virtual int CustomerId { get; set; }
     }
     public class NavigationChildSpecialUser : Entity
     {
-        public virtual int NavigationChildId { get; set; }
         public virtual int UserId { get; set; }
     }
     public class NavigationLinkRole : Entity
@@ -67,7 +65,6 @@ namespace DomainLayer.NavigationModels
     }
     public class NavigationChildRole : Entity
     {
-        public virtual int NavigationChildId { get; set; }
         public virtual RoleSSO Role { get; set; }
 
     }

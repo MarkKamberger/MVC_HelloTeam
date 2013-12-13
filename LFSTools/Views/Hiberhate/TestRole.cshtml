@@ -1,0 +1,14 @@
+﻿@using DomainLayer
+@using LFSTools.Models;
+@model LFSTools.Models.TestPageViewModel
+@{
+    ViewBag.Title = "TestRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TestRole</h2>
+
+@foreach (var role in Model.Roles.Where(role => role == RoleSSO.TechnicalSupport))
+{
+    <h1>Tech Support Can Show</h1>
+}
