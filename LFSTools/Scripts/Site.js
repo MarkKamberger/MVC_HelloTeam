@@ -47,52 +47,7 @@ function guid() {
     return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 }
 
-function ShowModal(id, elem) {
 
-    if (elem.selectedIndex > 0) {
-        var active = true;
-        var activeButton = document.getElementById("activateLfs");
-
-        if (elem.options[elem.selectedIndex].className === "false") {
-            active = false;
-            activeButton.innerText = "Activate";
-            activeButton.onclick = function() {
-                activateButton(activeButton);
-            };
-
-        } else {
-
-            active = true;
-            activeButton.innerText = "Deactivate";
-            activeButton.onclick = function() {
-                deactivateButton(activeButton);
-            };
-
-        }
-
-        selected.setItems(elem.options[elem.selectedIndex].value, elem.options[elem.selectedIndex].text, elem.id, 1, active);
-        window.selectedObject = elem;
-        document.getElementById('lfsModalMessage').value = elem.options[elem.selectedIndex].text;
-        $("#" + id).modal();
-    }
-}
-
-function activateButton(elemBtn) {
-    elemBtn.innerText = "Deactivate";  
-    selected.setActive(true);
-    elemBtn.onclick = function() {
-        deactivateButton(elemBtn);
-    };
-
-}
-function deactivateButton(elemBtnb) {
-    elemBtnb.innerText = "Activate";
-    selected.setActive(false);
-    elemBtnb.onclick = function() {
-        activateButton(elemBtnb);
-    };
-
-}
 
 selectedObject = function() {
     var items = [],
@@ -119,6 +74,6 @@ selectedObject = function() {
         getCollection: getCollection,
         setActive: setActive
     };
-}
+};
 
 

@@ -8,6 +8,9 @@ using SharpArch.Domain.DomainModel;
 
 namespace DomainLayer.SecurityModels
 {
+    /// <summary>
+    /// StoredProcedure Mapping CustomerMgmt
+    /// </summary>
    public class _SALI_LoginWebUser :Entity
     {
         public virtual string CustomerName { get; set; }

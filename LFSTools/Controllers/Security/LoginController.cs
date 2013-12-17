@@ -1,19 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Web;
+using System.Configuration;
 using System.Web.Mvc;
-using System.Web.Providers.Entities;
 using System.Web.Security;
 using DomainLayer;
-using DomainLayer.NavigationModels;
-using DomainLayer.SecurityModels;
-using Infrastructure.ApplicationRepository;
-using Infrastructure.TWARepository;
 using LFSTools.BaseModels;
-using LFSTools.Helpers;
-using LFSTools.Injection;
 using LFSTools.Models;
 using LFSTools.Providers;
 using SALI;
@@ -32,7 +23,7 @@ namespace LFSTools.Controllers.Security
          private readonly StrongSecurityObject _securityObject;
          private readonly ITWAService _twaService;
         private readonly ISecurityService _securityService;
-         public LoginController(ITWAService twaService, ISecurityService securityService) : base(ServiceFactory.CreateTWAService())
+         public LoginController(ITWAService twaService, ISecurityService securityService) : base(ServiceFactory.CreateSecurityService(),ServiceFactory.CreateTWAService())
          {
             _twaService = twaService;
             _securityObject = new StrongSecurityObject();
@@ -154,63 +145,7 @@ namespace LFSTools.Controllers.Security
 
         #region  Private Methods
 
-        private bool LoginOrm(LoginInputModel inputViewModel)
-        {
-            var user = new _SALI_LoginWebUser(); 
-            var result = _securityService.LoginWebUser(inputViewModel.UserName, inputViewModel.Password, false);
-            if (result.Count > 0)
-            {
-                user = result.First();
-                if (user != null)
-                {
-
-                    UserSecurityObject = SSOFactory.MakeObject(new UserPermissions(
-                                                                   userName: inputViewModel.UserName
-                                                                   , customerId: user.Id
-                                                                   , accessType: DataAccessTypes.NetworkDatabase
-                                                                   , sessionId: _baseModel.ClientModel.CurrentSessionId)
-                                                                   .AsDataTable());
-                    if (SecurityPermissionHelper.CheckObjectPermission(UserSecurityObject, ObjectsSSO.Login,
-                                                                       ScopeSSO.SELF,
-                                                                       PrivilegeSSO.SELECT))
-                    {
-                        _baseModel.ClientModel.UserName = inputViewModel.UserName;
-                        _baseModel.ClientModel.LoginSuccess = true;
-                        _baseModel.ClientModel.CurrentSessionId = _baseModel.BusinessLogicObject.SetInvalidSession();
-                        _baseModel.ClientModel.Message = "Success";
-                        _baseModel.ClientModel.IsLoggedIn = true;
-                        FormsAuthentication.SetAuthCookie(_baseModel.BusinessLogicObject.UserName, false);
-                        IsDemo = _baseModel.BusinessLogicObject.IsDemo;
-                        SessionAuthenticated = true;
-                        Session["UseSession"] = 1;
-                        UserSecurityObject = SSOFactory.MakeObject(new UserPermissions(_baseModel.ClientModel.UserName
-                                                                                       ,
-                                                                                       _baseModel.ClientModel
-                                                                                                 .CurrentLoginId
-                                                                                       , DataAccessTypes.NetworkDatabase
-                                                                                       ,
-                                                                                       _baseModel.ClientModel
-                                                                                                 .CurrentSessionId)
-                                                                       .AsDataTable());
-                        _baseModel.UserSecurityObject = UserSecurityObject;
-                        _baseModel.NavigationLinks = _twaService.LisNavigationLinks(1
-                                                                                    , _baseModel.UserSecurityObject
-                                                                                    ,
-                                                                                    _baseModel.BusinessLogicObject
-                                                                                              .UserId
-                                                                                    ,
-                                                                                    _baseModel.BusinessLogicObject
-                                                                                              .UserCustomerId);
-                        HttpRuntime.Cache.GetOrStore<StrongSecurityObject>("UserSecurityObject", UserSecurityObject);
-                        HttpRuntime.Cache.GetOrStore<ClientModel>("ClientModel", _baseModel.ClientModel);
-                        HttpRuntime.Cache.GetOrStore<IList<_Mvc_ListNavigationLinks>>("NavigationLinks",
-                                                                                      _baseModel.NavigationLinks);
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
+      
 
 
         /// <summary>
@@ -358,22 +293,22 @@ namespace LFSTools.Controllers.Security
                    
                     
                     FormsAuthentication.SetAuthCookie(_baseModel.BusinessLogicObject.UserName, false);
-                    IsDemo = _baseModel.BusinessLogicObject.IsDemo;
-                    //_baseModel.UserPermissions = new UserPermissions(_baseModel.UserName, _baseModel.ClientModel.CurrentLoginId, DataAccessTypes.NetworkDatabase, _baseModel.ClientModel.CurrentSessionId).AsDataTable();
-                    SessionAuthenticated = true;
                     Session["UseSession"] = 1;
                     UserSecurityObject = SSOFactory.MakeObject(new UserPermissions(_baseModel.ClientModel.UserName
                         , _baseModel.ClientModel.CurrentLoginId
                         ,DataAccessTypes.NetworkDatabase
                         , _baseModel.ClientModel.CurrentSessionId).AsDataTable());
                     _baseModel.UserSecurityObject = UserSecurityObject;
-                    _baseModel.NavigationLinks = _twaService.LisNavigationLinks(1
+                    _baseModel.NavigationLinks = _twaService.LisNavigationLinks(NumberHelpers.ReturnAsInt(ConfigurationManager.AppSettings["ApplicationId"])
                         ,_baseModel.UserSecurityObject
                         ,_baseModel.BusinessLogicObject.UserId
                         ,_baseModel.BusinessLogicObject.UserCustomerId);
-                    HttpRuntime.Cache.GetOrStore<StrongSecurityObject>("UserSecurityObject",UserSecurityObject);
-                    HttpRuntime.Cache.GetOrStore<ClientModel>("ClientModel", _baseModel.ClientModel);
-                    HttpRuntime.Cache.GetOrStore<IList<_Mvc_ListNavigationLinks>>("NavigationLinks", _baseModel.NavigationLinks);
+
+                    Session["UserSecurityObject"] = UserSecurityObject;
+                    Session["ClientModel"] = _baseModel.ClientModel;
+                    Session["NavigationLinks"] = _baseModel.NavigationLinks;
+                    Session["UserName"] = userName;
+                    Session["Password"] = password;
                 }
 
             }

@@ -7,6 +7,9 @@ using DomainLayer.Helper;
 
 namespace DomainLayer
 {
+    /// <summary>
+    /// Creates the Secuurity Object Model 
+    /// </summary>
     public class SSOFactory
     {
         
@@ -31,7 +34,6 @@ namespace DomainLayer
                     Privilege = row[4].ToString().ConvertToEnum<PrivilegeSSO>(),
                     Scope = row[5].ToString().ConvertToEnum<ScopeSSO>(),
                 });
-                //securityObject.Object = row[2].ToString().ConvertToEnum<ObjectSSO>(); 
             }
             return securityObject;
         }

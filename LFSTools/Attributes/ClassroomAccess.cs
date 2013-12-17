@@ -23,12 +23,7 @@ namespace LFSTools
         {
             //redirect if not authenticated
             var controller = filterContext.Controller as BaseController;
-            if (controller.IsDemo)
-            {
-                
-            }
-            else
-            {
+            
                 
                 Security s = new Security(controller.CurrentUser.UserName, DataAccessTypes.NetworkDatabase, controller.Session.SessionID);
 
@@ -42,7 +37,7 @@ namespace LFSTools
                     filterContext.Result = new HttpUnauthorizedResult();
                     filterContext.HttpContext.Response.Redirect(loginUrl, true); */
                 }
-            }
+            
 
             base.OnActionExecuting(filterContext);
         }

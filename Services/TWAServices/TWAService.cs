@@ -67,16 +67,16 @@ namespace Services
         /// <returns>List of links and dropdown lists that are allowed by user Role/Object & Special Permissions</returns>
         public IList<_Mvc_ListNavigationLinks> LisNavigationLinks(int applicationId, StrongSecurityObject sso, int  userId, int  customerId)
         {
-            var navList = _navigationLinksRepository.ListNavigationLinks(1);
+            var navList = _navigationLinksRepository.ListNavigationLinks(applicationId);
             var returnList = new List<_Mvc_ListNavigationLinks>();
             foreach (_Mvc_ListNavigationLinks navItem in navList)
             {
                 var itemObject = Helper.HelperClass.ParseEnum<ObjectsSSO>(navItem.Object);
                 var obj = sso.obj.Any(x => x.Object == itemObject);
-                var specialUsers = _navigationLinksRepository.ListNavigationSpecialUsers(1, navItem.Id);
-                var specialCustomers = _navigationLinksRepository.ListNavigationSpecialCustomers(1, navItem.Id);
-                var navChildren = _navigationLinksRepository.ListNavigationChildren(1, navItem.Id);
-                var role = _navigationLinksRepository.ListNavigationRoles(1, navItem.Id);
+                var specialUsers = _navigationLinksRepository.ListNavigationSpecialUsers(applicationId, navItem.Id);
+                var specialCustomers = _navigationLinksRepository.ListNavigationSpecialCustomers(applicationId, navItem.Id);
+                var navChildren = _navigationLinksRepository.ListNavigationChildren(applicationId, navItem.Id);
+                var role = _navigationLinksRepository.ListNavigationRoles(applicationId, navItem.Id);
                 var inRole = sso.Roles.Any(sr => role.Any());
                 var addItem = itemObject == ObjectsSSO.All;
                 if (inRole)

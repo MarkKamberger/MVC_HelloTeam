@@ -17,7 +17,7 @@ namespace LFSTools.Controllers.LFS
         //
         // GET: /LFS/
         private ILFSService _lfsService;
-        public LFSController(ILFSService lfsService) : base(ServiceFactory.CreateTWAService())
+        public LFSController(ILFSService lfsService) : base(ServiceFactory.CreateSecurityService(),ServiceFactory.CreateTWAService())
         {
             _lfsService = lfsService;
         }
@@ -108,7 +108,7 @@ namespace LFSTools.Controllers.LFS
 
 
         [AcceptVerbs(HttpVerbs.Get), RequiresAuthentication, RequiresRole(Role = RoleSSO.MemberCenterUser)]
-        public ActionResult saveEdit(string type, int id, string text, bool active)
+        public ActionResult SaveEdit(string type, int id, string text, bool active)
         {
             var vm = new GenericViewModel(); 
             var filter = new LfsQueryFilter();
@@ -134,9 +134,10 @@ namespace LFSTools.Controllers.LFS
                     case "target":
                         var targetObj = _lfsService.GetTargetList(id);
                         targetObj.TargetDesc = text;
+                        targetObj.Active = active;
                         _lfsService.SaveSmartstarget(targetObj);
                         break;
-                    case "rotCause":
+                    case "rootCause":
                         var rootObj = _lfsService.GetRootCause(id);
                         rootObj.RootCauseDesc = text;
                         rootObj.Active = active;
@@ -163,6 +164,120 @@ namespace LFSTools.Controllers.LFS
                 vm.Message = ex.Message;
             }
            
+            return Json(vm, JsonRequestBehavior.AllowGet);
+        }
+
+        [AcceptVerbs(HttpVerbs.Get), RequiresAuthentication, RequiresRole(Role = RoleSSO.MemberCenterUser)]
+        public ActionResult CreateNew(string type, int id, string text, bool active)
+        {
+            var vm = new GenericViewModel();
+            var filter = new LfsQueryFilter();
+            try
+            {
+                switch (type)
+                {
+                    case "GuideType":
+                        filter.CategoryId = id;
+                        break;
+                    case "areaOfConcern":
+                        var areaOfConcern = new AchievementPlanAreaOfConcern
+                            {
+                                Active = active,
+                                AreaOfConcernDesc = text
+                            };
+                        var aerachild = new AchievementPlanCategory2AreaOfConcern
+                            {
+                                AchievementPlanAreaOfConcernId = areaOfConcern.Id,
+                                AchievementPlanCategoryId = id,
+                                Parent = areaOfConcern
+                            };
+                        areaOfConcern.Category.Add(aerachild);
+                        _lfsService.SaveAreaOfConcern(areaOfConcern);
+                        break;
+                    case "subAreaOfConcern":
+                        var subAreaOfConcern = new AchievementPlanSubAreaOfConcern
+                            {
+                                Active = active,
+                                SubAreaOfConcernDesc = text
+                            };
+                        var subAreachild = new AchievementPlanAreaOfConcern2SubAreaOfConcern
+                            {
+                                AchievementPlanAreaOfConcernId = id,
+                                AchievementPlanSubAreaOfConcernId = subAreaOfConcern.Id,
+                                Parent = subAreaOfConcern
+                            };
+                        subAreaOfConcern.AreaOfConcern.Add(subAreachild);
+                        _lfsService.SaveSubAreaOfConcern(subAreaOfConcern);
+                        break;
+                    case "target":
+                        var target = new AchievementPlanTargetList
+                            {
+                                Active = active,
+                                TargetDesc = text
+                            };
+                        var targetChild = new AchievementPlanSubAreaofConcern2Target
+                            {
+                                AchievementPlanSubAreaOfConcernId = id,
+                                AchievementPlanTargetId = target.Id,
+                                Parent = target
+                            };
+                        target.SubAreaofConcern.Add(targetChild);
+                        _lfsService.SaveSmartstarget(target);
+                        break;
+                    case "rootCause":
+                        var rootCause = new AchievementPlanRootCause
+                            {
+                                Active = active,
+                                RootCauseDesc = text
+                            };
+                        var rootChild = new AchievementPlanTarget2RootCauseList
+                            {
+                                AchievementPlanTargetId = id,
+                                AchievementPlanRootCauseId = rootCause.Id,
+                                Parent = rootCause
+                            };
+                        rootCause.Target.Add(rootChild);
+                        _lfsService.SaveRootCause(rootCause);
+                        break;
+                    case "impFocus":
+                        var leveragePoint = new AchievementPlanLeveragePoint
+                            {
+                                Active = active,
+                                LeveragePointDesc = text
+                            };
+                        var leverageChild = new AchievementPlanRootCause2LeveragePointList()
+                            {
+                                AchievementPlanRootCauseId = id,
+                                AchievementPlanLeveragePointId = leveragePoint.Id,
+                                Parent = leveragePoint
+                            };
+                        leveragePoint.RootCause.Add(leverageChild);
+                        _lfsService.SaveLeveragePoint(leveragePoint);
+                        break;
+                    case "action":
+                        var action = new AchievementPlanAction
+                            {
+                                Active = active,
+                                ActionDesc = text
+                            };
+                        var actionChild = new AchievementPlanLeveragePoint2ActionList
+                            {
+                                AchievementPlanLeveragePointId = id,
+                                AchievementPlanActionId = action.Id,
+                                Parent = action
+                            };
+                        action.LeveragePoint.Add(actionChild);
+                        _lfsService.SavePlanAction(action);
+                        break;
+                }
+                vm.Success = true;
+            }
+            catch (Exception ex)
+            {
+                vm.Success = false;
+                vm.Message = ex.Message;
+            }
+
             return Json(vm, JsonRequestBehavior.AllowGet);
         }
     }

@@ -8,6 +8,12 @@ namespace DomainLayer.Helper
 {
     public static class StringExtensions
     {
+        /// <summary>
+        /// Converts to enum.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
         public static T ConvertToEnum<T>(this string value)
         {
             Contract.Requires(typeof(T).IsEnum);

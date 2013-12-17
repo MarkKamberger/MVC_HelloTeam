@@ -35,19 +35,33 @@ namespace LFSTools
             }
             else
             {
-                foreach (var thisObj in controller.UserSecurityObject.Roles)
+                /*if (controller != null)
                 {
-                    var securityObjectSso = (RoleSSO)thisObj;
-                    if (securityObjectSso == Role)
+                    if (controller.UserSecurityObject.obj != null || controller.UserSecurityObject.Roles != null)
                     {
-                        authenticated = true;
-                    }
-                   
+                        foreach (var thisObj in controller.UserSecurityObject.Roles)
+                        {
+                            var securityObjectSso = (RoleSSO)thisObj;
+                            if (securityObjectSso == Role)
+                            {
+                                authenticated = true;
+                            }
+
+                        }
+                        if (!authenticated)
+                        {
+                            //filterContext.Result = new HttpUnauthorizedResult();
+                        }
+                    } 
                 }
                 if (!authenticated)
                 {
+                    string loginUrl = FormsAuthentication.LoginUrl;
                     filterContext.Result = new HttpUnauthorizedResult();
-                }
+                    filterContext.HttpContext.Response.Redirect(loginUrl, true);
+                }*/
+                
+                
             }
         }
     }

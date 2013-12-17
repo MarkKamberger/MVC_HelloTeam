@@ -11,8 +11,30 @@
   <div class="navbar-inner">
       <div class="container">
            @if (@viewModel.ClientModel.IsLoggedIn)
-              {
-                  <ul class="nav navbar-nav">
+           {
+               if ((Request.Browser.Browser == "IE") && (Request.Browser.MajorVersion <= 8))
+               {
+                   foreach (var link in viewModel.NavigationLinks)
+                   {
+                       if (@link.TypeId == NavigationType.Dropdown)
+                       {
+                           <select class="navSelect" onChange='location.href = this.value'>
+                               <option disabled="disabled" selected="selected">Select Tool...</option>
+                               @foreach (var child in link.NavigationChildren)
+                               {
+                                   <option value="@child.Url">@child.Name</option>
+                               }
+                           </select>
+                       }
+                       else if (link.TypeId == NavigationType.Link)
+                       {
+                           <a class="navHref" href="@link.Url">@link.Name</a>
+                       }
+                   }
+               }
+               else
+               {
+                   <ul class="nav navbar-nav ">
                       @foreach (var link in viewModel.NavigationLinks)
                       {
                           if (@link.TypeId == NavigationType.Dropdown)
@@ -20,7 +42,7 @@
                               
                               <li class="dropdown open">
                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@link.Name <b class="caret"></b></a>
-                                  <ul class="dropdown-menu">
+                                  <ul class="dropdown-menu ">
                                      @foreach (var child in link.NavigationChildren)
                                      {
                                          <li><a href="@child.Url">@child.Name</a></li>
@@ -37,13 +59,16 @@
                       }
                      
                       
-                  </ul>
+                  </ul> 
+              }
+             
+                 
           <div class="userName">
              
-              <a id="currentUserName">Welcome Back!  @viewModel.BusinessLogicObject.UserFirstName  @viewModel.BusinessLogicObject.UserLastName</a>
+              <a id="currentUserName">Welcome Back!  @viewModel.ClientModel.UserName</a>
               <input id="postLogOut" type="button" value="Logout" /> 
                 </div>
-              } 
+           } 
         
       </div>
   </div>
@@ -53,11 +78,25 @@
 </div>
 <div id="showProcessing" class="processingAlertHide">
     <div>
-         <img src="../../Content/images/SFAFAnimationProcessing.gif"/>
+        <img src="../../Content/images/SFAFAnimationProcessing.gif"/>
     </div>
 </div>
+<style type="text/css">
+    .navSelect {
+        background: #222222;
+        color: white;
+        border-color: #222222;
+        font-size: 1.5em;
+    }
+    .navHref {
+         font-size: 1.5em;
+    }
+</style>
 <script type="text/javascript">
 
+    $(".navSelect").change(function () {
+        location.href = $(this).val();
+    });
     $(function () {
         $('.dropdown-toggle').click();
         $('#postLogOut').click(function (e) {

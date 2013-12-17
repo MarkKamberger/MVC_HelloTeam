@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseFilter.cs" />
-    <Compile Include="Base\BaseModel.cs" />
+    <Compile Include="Base\BaseDomainModel.cs" />
     <Compile Include="Helper\EnumToClass.cs" />
     <Compile Include="Helper\StringEnumConversion.cs" />
     <Compile Include="LFSTools\LfsQueryFilter.cs" />

@@ -19,7 +19,7 @@ namespace LFSTools.Controllers
 
          private readonly ITWAService _twaService;
          public HomeController(ITWAService twaService)
-             : base(ServiceFactory.CreateTWAService())
+             : base(ServiceFactory.CreateSecurityService(), ServiceFactory.CreateTWAService())
          {
             _twaService = twaService;
 

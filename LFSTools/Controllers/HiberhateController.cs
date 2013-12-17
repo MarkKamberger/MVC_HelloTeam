@@ -19,7 +19,8 @@ namespace LFSTools.Controllers
         // GET: /Hiberhate/
          private readonly StrongSecurityObject securityObject;
          private readonly ITWAService _twaService;
-         public HiberhateController(ITWAService twaService) : base(ServiceFactory.CreateTWAService())
+         public HiberhateController(ITWAService twaService)
+             : base(ServiceFactory.CreateSecurityService(), ServiceFactory.CreateTWAService())
          {
             _twaService = twaService;
              securityObject = new StrongSecurityObject();

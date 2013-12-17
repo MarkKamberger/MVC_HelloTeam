@@ -3,6 +3,9 @@ using SharpArch.Domain.DomainModel;
 
 namespace DomainLayer.Members
 {
+    /// <summary>
+    /// Testing - Not Complete 
+    /// </summary>
     public class LifetimeIndividualScore : Entity
     {
         public virtual int StudentId { get; set; }

@@ -6,6 +6,9 @@ using SharpArch.Domain.DomainModel;
 
 namespace DomainLayer.NavigationModels
 {
+    /// <summary>
+    /// StoredProcedure Mapping CustomerMgmt
+    /// </summary>
     public class _Mvc_ListNavigationLinks : Entity
     {
         public _Mvc_ListNavigationLinks()
@@ -22,9 +25,9 @@ namespace DomainLayer.NavigationModels
         public virtual IList<_Mvc_ListNavigationSpecialCustomer> SpecialCustomers { get; set; }
         public virtual IList<_Mvc_ListNavigationSpecialUser> SpecialUsers { get; set; } 
     }
-
-   
-
+    /// <summary>
+    /// StoredProcedure Mapping CustomerMgmt
+    /// </summary>
     public class _Mvc_ListNavigationChild :Entity
     {
         public _Mvc_ListNavigationChild()
@@ -39,26 +42,44 @@ namespace DomainLayer.NavigationModels
         public virtual IList<_Mvc_ListNavigationChildSpecialCustomer> SpecialCustomers { get; set; }
         public virtual IList<_Mvc_ListNavigationChildSpecialUser> SpecialUsers { get; set; } 
     }
+    /// <summary>
+    /// StoredProcedure Mapping CustomerMgmt
+    /// </summary>
     public class _Mvc_ListNavigationSpecialCustomer :Entity
     {
         public virtual int CustomerId { get; set; }
     }
+    /// <summary>
+    /// StoredProcedure Mapping CustomerMgmt
+    /// </summary>
     public class _Mvc_ListNavigationSpecialUser : Entity
     {
         public virtual int UserId { get; set; }
     }
+    /// <summary>
+    /// StoredProcedure Mapping CustomerMgmt
+    /// </summary>
     public class _Mvc_ListNavigationChildSpecialCustomer : Entity
     {
         public virtual int CustomerId { get; set; }
     }
+    /// <summary>
+    /// StoredProcedure Mapping CustomerMgmt
+    /// </summary>
     public class _Mvc_ListNavigationChildSpecialUser : Entity
     {
         public virtual int UserId { get; set; }
     }
+    /// <summary>
+    /// StoredProcedure Mapping CustomerMgmt
+    /// </summary>
     public class _Mvc_ListNavigationRole :Entity
     {
         public virtual RoleSSO Role { get; set; }
     }
+    /// <summary>
+    /// StoredProcedure Mapping CustomerMgmt
+    /// </summary>
     public class _Mvc_ListNavigationChildRole : Entity
     {
         public virtual RoleSSO Role { get; set; }

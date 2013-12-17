@@ -6,7 +6,7 @@ using SharpArch.Domain.DomainModel;
 
 namespace DomainLayer.Base
 {
-    public class BaseModel :Entity
+    public class BaseDomainModel :Entity
     {
     }
 }

@@ -6,6 +6,9 @@ using DomainLayer.Base;
 
 namespace DomainLayer.LFSTools
 {
+    /// <summary>
+    /// filter with optinal parameters for querying 
+    /// </summary>
     public class LfsQueryFilter : BaseFilter
     {
         public int? CategoryId { get; set; }

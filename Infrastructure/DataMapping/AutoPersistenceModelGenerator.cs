@@ -1,9 +1,7 @@
 ﻿using System;
 using DomainLayer.Base;
-using DomainLayer.TWADataModels;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Conventions;
-using FluentNHibernate.Conventions.Helpers;
 using Infrastructure.NHibernateMaps.Conventions;
 using SharpArch.Domain.DomainModel;
 using SharpArch.NHibernate.FluentNHibernate;
@@ -17,7 +15,7 @@ namespace Infrastructure.DataMapping
     {
         public AutoPersistenceModel Generate()
         {
-            var mappings = AutoMap.AssemblyOf<BaseModel>(new AutomappingConfiguration());
+            var mappings = AutoMap.AssemblyOf<BaseDomainModel>(new AutomappingConfiguration());
             mappings.IgnoreBase<Entity>();
             mappings.IgnoreBase(typeof(EntityWithTypedId<>));
             mappings.Conventions.Setup(GetConventions());

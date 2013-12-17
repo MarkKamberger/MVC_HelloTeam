@@ -270,7 +270,10 @@ margin-right: auto;
     background: #4169e1;
 }
 .LfsCancel {
-    background: #ff6347;
+    background: #3cb371;
+}
+.lfsActivate {
+    background: #ff4500;
 }
 .lfsTextEdit {
     width: 100%;
