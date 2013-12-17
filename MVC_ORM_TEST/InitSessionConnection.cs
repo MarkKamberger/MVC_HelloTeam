@@ -34,10 +34,12 @@ namespace Tests
                   new[] { "Infrastructure.dll" },
                   new AutoPersistenceModelGenerator().Generate(),
                   "../../../../MvcHelloTeam/MvcPrototype/NHibernate.config");
-            NHibernateSession.AddConfiguration(GlobalConstants.MvcApplication,
+            //Activating this you need to go to BaseIntegrationTest and change to .CurrentFor
+            //OR comment out NHibernateSession.Current.BeginTransaction(); && NHibernateSession.Current.Transaction.Rollback();
+            /*NHibernateSession.AddConfiguration(GlobalConstants.MvcApplication,
                                                  new[] { "Infrastructure.dll" },
                                                  new AutoPersistenceModelGenerator().Generate(),
-                                                  "../../../../MvcHelloTeam/MvcPrototype/NHibernateMvcApplicationDB.config", null, null, null);
+                                                  "../../../../MvcHelloTeam/MvcPrototype/NHibernateMvcApplicationDB.config", null, null, null);*/
 
             IWindsorContainer container = new WindsorContainer();
 

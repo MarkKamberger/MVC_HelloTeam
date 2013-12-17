@@ -19,7 +19,7 @@ namespace DotFramework.Tests
         #region Integration Testing Setup
 
         /// <summary>
-        /// Creates the TWAservice.
+        /// Creates the TWA Service.
         /// </summary>
         /// <returns></returns>
         public static TWAService CreateTWAService()
@@ -27,14 +27,22 @@ namespace DotFramework.Tests
             return new TWAService(new Student2ActivityRepository()
                 , new ListNavigationLinksRepository(), new ListNavigationLinksOrmRepository());
         }
+        /// <summary>
+        /// Creates the security service.
+        /// </summary>
+        /// <returns></returns>
         public static SecurityService CreateSecurityService()
         {
             return new SecurityService(new _SALI_LoginWebUserRepository());
         }
 
+        /// <summary>
+        /// Creates the LFS service.
+        /// </summary>
+        /// <returns></returns>
         public static LFSService CreateLFSService()
         {
-            return new LFSService(new LFSRepository());
+            return new LFSService(new LFSGuideTypesRepository(), new AchievementPlanAreaOfConcernRepository(), new AchievementPlanSubAreaOfConcernRepository(), new AchievementPlanTargetListRepository(), new AchievementPlanRootCauseRepository(), new AchievementPlanLeveragePointRepository(), new AchievementPlanActionRepository());
         }
         #endregion
     }

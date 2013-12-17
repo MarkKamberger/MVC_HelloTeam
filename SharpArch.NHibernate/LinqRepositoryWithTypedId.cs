@@ -52,7 +52,25 @@ namespace SharpArch.NHibernate
 
             this.Session.Flush();
         }
+        public T SaveReturnEntity(T entity)
+        {
+            try
+            {
+                this.Session.Save(entity);
+            }
+            catch
+            {
+                if (this.Session.IsOpen)
+                {
+                    this.Session.Close();
+                }
 
+                throw;
+            }
+
+            this.Session.Flush();
+            return entity;
+        }
         public void SaveAndEvict(T entity)
         {
             this.Save(entity);

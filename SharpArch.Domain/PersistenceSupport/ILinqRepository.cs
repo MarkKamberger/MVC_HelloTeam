@@ -2,5 +2,6 @@
 {
     public interface ILinqRepository<T> : ILinqRepositoryWithTypedId<T, int>
     {
+       
     }
 }

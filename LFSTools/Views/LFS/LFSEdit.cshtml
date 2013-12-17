@@ -1,0 +1,284 @@
+﻿@using LFSTools.Models
+@using DomainLayer.LFSTools
+@model LFSTools.Models.LFSModels.LfsViewModel
+@{
+    ViewBag.Title = "LFSEdit";
+}
+<h2>
+    LFSEdit</h2>
+<div id="editmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-header">
+        <h2 id="myModalLabel">
+            Edit</h2>
+    </div>
+    <div class="modal-body" id='modalMessage'>
+        <textarea id="lfsModalMessage" class="lfsTextEdit" rows="5"></textarea>
+    </div>
+    <div class="modal-footer">
+        <button id="saveEdit" class="LfsButton" data-dismiss="modal" onclick="saveEdit();">
+            Save</button>
+        <button id="activateLfs" class="LfsButton LfsEdit">
+            Activate</button>
+        <button id="activateLfs" class="LfsButton LfsCancel" data-dismiss="modal">
+            Cancel</button>
+    </div>
+</div>
+@Html.DropDownListFor(x => x.GuideTypes.SelectedItemId, new SelectList(Model.GuideTypes.SelectList, "CategoryId", "ShortTitle"), "Select a type", new { id = "guideType" })
+<div>
+    <select id="areaOfConcern" class="lfsSelectList">
+        <option value="" disabled selected="selected">Aarea Of concern...</option>
+    </select>
+    <input type="button" value="Edit" class="LfsButton LfsEdit" onclick="ShowModal('editmodal',document.getElementById('areaOfConcern'));" /><input
+        type="button" value="Add+" class="LfsButton" />
+    <select id="subAreaOfConcern" class="lfsSelectList">
+        <option value="" disabled selected="selected">Sub Aarea Of Concern...</option>
+    </select>
+    <input type="button" value="Edit" class="LfsButton LfsEdit" onclick="ShowModal('editmodal',document.getElementById('subAreaOfConcern'));" /><input
+        type="button" value="Add+" class="LfsButton" />
+    <select id="target" class="lfsSelectList">
+        <option value="" disabled selected="selected">SMARTS Target...</option>
+    </select>
+    <input type="button" value="Edit" class="LfsButton LfsEdit" onclick="ShowModal('editmodal',document.getElementById('target'));" /><input
+        type="button" value="Add+" class="LfsButton" />
+    <select id="rootCause" class="lfsSelectList">
+        <option value="" disabled selected="selected">Root Cause...</option>
+    </select>
+    <input type="button" value="Edit" class="LfsButton LfsEdit" onclick="ShowModal('editmodal',document.getElementById('rootCause'));" /><input
+        type="button" value="Add+" class="LfsButton" />
+    <select id="impFocus" class="lfsSelectList">
+        <option value="" disabled selected="selected">Implementation Focus...</option>
+    </select>
+    <input type="button" value="Edit" class="LfsButton LfsEdit" onclick="ShowModal('editmodal',document.getElementById('impFocus'));" /><input
+        type="button" value="Add+" class="LfsButton" />
+    <select id="action" class="lfsSelectList">
+        <option value="" disabled selected="selected">Action(s)...</option>
+    </select>
+    <input type="button" value="Edit" class="LfsButton LfsEdit" onclick="ShowModal('editmodal',document.getElementById('action'));" /><input
+        type="button" value="Add+" class="LfsButton" />
+</div>
+<style>
+    .false {
+        background: #f08080;
+    }
+    .true {
+       
+    }
+    #guideType
+    {
+        font-size: 2em;
+    }
+    .lfsSelectList
+    {
+        width: 65%;
+        font-size: 1.5em;
+        padding: .1em;
+        margin-top: .5em;
+        border-width: 2px;
+    }
+</style>
+<script type="text/javascript">
+    var selectedObject;
+    var selectedId;
+    var selected = new selectedObject;
+    var gList;
+    var areaList;
+    var subAreaList;
+    var targetList;
+    var rootList;
+    var focusList;
+    var actionList;
+    $(function () {
+        gList = document.getElementById('guideType');
+        areaList = document.getElementById("areaOfConcern");
+        subAreaList = document.getElementById("subAreaOfConcern");
+        targetList = document.getElementById("target");
+        rootList = document.getElementById("rootCause");
+        focusList = document.getElementById("impFocus");
+        actionList = document.getElementById("action");
+        gList.onchange = function (e) {
+            loadList(gList, areaList, 0);
+            };
+        areaList.onchange = function (e) {
+            if (areaList.options[areaList.selectedIndex].className === 'true') {
+                areaList.style.borderColor = 'green';
+            } else {
+                areaList.style.borderColor = 'red';
+            }
+            //selected.setItems(areaList.options[areaList.selectedIndex].value, areaList.options[areaList.selectedIndex].text, "AreaOfConcernId", 1);
+            loadList(areaList, subAreaList, 1);
+        };
+        subAreaList.onchange = function (e) {
+            if (subAreaList.options[subAreaList.selectedIndex].className === 'true') {
+                subAreaList.style.borderColor = 'green';
+            } else {
+                subAreaList.style.borderColor = 'red';
+            }
+            //selected.setItems(subAreaList.options[subAreaList.selectedIndex].value, subAreaList.options[subAreaList.selectedIndex].text, "SubAreaOfConcernId", 1);
+            loadList(subAreaList, targetList, 2);
+        };
+        targetList.onchange = function (e) {
+            if (targetList.options[targetList.selectedIndex].className === 'true') {
+                targetList.style.borderColor = 'green';
+            } else {
+                targetList.style.borderColor = 'red';
+            }
+            //selected.setItems(targetList.options[targetList.selectedIndex].value, targetList.options[targetList.selectedIndex].text, "TargetId", 1);
+            loadList(targetList, rootList,3);
+        };
+        rootList.onchange = function (e) {
+            if (rootList.options[rootList.selectedIndex].className === 'true') {
+                rootList.style.borderColor = 'green';
+            } else {
+                rootList.style.borderColor = 'red';
+            }
+            //selected.setItems(rootList.options[rootList.selectedIndex].value, rootList.options[rootList.selectedIndex].text, "RootCauseId", 1);
+            loadList(rootList, focusList, 4);
+        };
+        focusList.onchange = function (e) {
+            if (focusList.options[focusList.selectedIndex].className === 'true') {
+                focusList.style.borderColor = 'green';
+            } else {
+                focusList.style.borderColor = 'red';
+            }
+            //selected.setItems(focusList.options[focusList.selectedIndex].value, focusList.options[focusList.selectedIndex].text, "LeveragePointId", 1);
+            loadList(focusList, actionList,5);
+        };
+        actionList.onchange = function (e) {
+            if (actionList.options[actionList.selectedIndex].className === 'true') {
+                actionList.style.borderColor = 'green';
+            } else {
+                actionList.style.borderColor = 'red';
+            }
+            //selected.setItems(actionList.options[actionList.selectedIndex].value, actionList.options[actionList.selectedIndex].text, 'ActionId', 6);
+        };
+    });
+
+    function createListItem(dataObject) {
+        var active = document.createElement("span");
+        if (dataObject.Active) {
+            active.style.color = 'blue';
+        } else {
+            active.style.color = 'red';
+        }
+        var wrapper = document.createElement("div");
+        var textdiv = document.createElement('div');
+        wrapper.appendChild(textdiv);
+        var infoDiv = document.createElement("div");
+        wrapper.appendChild(infoDiv);
+        var desc = document.createElement('span');
+        desc.textContent = dataObject.Description;
+        textdiv.appendChild(desc);
+        infoDiv.appendChild(active);
+        return wrapper.innerHTML;
+    }
+
+    function saveEdit() {
+        var newText = document.getElementById('lfsModalMessage').value;
+        var g = guid();
+        var input = { type: selected.getCollection()[0].ObjectType, Id: selected.getCollection()[0].ItemId, text: newText,active:selected.getCollection()[0].Active,guid:g };
+        $.ajax(
+                {
+                    url: '/LFS/saveEdit/',
+                    type: "GET",
+                    data: input,
+                    dataType: 'json',
+                    success: function (data) {
+                        switch (selected.getCollection()[0].ObjectType) {
+                            case "areaOfConcern":
+                                loadList(gList, areaList, 0);
+                                break;
+                            case "subAreaOfConcern":
+                                loadList(areaList, subAreaList, 1);
+                                break;
+                            case "target":
+                                loadList(subAreaList, targetList, 2);
+                                break;
+                            case "rootCause":
+                                loadList(targetList, rootList, 3);
+                                break;
+                            case "impFocus":
+                                loadList(rootList, loadList, 4);
+                                break;
+                            case "action":
+                                loadList(loadList, actionList, 5);
+                                break;
+                        }
+
+                    },
+                    error: function () {
+                    }
+                });
+    }
+    function resetLists(order) {
+        switch (order) {
+            case 0:
+                areaList.removeSelectOptionsExceptFirst();
+                subAreaList.removeSelectOptionsExceptFirst();
+                targetList.removeSelectOptionsExceptFirst();
+                rootList.removeSelectOptionsExceptFirst();
+                focusList.removeSelectOptionsExceptFirst();
+                actionList.removeSelectOptionsExceptFirst();
+                break;
+            case 1:
+                subAreaList.removeSelectOptionsExceptFirst();
+                targetList.removeSelectOptionsExceptFirst();
+                rootList.removeSelectOptionsExceptFirst();
+                focusList.removeSelectOptionsExceptFirst();
+                actionList.removeSelectOptionsExceptFirst();
+
+                break;
+            case 2:
+                //subAreaList.removeSelectOptionsExceptFirst();
+                targetList.removeSelectOptionsExceptFirst();
+                rootList.removeSelectOptionsExceptFirst();
+                focusList.removeSelectOptionsExceptFirst();
+                actionList.removeSelectOptionsExceptFirst();
+                break;
+            case 3:
+                //targetList.removeSelectOptionsExceptFirst();
+                rootList.removeSelectOptionsExceptFirst();
+                focusList.removeSelectOptionsExceptFirst();
+                actionList.removeSelectOptionsExceptFirst();
+                break;
+            case 4:
+                //rootList.removeSelectOptionsExceptFirst();
+                focusList.removeSelectOptionsExceptFirst();
+                actionList.removeSelectOptionsExceptFirst();
+                break;
+            case 5:
+                //focusList.removeSelectOptionsExceptFirst();
+                actionList.removeSelectOptionsExceptFirst();
+                break;
+            case 6:
+                //actionList.removeSelectOptionsExceptFirst();
+                break;
+
+        }
+    }
+    function loadList(type,child,order) {
+        //e.preventDefault();
+        var g = guid();
+        var input = { type: type.id, Id: type.value, guid:g };
+        $.ajax(
+                {
+                    url: '/LFS/GetDrillDownData/',
+                    type: "GET",
+                    data: input,
+                    dataType: 'json',
+                    success: function (data) {
+                        child.removeSelectOptionsExceptFirst();
+                        resetLists(order);
+                        for (var i = 0; i < data.SelectList.SelectList.length; i++) {
+                            var option = document.createElement('option');
+                            option.className = data.SelectList.SelectList[i].Active.toString();
+                            option.value = data.SelectList.SelectList[i].Id;
+                            option.innerHTML = createListItem(data.SelectList.SelectList[i]);
+                            child.appendChild(option);
+                        }
+                    },
+                    error: function () {
+                    }
+                });
+    }
+</script>

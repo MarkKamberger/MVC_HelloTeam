@@ -32,6 +32,13 @@ namespace SharpArch.Domain.PersistenceSupport
         void Save(T entity);
 
         /// <summary>
+        /// Saves the return id.
+        /// </summary>
+        /// <param name="entity">The entity.</param>
+        /// <returns></returns>
+        T SaveReturnEntity(T entity);
+
+        /// <summary>
         /// Saves  and evicts the specified object to the repository.
         /// from the session.
         /// </summary>

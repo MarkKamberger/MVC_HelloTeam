@@ -108,8 +108,7 @@ margin-right: auto;
 
 
 
-/*Modal Styles
-----------------------------------------------------------*/
+
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -132,6 +131,8 @@ margin-right: auto;
 
 .modal {
     position: fixed;
+    overflow: hidden;
+    height: 300px;
     top: 10%;
     left: 50%;
     z-index: 1050;
@@ -192,7 +193,11 @@ margin-right: auto;
     margin-bottom: 0;
 }
 
-.modal-footer {
+.modal-footer 
+{
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
     padding: 14px 15px 15px;
     margin-bottom: 0;
     text-align: right;
@@ -230,4 +235,48 @@ margin-right: auto;
 .modal-footer .btn-block + .btn-block {
     margin-left: 0;
 }
-/*END MODAL*/
+
+
+
+/*lfs edit Tool*/
+.LfsButton 
+{
+    background: #1e90ff;
+    margin-top: -8px;
+	margin-right: 10px;
+	padding: 5px 26px;
+	font-size: 14px;
+	line-height: 100%;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+	color: #fff;
+	display:inline-block;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background 0.1s ease-in-out;
+	-webkit-transition: background 0.1s ease-in-out;
+	-moz-transition: background 0.1s ease-in-out;
+	-ms-transition: background 0.1s ease-in-out;
+	-o-transition: background 0.1s ease-in-out;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	color: #fff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+.LfsEdit {
+    background: #4169e1;
+}
+.LfsCancel {
+    background: #ff6347;
+}
+.lfsTextEdit {
+    width: 100%;
+    font-size: 2em;
+    line-height: 1em;
+    border: 0;
+    height: 10em;
+
+}
