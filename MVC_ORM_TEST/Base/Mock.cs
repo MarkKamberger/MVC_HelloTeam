@@ -27,5 +27,11 @@ namespace MVC_ORM_TEST.Base
             return securityObject;
 
         }
+
+        public enum MockEnum
+        {
+            First,Second,Third,AndFourth
+            
+        }
     }
 }

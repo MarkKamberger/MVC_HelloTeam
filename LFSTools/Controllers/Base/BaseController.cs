@@ -44,10 +44,12 @@ namespace LFSTools
         {
             _securityService = securityService;
             _twaService = twaService;
-            _baseModel = new BaseModel();
-            _baseModel.ClientModel = new ClientModel();
-            _baseModel.NavigationLinks = new List<_Mvc_ListNavigationLinks>();
-            _baseModel.ENABLE_GLOBAL_CACHE = false;
+            _baseModel = new BaseModel
+                {
+                    ClientModel = new ClientModel(),
+                    NavigationLinks = new List<_Mvc_ListNavigationLinks>(),
+                    ENABLE_GLOBAL_CACHE = false
+                };
             if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["SFAFAppName"]))
                 _baseModel.SFAFAppName = ConfigurationManager.AppSettings["SFAFAppName"];
 

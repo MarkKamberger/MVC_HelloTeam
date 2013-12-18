@@ -30,9 +30,6 @@ namespace MVC_ORM_TEST.Base
             //NHibernateSession.Current.BeginTransaction();
             //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
         }
-
-
-
         /// <summary>
         /// Tears down.
         /// </summary>

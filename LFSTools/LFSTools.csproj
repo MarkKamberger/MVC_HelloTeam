@@ -183,10 +183,6 @@
     <Compile Include="Helpers\Converters.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Helpers\DateTimeHelpers.cs" />
-    <Compile Include="Helpers\Exporters.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Helpers\NumberHelpers.cs" />
     <Compile Include="Helpers\SecurityPermissionHelpers.cs" />
     <Compile Include="Helpers\StringHelpers.cs" />
