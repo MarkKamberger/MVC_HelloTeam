@@ -23,25 +23,29 @@ namespace LFSTools
         /// Called by the ASP.NET MVC framework before the action method executes.
         /// </summary>
         /// <param name="filterContext">The filter context.</param>
+        /// <remarks>Fist check if authenticated, then check role</remarks>
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            bool authenticated = false;
             var controller = filterContext.Controller as BaseController;
-            if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
+            var failAuthentication = !filterContext.HttpContext.User.Identity.IsAuthenticated;
+            if (failAuthentication)
             {
-                string loginUrl = FormsAuthentication.LoginUrl;
+                controller.Logout();
+                var loginUrl = FormsAuthentication.LoginUrl;// +redirectUrl;
                 filterContext.Result = new HttpUnauthorizedResult();
                 filterContext.HttpContext.Response.Redirect(loginUrl, true);
+                base.OnActionExecuting(filterContext);
             }
             else
             {
-                /*if (controller != null)
+                var authenticated = false;
+                if (controller.UserSecurityObject.Roles != null)
                 {
                     if (controller.UserSecurityObject.obj != null || controller.UserSecurityObject.Roles != null)
                     {
                         foreach (var thisObj in controller.UserSecurityObject.Roles)
                         {
-                            var securityObjectSso = (RoleSSO)thisObj;
+                            var securityObjectSso = (RoleSSO) thisObj;
                             if (securityObjectSso == Role)
                             {
                                 authenticated = true;
@@ -50,19 +54,22 @@ namespace LFSTools
                         }
                         if (!authenticated)
                         {
-                            //filterContext.Result = new HttpUnauthorizedResult();
+                            filterContext.Controller.TempData["Message"] = "Access Denied";
+                            filterContext.Result = new HttpUnauthorizedResult();
                         }
-                    } 
+                    }
                 }
-                if (!authenticated)
+                else
                 {
-                    string loginUrl = FormsAuthentication.LoginUrl;
+                    controller.Logout();
+                    var loginUrl = FormsAuthentication.LoginUrl;// +redirectUrl;
                     filterContext.Result = new HttpUnauthorizedResult();
                     filterContext.HttpContext.Response.Redirect(loginUrl, true);
-                }*/
-                
-                
+                    base.OnActionExecuting(filterContext);
+                }
             }
+
+           
         }
     }
 }

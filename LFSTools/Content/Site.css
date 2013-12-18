@@ -283,3 +283,18 @@ margin-right: auto;
     height: 10em;
 
 }
+
+#systemMessenger {
+    position: absolute;
+background: rgb(99, 185, 226);
+height: 50px;
+width: 500px;
+margin-left: -250px;
+left: 50%;
+top: -6%;
+z-index: 1515;
+text-align: center;
+line-height: 2em;
+font-size: 2.5em;
+    
+}

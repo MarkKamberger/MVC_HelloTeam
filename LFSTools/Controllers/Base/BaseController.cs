@@ -81,6 +81,7 @@ namespace LFSTools
                     _baseModel.NavigationLinks = Session["NavigationLinks"] as List<_Mvc_ListNavigationLinks>;
                     //string username = _baseModel.BusinessLogicObject.UserName;
                     _baseModel.ClientModel.IsLoggedIn = true;
+                    
                     ViewData["CurrentUser"] = Session["UserName"] as string;
                     ViewData["BaseModel"] = _baseModel;
 
@@ -90,7 +91,13 @@ namespace LFSTools
             }
             else
             {
-               
+               if (requestContext.HttpContext.User.Identity.IsAuthenticated)
+               {
+                   FormsAuthentication.SignOut();
+                   _presenter.ClearPresenterCache();
+                   string loginUrl = FormsAuthentication.LoginUrl;// +redirectUrl;
+                   HttpContext.Response.Redirect(loginUrl, true);
+               }
             }
             
         }
@@ -123,6 +130,7 @@ namespace LFSTools
         {
             FormsAuthentication.SignOut();
             _presenter.ClearPresenterCache();
+         
         }
 
         public bool LoginOrm(LoginInputModel inputViewModel)

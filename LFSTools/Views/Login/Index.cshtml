@@ -38,13 +38,13 @@
                         hideProcessing();
                         var message = data["Message"];
                         var success = Boolean(data["Success"]);
-                        if (!success) {
-                            alert(message);
-                        }
                         if (success) {
                             window.location.href = "/Home/";
+                        } else {
+                            sendSystemMessage(messageContent(4));
                         }
-
+                    }, error: function () {
+                        sendSystemMessage(messageContent(4));
                     }
                 });
                 });
@@ -63,13 +63,15 @@
                         hideProcessing();
                         var message = data["Message"];
                         var success = Boolean(data["Success"]);
-                        if (!success) {
-                            alert(message);
-                        }
                         if (success) {
                             window.location.href = "/Home/";
+                        } else {
+                            sendSystemMessage(messageContent(4));
                         }
 
+
+                    }, error: function () {
+                        sendSystemMessage(messageContent(4));
                     }
                 });
             });

@@ -178,9 +178,10 @@
                                 loadList(loadList, actionList, 5);
                                 break;
                         }
-
+                        sendSystemMessage(messageContent(0));
                     },
                     error: function () {
+                        sendSystemMessage(messageContent(2));
                     }
                 });
             }
@@ -215,9 +216,10 @@
                                 loadList(focusList, actionList, 5);
                                 break;
                         }
-
+                        sendSystemMessage(messageContent(1));
                     },
                     error: function () {
+                        sendSystemMessage(messageContent(2));
                     }
                 });
             }
@@ -286,7 +288,8 @@
                         child.selectedIndex = 0;
                         child.options[0].defaultSelected = true;
                     },
-                    error: function () {
+                    error: function (x) {
+                        sendSystemMessage(messageContent(2));
                     }
                 });
             }

@@ -23,7 +23,7 @@ namespace LFSTools
         {
             //redirect if not authenticated
             var controller = filterContext.Controller as BaseController;
-            bool failAuthentication = !filterContext.HttpContext.User.Identity.IsAuthenticated && (controller == null || controller.CurrentUser == null) || (controller.UserSecurityObject == null) == null;
+            bool failAuthentication = !filterContext.HttpContext.User.Identity.IsAuthenticated;
 
 
             if (failAuthentication)

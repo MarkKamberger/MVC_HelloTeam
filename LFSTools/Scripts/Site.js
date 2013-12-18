@@ -77,3 +77,16 @@ selectedObject = function() {
 };
 
 
+function sendSystemMessage(message) {
+    $("#systemMessage").text(message);
+    $('#systemMessenger').animate({ top: "0%" }, "fast");
+    setTimeout(function() {
+        $('#systemMessenger').animate({ top: "-6%" }, "fast");
+    }, 1500);
+    
+}
+
+messageContent = function (id) {
+    var messages = ["Saved", "Created New Item", "Invalid Permissions", "Welcome!!", "Invalid UserName/Password"];
+    return messages[id];
+};
