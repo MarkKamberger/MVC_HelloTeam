@@ -26,7 +26,15 @@ namespace LFSTools.Controllers.LFS
         public ActionResult Index()
         {
             var vm = new LfsViewModel {GuideTypes = {SelectList =  _lfsService.ListLFSGuideTypes().AsEnumerable()}};
-            return View("LFSEdit",vm);
+            if (Request.Browser.IsMobileDevice)
+            {
+                return View("MobileLFS", vm);
+            }
+            else
+            {
+                return View("LFSEdit", vm);
+            }
+           
         }
 
         [AcceptVerbs(HttpVerbs.Get),RequiresAuthentication, RequiresRole(Role = RoleSSO.MemberCenterUser)]

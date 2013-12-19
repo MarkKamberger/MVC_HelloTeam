@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.WebPages;
 using Castle.Windsor;
 using CommonServiceLocator.WindsorAdapter;
 using FluentNHibernate.Automapping;
@@ -74,6 +75,24 @@ namespace LFSTools
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //Bootstrapper.Initialise();
+            DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iphone")
+            {
+                ContextCondition = Context =>
+                                Context.Request.Browser["HardwareModel"] == "iPhone"
+            });
+
+            DisplayModeProvider.Instance.Modes.Insert(1, new DefaultDisplayMode("android")
+            {
+                ContextCondition = Context =>
+                                Context.Request.Browser["PlatformName"] == "Android"
+            });
+
+            DisplayModeProvider.Instance.Modes.Insert(2, new DefaultDisplayMode("mobile")
+            {
+                ContextCondition = Context =>
+                                Context.Request.Browser["IsMobile"] == "True"
+            });
+
         }
 
         #region Protected / Private Methods

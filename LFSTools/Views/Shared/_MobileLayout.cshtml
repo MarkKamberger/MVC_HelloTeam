@@ -1,0 +1,21 @@
+﻿@using LFSTools.Models
+@{
+    ViewBag.Title = "MobileNavbar";
+
+}
+<!DOCTYPE html> 
+    
+    @Html.Partial("MobileHeader")
+
+    <body class="@ViewBag.BodyClass">
+
+        @Html.Partial("MobileNavbar")
+
+        <div id="main">
+            <div class="container">
+               
+                @RenderBody()
+            </div>
+        </div>
+    </body>
+</html>

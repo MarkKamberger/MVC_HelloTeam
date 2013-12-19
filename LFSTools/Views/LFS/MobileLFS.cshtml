@@ -1,0 +1,344 @@
+﻿@using LFSTools.Models
+@using DomainLayer.LFSTools
+@model LFSTools.Models.LFSModels.LfsViewModel
+@{
+    ViewBag.Title = "MobileLFS";
+    Layout = "~/Views/Shared/_MobileLayout.cshtml";
+}
+
+<h2>LFS Editor Mobile...</h2>
+<div id="editmodal" class="modalMobile">
+    <div class="modal-body" id='modalMessage'>
+        <textarea id="lfsModalMessage" class="lfsTextEditMobile" rows="5" spellcheck="true" wrap="true" ></textarea>
+        
+    </div>
+    <div class="modal-footer">
+        <button id="saveEdit" class="smallButton"  onclick="saveEdit();">
+            Save</button>
+        <button id="activateLfs" class="smallButton lfsActivate">
+            Activate</button>
+        <button id="activateLfs" class="smallButton LfsCancel" onclick="hideModal();">
+            Cancel</button>
+    </div>
+</div>
+@Html.DropDownListFor(x => x.GuideTypes.SelectedItemId, new SelectList(Model.GuideTypes.SelectList, "CategoryId", "ShortTitle"), "Select a type", new { id = "guideType" })
+<div>
+     <br/>
+    <select id="areaOfConcern" class="lfsSelectListMobile">
+        <option value="" disabled selected="selected">Aarea Of concern...</option>
+    </select>
+    <br/>
+    <input type="button" value="Edit" class="LfsButton LfsEdit mobileButton" onclick="ShowModal('editmodal',document.getElementById('areaOfConcern'));" /><input
+                                                                                                                                                    type="button" value="Add+" class="LfsButton mobileButton" onclick="ShowCreateNewModal('editmodal',document.getElementById('areaOfConcern'));" />
+    <br/>
+    <select id="subAreaOfConcern" class="lfsSelectListMobile">
+        <option value="" disabled selected="selected">Sub Aarea Of Concern...</option>
+    </select>
+    <br/>
+    <input type="button" value="Edit" class="LfsButton LfsEdit mobileButton" onclick="ShowModal('editmodal',document.getElementById('subAreaOfConcern'));" /><input
+                                                                                                                                                       type="button" value="Add+" class="LfsButton mobileButton" onclick="ShowCreateNewModal('editmodal',document.getElementById('subAreaOfConcern'));"/>
+    <br/>
+    <select id="target" class="lfsSelectListMobile">
+        <option value="" disabled selected="selected">SMARTS Target...</option>
+    </select>
+    <br/>
+    <input type="button" value="Edit" class="LfsButton LfsEdit mobileButton" onclick="ShowModal('editmodal',document.getElementById('target'));" /><input
+                                                                                                                                             type="button" value="Add+" class="LfsButton mobileButton" onclick="ShowCreateNewModal('editmodal',document.getElementById('target'));"/>
+    <br/>
+    <select id="rootCause" class="lfsSelectListMobile">
+        <option value="" disabled selected="selected">Root Cause...</option>
+    </select>
+    <br/>
+    <input type="button" value="Edit" class="LfsButton LfsEdit mobileButton" onclick="ShowModal('editmodal',document.getElementById('rootCause'));" /><input
+                                                                                                                                                type="button" value="Add+" class="LfsButton mobileButton" onclick="ShowCreateNewModal('editmodal',document.getElementById('rootCause'));"/>
+    <br/>
+    <select id="impFocus" class="lfsSelectListMobile">
+        <option value="" disabled selected="selected">Implementation Focus...</option>
+    </select>
+    <br/>
+    <input type="button" value="Edit" class="LfsButton LfsEdit mobileButton" onclick="ShowModal('editmodal',document.getElementById('impFocus'));" /><input
+                                                                                                                                               type="button" value="Add+" class="LfsButton mobileButton" onclick="ShowCreateNewModal('editmodal',document.getElementById('impFocus'));"/>
+    <br/>
+    <select id="action" class="lfsSelectListMobile">
+        <option value="" disabled selected="selected">Action(s)...</option>
+    </select>
+    <br/>
+    <input type="button" value="Edit" class="LfsButton LfsEdit mobileButton" onclick="ShowModal('editmodal',document.getElementById('action'));" /><input
+                                                                                                                                             type="button" value="Add+" class="LfsButton mobileButton" onclick="ShowCreateNewModal('editmodal',document.getElementById('action'));"/>
+</div>
+<style>
+    
+</style>
+<script type="text/javascript">
+    var selectedObject;
+    var selectedId;
+    var selected = new selectedObject;
+    var gList;
+    var areaList;
+    var subAreaList;
+    var targetList;
+    var rootList;
+    var focusList;
+    var actionList;
+    $(function () {
+        gList = document.getElementById('guideType');
+        areaList = document.getElementById("areaOfConcern");
+        subAreaList = document.getElementById("subAreaOfConcern");
+        targetList = document.getElementById("target");
+        rootList = document.getElementById("rootCause");
+        focusList = document.getElementById("impFocus");
+        actionList = document.getElementById("action");
+        gList.onchange = function (e) {
+            loadList(gList, areaList, 0);
+        };
+        areaList.onchange = function (e) {
+            areaList.style.borderColor = borderColor(areaList.options[areaList.selectedIndex].className);
+            loadList(areaList, subAreaList, 1);
+        };
+        subAreaList.onchange = function (e) {
+            subAreaList.style.borderColor = borderColor(subAreaList.options[subAreaList.selectedIndex].className);
+            loadList(subAreaList, targetList, 2);
+        };
+        targetList.onchange = function (e) {
+            targetList.style.borderColor = borderColor(targetList.options[targetList.selectedIndex].className);
+            loadList(targetList, rootList, 3);
+        };
+        rootList.onchange = function (e) {
+            rootList.style.borderColor = borderColor(rootList.options[rootList.selectedIndex].className);
+            loadList(rootList, focusList, 4);
+        };
+        focusList.onchange = function (e) {
+            focusList.style.borderColor = borderColor(focusList.options[focusList.selectedIndex].className);
+            loadList(focusList, actionList, 5);
+        };
+        actionList.onchange = function (e) {
+            actionList.style.borderColor = borderColor(actionList.options[actionList.selectedIndex].className);
+        };
+    });
+    function saveEdit() {
+        var newText = document.getElementById('lfsModalMessage').value;
+        var g = guid();
+        var input = { type: selected.getCollection()[0].ObjectType, Id: selected.getCollection()[0].ItemId, text: newText, active: selected.getCollection()[0].Active, guid: g };
+        $.ajax(
+                {
+                    url: '/LFS/SaveEdit/',
+                    type: "GET",
+                    data: input,
+                    dataType: 'json',
+                    success: function (data) {
+                        switch (selected.getCollection()[0].ObjectType) {
+                            case "areaOfConcern":
+                                loadList(gList, areaList, 0);
+                                break;
+                            case "subAreaOfConcern":
+                                loadList(areaList, subAreaList, 1);
+                                break;
+                            case "target":
+                                loadList(subAreaList, targetList, 2);
+                                break;
+                            case "rootCause":
+                                loadList(targetList, rootList, 3);
+                                break;
+                            case "impFocus":
+                                loadList(rootList, loadList, 4);
+                                break;
+                            case "action":
+                                loadList(loadList, actionList, 5);
+                                break;
+                        }
+                        document.getElementById('editmodal').style.display = "none";
+                    },
+                    error: function () {
+                        
+                    }
+                });
+    }
+    function createNew() {
+        var newText = document.getElementById('lfsModalMessage').value;
+        var g = guid();
+        var input = { type: selected.getCollection()[0].ObjectType, Id: selected.getCollection()[0].ItemId, text: newText, active: selected.getCollection()[0].Active, guid: g };
+        $.ajax(
+                {
+                    url: '/LFS/CreateNew/',
+                    type: "GET",
+                    data: input,
+                    dataType: 'json',
+                    success: function (data) {
+                        switch (selected.getCollection()[0].ObjectType) {
+                            case "areaOfConcern":
+                                loadList(gList, areaList, 0);
+                                break;
+                            case "subAreaOfConcern":
+                                loadList(areaList, subAreaList, 1);
+                                break;
+                            case "target":
+                                loadList(subAreaList, targetList, 2);
+                                break;
+                            case "rootCause":
+                                loadList(targetList, rootList, 3);
+                                break;
+                            case "impFocus":
+                                loadList(rootList, focusList, 4);
+                                break;
+                            case "action":
+                                loadList(focusList, actionList, 5);
+                                break;
+                        }
+                        document.getElementById('editmodal').style.display = "none";
+                    },
+                    error: function () {
+                       
+                    }
+                });
+    }
+    function resetLists(order) {
+        switch (order) {
+            case 0:
+                areaList.removeSelectOptionsExceptFirst();
+                subAreaList.removeSelectOptionsExceptFirst();
+                targetList.removeSelectOptionsExceptFirst();
+                rootList.removeSelectOptionsExceptFirst();
+                focusList.removeSelectOptionsExceptFirst();
+                actionList.removeSelectOptionsExceptFirst();
+                break;
+            case 1:
+                subAreaList.removeSelectOptionsExceptFirst();
+                targetList.removeSelectOptionsExceptFirst();
+                rootList.removeSelectOptionsExceptFirst();
+                focusList.removeSelectOptionsExceptFirst();
+                actionList.removeSelectOptionsExceptFirst();
+
+                break;
+            case 2:
+                targetList.removeSelectOptionsExceptFirst();
+                rootList.removeSelectOptionsExceptFirst();
+                focusList.removeSelectOptionsExceptFirst();
+                actionList.removeSelectOptionsExceptFirst();
+                break;
+            case 3:
+                rootList.removeSelectOptionsExceptFirst();
+                focusList.removeSelectOptionsExceptFirst();
+                actionList.removeSelectOptionsExceptFirst();
+                break;
+            case 4:
+                focusList.removeSelectOptionsExceptFirst();
+                actionList.removeSelectOptionsExceptFirst();
+                break;
+            case 5:
+                actionList.removeSelectOptionsExceptFirst();
+                break;
+            case 6:
+                break;
+
+        }
+    }
+    function loadList(type, child, order) {
+        var g = guid();
+        var input = { type: type.id, Id: type.value, guid: g };
+        $.ajax(
+                {
+                    url: '/LFS/GetDrillDownData/',
+                    type: "GET",
+                    data: input,
+                    dataType: 'json',
+                    success: function (data) {
+                        child.removeSelectOptionsExceptFirst();
+                        resetLists(order);
+                        for (var i = 0; i < data.SelectList.SelectList.length; i++) {
+                            var option = document.createElement('option');
+                            if (data.SelectList.SelectList[i].Active == 'false') {
+                                option.style.backgroundColor = "red";
+                            }
+                            option.className = data.SelectList.SelectList[i].Active.toString();
+                            option.value = data.SelectList.SelectList[i].Id;
+                            option.innerText = data.SelectList.SelectList[i].Description; //createListItem(data.SelectList.SelectList[i]);
+                            child.appendChild(option);
+                        }
+                        child.value = parseInt(type.value);
+                        child.name = parseInt(type.value);
+                        child.selectedIndex = 0;
+                        child.options[0].defaultSelected = true;
+                    },
+                    error: function (x) {
+
+                    }
+                });
+    }
+
+
+
+    function createListItem(dataObject) {
+        var desc = document.createElement('span');
+        desc.textContent = dataObject.Description;
+        return desc.innerHTML;
+    }
+    function ShowModal(id, elem) {
+
+        if (elem.selectedIndex > 0) {
+            document.getElementById('saveEdit').onclick = function () {
+                saveEdit();
+            };
+            var active = true;
+            var activeButton = document.getElementById("activateLfs");
+            activeButton.style.display = 'inline';
+            if (elem.options[elem.selectedIndex].className === "false") {
+                active = false;
+                activeButton.innerText = "Activate";
+                activeButton.onclick = function () {
+                    activateButton(activeButton);
+                };
+
+            } else {
+
+                active = true;
+                activeButton.innerText = "Deactivate";
+                activeButton.onclick = function () {
+                    deactivateButton(activeButton);
+                };
+
+            }
+
+            selected.setItems(elem.options[elem.selectedIndex].value, elem.options[elem.selectedIndex].text, elem.id, 1, active);
+            window.selectedObject = elem;
+            document.getElementById('lfsModalMessage').value = elem.options[elem.selectedIndex].text;
+            document.getElementById('editmodal').style.display = "inline";
+        }
+    }
+    function ShowCreateNewModal(id, elem) {
+        document.getElementById('saveEdit').onclick = function () {
+            createNew();
+        };
+        var activeButton = document.getElementById("activateLfs");
+        activeButton.style.display = 'none';
+        selected.setItems(elem.name, "", elem.id, 1, false);
+        window.selectedObject = elem;
+        document.getElementById('lfsModalMessage').value = "";
+        document.getElementById('editmodal').style.display = "inline";
+
+    }
+
+    function activateButton(elemBtn) {
+        elemBtn.innerText = "Deactivate";
+        selected.setActive(true);
+        elemBtn.onclick = function () {
+            deactivateButton(elemBtn);
+        };
+
+    }
+    function deactivateButton(elemBtnb) {
+        elemBtnb.innerText = "Activate";
+        selected.setActive(false);
+        elemBtnb.onclick = function () {
+            activateButton(elemBtnb);
+        };
+
+    }
+    function hideModal() {
+
+        document.getElementById('editmodal').style.display = "none";
+    }
+    function showModal() {
+
+    }
+</script>
+

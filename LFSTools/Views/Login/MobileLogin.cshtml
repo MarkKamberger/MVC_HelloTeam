@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "MobileLogin";
+    Layout = "~/Views/Shared/_MobileLayout.cshtml";
+}
+
+<h2>Hello Mobile User!</h2>
+<div class="loginNav">
+    <dl>
+        <dt><input id="userNameInput" type="text" placeholder="User Name"/></dt>
+        <dt><input id="passwordInput" type="password" placeholder="Password"/></dt>
+        <dt><input id="loginOrm" type="button" class="loginButton " value="Login"/></dt>
+    </dl>
+         
+</div>
+<style>
+
+</style>
+        <script type="text/javascript">
+            $(function () {
+                $(document).keydown(function (event) {
+                    switch (event.keyCode) {
+                        case 13:
+                            $('#loginOrm').click();
+                            break;
+                    }
+                });
+
+                $('#postLogin').click(function (e) {
+                    showProcessing();
+                    e.preventDefault();
+                    var p = { UserName: $('#userNameInput').val(), Password: $('#passwordInput').val() };
+                    $.ajax(
+                {
+                    url: '/Login/UserLogin',
+                    type: "POST",
+                    data: p,
+                    dataType: 'json',
+                    success: function (data) {
+                        hideProcessing();
+                        var message = data["Message"];
+                        var success = Boolean(data["Success"]);
+                        if (success) {
+                            window.location.href = "/Home/";
+                        } else {
+                            sendSystemMessage(messageContent(4));
+                        }
+                    }, error: function () {
+                        sendSystemMessage(messageContent(4));
+                    }
+                });
+                });
+
+                $('#loginOrm').click(function (e) {
+                    showProcessing();
+                    e.preventDefault();
+                    var p = { UserName: $('#userNameInput').val(), Password: $('#passwordInput').val() };
+                    $.ajax(
+                {
+                    url: '/Login/UserLoginMethodOrm',
+                    type: "POST",
+                    data: p,
+                    dataType: 'json',
+                    success: function (data) {
+                        hideProcessing();
+                        var message = data["Message"];
+                        var success = Boolean(data["Success"]);
+                        if (success) {
+                            window.location.href = "/Home/";
+                        } else {
+                            alert("Invalid username/password");
+                            //sendSystemMessage(messageContent(4));
+                        }
+
+
+                    }, error: function () {
+                        alert("Invalid username/password");
+                        //sendSystemMessage(messageContent(4));
+                    }
+                });
+                });
+            });
+</script>

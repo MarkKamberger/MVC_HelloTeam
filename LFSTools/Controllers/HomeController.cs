@@ -28,7 +28,15 @@ namespace LFSTools.Controllers
         [RequiresAuthentication]
         public ActionResult Index()
         {
-            return View();
+            if (Request.Browser.IsMobileDevice)
+            {
+                return View("MobileHome");
+            }
+            else
+            {
+                return View();
+            }
+           
         }
 
     }

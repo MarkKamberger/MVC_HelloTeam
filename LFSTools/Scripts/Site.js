@@ -46,12 +46,22 @@ function S4() {
 function guid() {
     return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 }
+function sendSystemMessage(message) {
+    $("#systemMessage").text(message);
+    $('#systemMessenger').animate({ top: "0%" }, "fast");
+    setTimeout(function() {
+        $('#systemMessenger').animate({ top: "-30%" }, "fast");
+    }, 1500);
+    
+}
 
-
-
-selectedObject = function() {
+messageContent = function (id) {
+    var messages = ["Saved", "Created New Item", "Invalid Permissions", "Welcome!!", "Invalid UserName/Password"];
+    return messages[id];
+};
+selectedObject = function () {
     var items = [],
-        setItems = function(itemId, text, objectType, order, active) {
+        setItems = function (itemId, text, objectType, order, active) {
             items = [];
             items.push({
                 ItemId: itemId,
@@ -61,10 +71,10 @@ selectedObject = function() {
                 Active: active
             });
         },
-        getCollection = function() {
+        getCollection = function () {
             return items;
         },
-        setActive = function(active) {
+        setActive = function (active) {
             items[0].Active = active;
         };
 
@@ -75,18 +85,10 @@ selectedObject = function() {
         setActive: setActive
     };
 };
-
-
-function sendSystemMessage(message) {
-    $("#systemMessage").text(message);
-    $('#systemMessenger').animate({ top: "0%" }, "fast");
-    setTimeout(function() {
-        $('#systemMessenger').animate({ top: "-6%" }, "fast");
-    }, 1500);
-    
+function borderColor(isTrue) {
+    var retVal = 'red';
+    if (isTrue === 'true') {
+        retVal = 'green';
+    }
+    return retVal;
 }
-
-messageContent = function (id) {
-    var messages = ["Saved", "Created New Item", "Invalid Permissions", "Welcome!!", "Invalid UserName/Password"];
-    return messages[id];
-};

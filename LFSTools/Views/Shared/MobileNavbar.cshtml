@@ -1,0 +1,89 @@
+﻿@using LFSTools.Models
+@using LFSTools.BaseModels
+@using NavigationType = DomainLayer.NavigationModels.NavigationType
+
+@{
+    ViewBag.Title = "MobileNavbar";
+    var viewModel = (BaseModel)ViewData["BaseModel"];
+}
+
+<div class="mobileNav">
+
+           @if (@viewModel.ClientModel.IsLoggedIn)
+           {
+               <div class="userName">
+                   <a id="currentUserName">Welcome Back!  @viewModel.ClientModel.UserName</a>
+                   <input id="postLogOut"  class="standardButton" type="button" value="Logout" /> 
+               </div>
+               <select id="navSelectList" class="navSelect" onChange=' location.href = this.value '>
+                   <option disabled="disabled" selected="selected">Navigation...</option>
+                   @foreach (var link in viewModel.NavigationLinks)
+                   {
+                       if (link.TypeId == NavigationType.Link)
+                       {
+                          <option value="@link.Url">@link.Name</option>
+                       }
+                        if (@link.TypeId == NavigationType.Dropdown)
+                       {
+                            <option value="">@link.Name ...</option>
+                            foreach (var child in link.NavigationChildren)
+                            {
+                                   <option value="@child.Url">... @child.Name</option>
+                            }
+                       }
+
+                   }
+               </select>
+
+
+           }
+           
+        
+ 
+</div>
+<div class="container">
+    
+</div>
+<div id="showProcessing" class="processingAlertHide">
+    <div>
+        <img src="../../Content/images/SFAFAnimationProcessing.gif"/>
+    </div>
+</div>
+<div id="systemMessenger">
+    <span id="systemMessage"></span>
+</div>
+
+
+<style type="text/css">
+   
+</style>
+<script type="text/javascript">
+    $(".navSelect").change(function () {
+        location.href = $(this).val();
+    });
+    $(function () {
+        $('.dropdown-toggle').click();
+        $('#postLogOut').click(function (e) {
+            showProcessing();
+            e.preventDefault();
+            $.ajax(
+                {
+                    url: '/Login/UserLogOut',
+                    type: "POST",
+                    dataType: 'json',
+                    success: function (data) {
+                        hideProcessing();
+                        var message = data["Message"];
+                        var success = Boolean(data["Success"]);
+                        if (!success) {
+                            
+                        }
+                        if (success) {
+                            window.location.href = "/Login";
+                        }
+                    }
+                });
+        });
+    });
+
+</script>

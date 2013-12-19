@@ -25,6 +25,7 @@ namespace LFSTools.Controllers.Security
         private readonly ISecurityService _securityService;
          public LoginController(ITWAService twaService, ISecurityService securityService) : base(ServiceFactory.CreateSecurityService(),ServiceFactory.CreateTWAService())
          {
+             
             _twaService = twaService;
             _securityObject = new StrongSecurityObject();
              _securityService = securityService;
@@ -35,7 +36,15 @@ namespace LFSTools.Controllers.Security
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            if (Request.Browser.IsMobileDevice )
+            {
+                return View("MobileLogin");
+            }
+            else
+            {
+                return View();
+            }
+          
         }
 
         /// <summary>
