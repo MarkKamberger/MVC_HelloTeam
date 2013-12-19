@@ -101,3 +101,4 @@ C:\Development\Projects\MvcHelloTeam\MvcHelloTeam\bin\Microsoft.Practices.Enterp
 C:\Development\Projects\MvcHelloTeam\MvcHelloTeam\obj\Debug\MvcHelloTeam.csprojResolveAssemblyReference.cache
 C:\Development\Projects\MvcHelloTeam\MvcHelloTeam\obj\Debug\MvcHelloTeam.dll
 C:\Development\Projects\MvcHelloTeam\MvcHelloTeam\obj\Debug\MvcHelloTeam.pdb
+C:\Development\Projects\MvcHelloTeam\MvcHelloTeam\bin\MvcHelloTeam.dll.config

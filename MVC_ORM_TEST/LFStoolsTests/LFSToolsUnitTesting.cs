@@ -1,10 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using LFSTools;
-using LFSTools.Helpers;
+﻿using LFSTools;
 using MVC_ORM_TEST.Base;
 
 using NUnit.Framework;

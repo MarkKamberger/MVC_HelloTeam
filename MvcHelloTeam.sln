@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcHelloTeam", "MvcHelloTeam\MvcHelloTeam.csproj", "{ACCB5700-9F51-482B-AD69-42FB1A489DA6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SALIDataAccess", "..\Intranet\SALI\SALIDataAccess\SALIDataAccess\SALIDataAccess.csproj", "{9E4F2CD2-C2BE-4C54-ADF3-80433339E5CD}"
@@ -50,84 +52,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFSTools", "LFSTools\LFSTools.csproj", "{3755B58C-8F4C-4007-98B7-B4FD43011338}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 25
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://sfa-tfs01:8080/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = ..\\Intranet\\SALI\\SALIDataAccess\\SALIDataAccess\\SALIDataAccess.csproj
-		SccProjectName1 = ../../SALI/SALIDataAccess/SALIDataAccess
-		SccLocalPath1 = ..\\Intranet\\SALI\\SALIDataAccess\\SALIDataAccess
-		SccProjectUniqueName2 = ..\\Intranet\\SALI\\SALIBusinessLogic\\SALIBusinessLogic.csproj
-		SccProjectName2 = ../../SALI/SALIBusinessLogic
-		SccLocalPath2 = ..\\Intranet\\SALI\\SALIBusinessLogic
-		SccProjectUniqueName3 = ..\\Intranet\\SALI\\SALIBaseClasses\\SALIBaseClasses.csproj
-		SccProjectName3 = ../../SALI/SALIBaseClasses
-		SccLocalPath3 = ..\\Intranet\\SALI\\SALIBaseClasses
-		SccProjectUniqueName4 = ..\\Intranet\\SALI\\SALIEnums\\SALIEnums\\SALIEnums.csproj
-		SccProjectName4 = ../../SALI/SALIEnums/SALIEnums
-		SccLocalPath4 = ..\\Intranet\\SALI\\SALIEnums\\SALIEnums
-		SccProjectUniqueName5 = ..\\Intranet\\SALI\\SALIInterfaces\\SALIInterfaces.csproj
-		SccProjectName5 = ../../SALI/SALIInterfaces
-		SccLocalPath5 = ..\\Intranet\\SALI\\SALIInterfaces
-		SccProjectUniqueName6 = ..\\Intranet\\SALI\\SALIObjects\\ClassLibrary1\\SALIObjects.csproj
-		SccProjectName6 = ../../SALI/SALIObjects/ClassLibrary1
-		SccLocalPath6 = ..\\Intranet\\SALI\\SALIObjects\\ClassLibrary1
-		SccProjectUniqueName7 = ..\\Intranet\\SALI\\SFAFGlobalConstants\\SFAFGlobalObjects.csproj
-		SccProjectName7 = ../../SALI/SFAFGlobalConstants
-		SccLocalPath7 = ..\\Intranet\\SALI\\SFAFGlobalConstants
-		SccProjectUniqueName8 = ..\\Intranet\\SALI\\SFAFUtilityObjects\\SFAFUtilityObjects.csproj
-		SccProjectName8 = ../../SALI/SFAFUtilityObjects
-		SccLocalPath8 = ..\\Intranet\\SALI\\SFAFUtilityObjects
-		SccProjectUniqueName9 = ..\\Intranet\\SALI\\SALISecurityObjects\\SALISecurityObjects\\SALISecurityObjects.csproj
-		SccProjectName9 = ../../SALI/SALISecurityObjects/SALISecurityObjects
-		SccLocalPath9 = ..\\Intranet\\SALI\\SALISecurityObjects\\SALISecurityObjects
-		SccProjectUniqueName10 = ..\\Intranet\\SALI\\SFAFDataExtraction\\SFAFDataExtraction.csproj
-		SccProjectName10 = ../../SALI/SFAFDataExtraction
-		SccLocalPath10 = ..\\Intranet\\SALI\\SFAFDataExtraction
-		SccProjectUniqueName11 = ..\\Intranet\\SALI\\SFABaseClasses\\SFABaseClasses\\SFABaseClasses.csproj
-		SccProjectName11 = ../../SALI/SFABaseClasses/SFABaseClasses
-		SccLocalPath11 = ..\\Intranet\\SALI\\SFABaseClasses\\SFABaseClasses
-		SccProjectUniqueName12 = DomainLayer\\DomainLayer.csproj
-		SccProjectName12 = DomainLayer
-		SccLocalPath12 = DomainLayer
-		SccProjectUniqueName13 = Infrastructure\\Infrastructure.csproj
-		SccProjectName13 = Infrastructure
-		SccLocalPath13 = Infrastructure
-		SccProjectUniqueName14 = MVC_ORM_TEST\\MVC_ORM_TEST.csproj
-		SccProjectName14 = MVC_ORM_TEST
-		SccLocalPath14 = MVC_ORM_TEST
-		SccProjectUniqueName15 = MvcHelloTeam\\MvcHelloTeam.csproj
-		SccProjectName15 = MvcHelloTeam
-		SccLocalPath15 = MvcHelloTeam
-		SccProjectUniqueName16 = Services\\Services.csproj
-		SccProjectName16 = Services
-		SccLocalPath16 = Services
-		SccProjectUniqueName17 = MvcPrototype\\MvcPrototype.csproj
-		SccProjectName17 = MvcPrototype
-		SccLocalPath17 = MvcPrototype
-		SccProjectUniqueName18 = Mvc01Modeling\\Mvc01Modeling.modelproj
-		SccProjectName18 = Mvc01Modeling
-		SccLocalPath18 = Mvc01Modeling
-		SccProjectUniqueName19 = SharpArch.Domain\\SharpArch.Domain.csproj
-		SccProjectName19 = SharpArch.Domain
-		SccLocalPath19 = SharpArch.Domain
-		SccProjectUniqueName20 = SharpArch.NHibernate\\SharpArch.NHibernate.csproj
-		SccProjectName20 = SharpArch.NHibernate
-		SccLocalPath20 = SharpArch.NHibernate
-		SccProjectUniqueName21 = SharpArch.Testing.NUnit\\SharpArch.Testing.NUnit.csproj
-		SccProjectName21 = SharpArch.Testing.NUnit
-		SccLocalPath21 = SharpArch.Testing.NUnit
-		SccProjectUniqueName22 = SharpArch.Web.Mvc\\SharpArch.Web.Mvc.csproj
-		SccProjectName22 = SharpArch.Web.Mvc
-		SccLocalPath22 = SharpArch.Web.Mvc
-		SccProjectUniqueName23 = SharpArch.Wcf\\SharpArch.Wcf.csproj
-		SccProjectName23 = SharpArch.Wcf
-		SccLocalPath23 = SharpArch.Wcf
-		SccProjectUniqueName24 = LFSTools\\LFSTools.csproj
-		SccProjectName24 = LFSTools
-		SccLocalPath24 = LFSTools
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
