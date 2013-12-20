@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DomainLayer;
 using DomainLayer.LFSTools;
+using LFSTools.Attributes;
 using LFSTools.Models.GenericModels;
 using LFSTools.Models.LFSModels;
 using LFSTools.Providers;
@@ -22,7 +23,7 @@ namespace LFSTools.Controllers.LFS
             _lfsService = lfsService;
         }
 
-        [RequiresAuthentication, RequiresRole(Role = RoleSSO.MemberCenterUser)]
+        [RequiresAuthenticationAttribute, RequiresRole(Role = RoleSSO.MemberCenterUser)]
         public ActionResult Index()
         {
             var vm = new LfsViewModel {GuideTypes = {SelectList =  _lfsService.ListLFSGuideTypes().AsEnumerable()}};
@@ -37,9 +38,10 @@ namespace LFSTools.Controllers.LFS
            
         }
 
-        [AcceptVerbs(HttpVerbs.Get),RequiresAuthentication, RequiresRole(Role = RoleSSO.MemberCenterUser)]
+        [AcceptVerbs(HttpVerbs.Get), RequiresAuthenticationAttribute, RequiresRole(Role = RoleSSO.MemberCenterUser)]
         public ActionResult GetDrillDownData(string type,int Id)
         {
+            
             var vm = new LfsViewModel();
             var filter = new LfsQueryFilter();
             switch (type)
@@ -115,7 +117,7 @@ namespace LFSTools.Controllers.LFS
         }
 
 
-        [AcceptVerbs(HttpVerbs.Get), RequiresAuthentication, RequiresRole(Role = RoleSSO.MemberCenterUser)]
+        [AcceptVerbs(HttpVerbs.Get), RequiresAuthenticationAttribute, RequiresRole(Role = RoleSSO.MemberCenterUser)]
         public ActionResult SaveEdit(string type, int id, string text, bool active)
         {
             var vm = new GenericViewModel(); 
@@ -175,7 +177,7 @@ namespace LFSTools.Controllers.LFS
             return Json(vm, JsonRequestBehavior.AllowGet);
         }
 
-        [AcceptVerbs(HttpVerbs.Get), RequiresAuthentication, RequiresRole(Role = RoleSSO.MemberCenterUser)]
+        [AcceptVerbs(HttpVerbs.Get), RequiresAuthenticationAttribute, RequiresRole(Role = RoleSSO.MemberCenterUser)]
         public ActionResult CreateNew(string type, int id, string text, bool active)
         {
             var vm = new GenericViewModel();

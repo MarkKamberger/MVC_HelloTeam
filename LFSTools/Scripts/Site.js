@@ -98,3 +98,15 @@ function borderColor(isTrue) {
     }
     return retVal;
 }
+
+function ajaxRequestFail(data) {
+    
+    window.location.href = data.Url;
+    setTimeout(function() {
+        sendSystemMessage(data.Message);
+    }, 200);
+}
+function ajaxMobileRequestFail(data) {
+    
+    window.location.href = data.Url;
+}

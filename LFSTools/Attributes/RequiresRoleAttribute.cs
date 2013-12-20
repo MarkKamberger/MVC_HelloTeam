@@ -31,33 +31,21 @@ namespace LFSTools
             if (failAuthentication)
             {
                 controller.Logout();
-                var loginUrl = FormsAuthentication.LoginUrl;// +redirectUrl;
                 filterContext.Result = new HttpUnauthorizedResult();
-                filterContext.HttpContext.Response.Redirect(loginUrl, true);
-                base.OnActionExecuting(filterContext);
             }
             else
             {
                 var authenticated = false;
                 if (controller.UserSecurityObject.Roles != null)
                 {
-                    if (controller.UserSecurityObject.obj != null || controller.UserSecurityObject.Roles != null)
+                    if (controller.UserSecurityObject.obj == null && controller.UserSecurityObject.Roles == null) return;
+                    foreach (var securityObjectSso in controller.UserSecurityObject.Roles.Select(thisObj => (RoleSSO)thisObj).Where(securityObjectSso => securityObjectSso == Role))
                     {
-                        foreach (var thisObj in controller.UserSecurityObject.Roles)
-                        {
-                            var securityObjectSso = (RoleSSO) thisObj;
-                            if (securityObjectSso == Role)
-                            {
-                                authenticated = true;
-                            }
-
-                        }
-                        if (!authenticated)
-                        {
-                            filterContext.Controller.TempData["Message"] = "Access Denied";
-                            filterContext.Result = new HttpUnauthorizedResult();
-                        }
+                        authenticated = true;
                     }
+                    if (authenticated) return;
+                    filterContext.Controller.TempData["Message"] = "Access Denied";
+                    filterContext.Result = new HttpUnauthorizedResult();
                 }
                 else
                 {
@@ -66,9 +54,8 @@ namespace LFSTools
                     filterContext.Result = new HttpUnauthorizedResult();
                     filterContext.HttpContext.Response.Redirect(loginUrl, true);
                     base.OnActionExecuting(filterContext);
-                }
+                }  
             }
-
            
         }
     }

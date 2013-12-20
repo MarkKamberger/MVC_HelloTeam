@@ -36,12 +36,11 @@
                     dataType: 'json',
                     success: function (data) {
                         hideProcessing();
-                        var message = data["Message"];
-                        var success = Boolean(data["Success"]);
-                        if (success) {
+                        if(Boolean(data.Success)) {
                             window.location.href = "/Home/";
-                        } else {
-                            sendSystemMessage(messageContent(4));
+                        }
+                        else {
+                            ajaxRequestFail(data);
                         }
                     }, error: function () {
                         sendSystemMessage(messageContent(4));
@@ -61,46 +60,17 @@
                     dataType: 'json',
                     success: function (data) {
                         hideProcessing();
-                        var message = data["Message"];
-                        var success = Boolean(data["Success"]);
-                        if (success) {
+                        if (Boolean(data.Success)) {
                             window.location.href = "/Home/";
-                        } else {
-                            sendSystemMessage(messageContent(4));
                         }
-
-
+                        else {
+                            ajaxRequestFail(data);
+                        }
                     }, error: function () {
                         sendSystemMessage(messageContent(4));
                     }
                 });
             });
-
-                /* $('#postLogin').click(function (e) {
-                e.preventDefault();
-                var p = { UserName: $('#userNameInput').val(), Password: $('#passwordInput').val() };
-                $.ajax(
-                {
-                url: '/Login/UserLogin',
-                type: "GET",
-                data: p,
-
-                dataType: 'json',
-                statusCode: {
-                404: function() {
-                alert("page not found");
-                },
-                success: function (data) {
-                var message = data["Message"];
-                var success = Boolean(data["Success"]);
-                var userName = data["UserName"];
-                       
-                if (!success) {
-                alert(message);
-                } else {
-                alert(message);
-                }
-                }*/
             });
              
           

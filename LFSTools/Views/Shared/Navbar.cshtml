@@ -114,14 +114,7 @@
                     dataType: 'json',
                     success: function (data) {
                         hideProcessing();
-                        var message = data["Message"];
-                        var success = Boolean(data["Success"]);
-                        if (!success) {
-                            alert(message);
-                        }
-                        if (success) {
-                            window.location.href = "/Login";
-                        }
+                        window.location.href = "/Login";
                     }
                 });
         });

@@ -37,15 +37,14 @@
                     dataType: 'json',
                     success: function (data) {
                         hideProcessing();
-                        var message = data["Message"];
-                        var success = Boolean(data["Success"]);
-                        if (success) {
+                        if (Boolean(data.Success)) {
                             window.location.href = "/Home/";
-                        } else {
-                            sendSystemMessage(messageContent(4));
+                        }
+                        else {
+                            ajaxMobileRequestFail(data);
                         }
                     }, error: function () {
-                        sendSystemMessage(messageContent(4));
+                        alert("Invalid username or password");
                     }
                 });
                 });
@@ -62,20 +61,14 @@
                     dataType: 'json',
                     success: function (data) {
                         hideProcessing();
-                        var message = data["Message"];
-                        var success = Boolean(data["Success"]);
-                        window.location.href = "/Home/";
-                        if (success) {
-                           
-                        } else {
-                            alert("Invalid username/password");
-                            //sendSystemMessage(messageContent(4));
+                        if (Boolean(data.Success)) {
+                            window.location.href = "/Home/";
                         }
-
-
+                        else {
+                            ajaxMobileRequestFail(data);
+                        }
                     }, error: function () {
                         alert("Invalid username/password");
-                        //sendSystemMessage(messageContent(4));
                     }
                 });
                 });

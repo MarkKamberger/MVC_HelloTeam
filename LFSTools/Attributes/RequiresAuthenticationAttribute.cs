@@ -12,7 +12,7 @@ namespace LFSTools
     /// <summary>
     /// Verifies that user is logged into system.
     /// </summary>
-    public class RequiresAuthenticationAttribute : ActionFilterAttribute
+   /* public class RequiresAuthenticationAttribute : ActionFilterAttribute
     {
 
         /// <summary>
@@ -30,16 +30,20 @@ namespace LFSTools
             {
                 controller.Logout();
                 //use the current url for the redirect
-                string redirectOnSuccess = filterContext.HttpContext.Request.Url.AbsolutePath;
+                //string redirectOnSuccess = filterContext.HttpContext.Request.Url.AbsolutePath;
 
                 //send them off to the login page
-                string redirectUrl = string.Format("?ReturnUrl={0}", redirectOnSuccess);
-                string loginUrl = FormsAuthentication.LoginUrl;// +redirectUrl;
+                //string redirectUrl = string.Format("?ReturnUrl={0}", redirectOnSuccess);
+                //string loginUrl = FormsAuthentication.LoginUrl;// +redirectUrl;
                 filterContext.Result = new HttpUnauthorizedResult();
-                filterContext.HttpContext.Response.Redirect(loginUrl, true);
+                //filterContext.HttpContext.Response.Redirect(loginUrl, true);
             }
 
-            base.OnActionExecuting(filterContext);
+            //base.OnActionExecuting(filterContext);
         }
-    }
+        
+
+       
+    }*/
+    
 }

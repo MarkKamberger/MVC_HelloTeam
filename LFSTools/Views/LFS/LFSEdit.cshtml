@@ -133,17 +133,8 @@
     }
 
     function createListItem(dataObject) {
-       
-       
-        /*var wrapper = document.createElement("div");
-        var textdiv = document.createElement('div');
-        wrapper.appendChild(textdiv);
-        var infoDiv = document.createElement("div");
-        wrapper.appendChild(infoDiv);*/
         var desc = document.createElement('span');
         desc.textContent = dataObject.Description;
-       /* textdiv.appendChild(desc);
-        infoDiv.appendChild(active);*/
         return desc.innerHTML;
     }
 
@@ -158,27 +149,34 @@
                     data: input,
                     dataType: 'json',
                     success: function (data) {
-                        switch (selected.getCollection()[0].ObjectType) {
-                            case "areaOfConcern":
-                                loadList(gList, areaList, 0);
-                                break;
-                            case "subAreaOfConcern":
-                                loadList(areaList, subAreaList, 1);
-                                break;
-                            case "target":
-                                loadList(subAreaList, targetList, 2);
-                                break;
-                            case "rootCause":
-                                loadList(targetList, rootList, 3);
-                                break;
-                            case "impFocus":
-                                loadList(rootList, loadList, 4);
-                                break;
-                            case "action":
-                                loadList(loadList, actionList, 5);
-                                break;
+                        if (Boolean(data.Success)) {
+                            switch (selected.getCollection()[0].ObjectType) {
+                                case "areaOfConcern":
+                                    loadList(gList, areaList, 0);
+                                    break;
+                                case "subAreaOfConcern":
+                                    loadList(areaList, subAreaList, 1);
+                                    break;
+                                case "target":
+                                    loadList(subAreaList, targetList, 2);
+                                    break;
+                                case "rootCause":
+                                    loadList(targetList, rootList, 3);
+                                    break;
+                                case "impFocus":
+                                    loadList(rootList, loadList, 4);
+                                    break;
+                                case "action":
+                                    loadList(loadList, actionList, 5);
+                                    break;
+                                    sendSystemMessage(messageContent(0));
+                            }
                         }
-                        sendSystemMessage(messageContent(0));
+                        else {
+                            ajaxRequestFail(data);
+                        }
+                        
+                       
                     },
                     error: function () {
                         sendSystemMessage(messageContent(2));
@@ -196,27 +194,33 @@
                     data: input,
                     dataType: 'json',
                     success: function (data) {
-                        switch (selected.getCollection()[0].ObjectType) {
-                            case "areaOfConcern":
-                                loadList(gList, areaList, 0);
-                                break;
-                            case "subAreaOfConcern":
-                                loadList(areaList, subAreaList, 1);
-                                break;
-                            case "target":
-                                loadList(subAreaList, targetList, 2);
-                                break;
-                            case "rootCause":
-                                loadList(targetList, rootList, 3);
-                                break;
-                            case "impFocus":
-                                loadList(rootList, focusList, 4);
-                                break;
-                            case "action":
-                                loadList(focusList, actionList, 5);
-                                break;
+                        if (Boolean(data.Success)) {
+                            switch (selected.getCollection()[0].ObjectType) {
+                                case "areaOfConcern":
+                                    loadList(gList, areaList, 0);
+                                    break;
+                                case "subAreaOfConcern":
+                                    loadList(areaList, subAreaList, 1);
+                                    break;
+                                case "target":
+                                    loadList(subAreaList, targetList, 2);
+                                    break;
+                                case "rootCause":
+                                    loadList(targetList, rootList, 3);
+                                    break;
+                                case "impFocus":
+                                    loadList(rootList, focusList, 4);
+                                    break;
+                                case "action":
+                                    loadList(focusList, actionList, 5);
+                                    break;
+                            }
+                            sendSystemMessage(messageContent(1));
                         }
-                        sendSystemMessage(messageContent(1));
+                        else {
+                            ajaxRequestFail(data);
+                        }
+                        
                     },
                     error: function () {
                         sendSystemMessage(messageContent(2));
@@ -274,19 +278,25 @@
                     data: input,
                     dataType: 'json',
                     success: function (data) {
-                        child.removeSelectOptionsExceptFirst();
-                        resetLists(order);
-                        for (var i = 0; i < data.SelectList.SelectList.length; i++) {
-                            var option = document.createElement('option');
-                            option.className = data.SelectList.SelectList[i].Active.toString();
-                            option.value = data.SelectList.SelectList[i].Id;
-                            option.innerText = data.SelectList.SelectList[i].Description; //createListItem(data.SelectList.SelectList[i]);
-                            child.appendChild(option);
+                        if (Boolean(data.Success)) {
+                            child.removeSelectOptionsExceptFirst();
+                            resetLists(order);
+                            for (var i = 0; i < data.SelectList.SelectList.length; i++) {
+                                var option = document.createElement('option');
+                                option.className = data.SelectList.SelectList[i].Active.toString();
+                                option.value = data.SelectList.SelectList[i].Id;
+                                option.innerText = data.SelectList.SelectList[i].Description; //createListItem(data.SelectList.SelectList[i]);
+                                child.appendChild(option);
+                            }
+                            child.value = parseInt(type.value);
+                            child.name = parseInt(type.value);
+                            child.selectedIndex = 0;
+                            child.options[0].defaultSelected = true;
                         }
-                        child.value = parseInt(type.value);
-                        child.name = parseInt(type.value);
-                        child.selectedIndex = 0;
-                        child.options[0].defaultSelected = true;
+                        else {
+                            ajaxRequestFail(data);
+                        }
+                        
                     },
                     error: function (x) {
                         sendSystemMessage(messageContent(2));

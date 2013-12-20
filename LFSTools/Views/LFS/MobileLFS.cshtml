@@ -126,27 +126,33 @@
                     data: input,
                     dataType: 'json',
                     success: function (data) {
-                        switch (selected.getCollection()[0].ObjectType) {
-                            case "areaOfConcern":
-                                loadList(gList, areaList, 0);
-                                break;
-                            case "subAreaOfConcern":
-                                loadList(areaList, subAreaList, 1);
-                                break;
-                            case "target":
-                                loadList(subAreaList, targetList, 2);
-                                break;
-                            case "rootCause":
-                                loadList(targetList, rootList, 3);
-                                break;
-                            case "impFocus":
-                                loadList(rootList, loadList, 4);
-                                break;
-                            case "action":
-                                loadList(loadList, actionList, 5);
-                                break;
+                        if (Boolean(data.Success)) {
+                            switch (selected.getCollection()[0].ObjectType) {
+                                case "areaOfConcern":
+                                    loadList(gList, areaList, 0);
+                                    break;
+                                case "subAreaOfConcern":
+                                    loadList(areaList, subAreaList, 1);
+                                    break;
+                                case "target":
+                                    loadList(subAreaList, targetList, 2);
+                                    break;
+                                case "rootCause":
+                                    loadList(targetList, rootList, 3);
+                                    break;
+                                case "impFocus":
+                                    loadList(rootList, loadList, 4);
+                                    break;
+                                case "action":
+                                    loadList(loadList, actionList, 5);
+                                    break;
+                            }
+                            document.getElementById('editmodal').style.display = "none";
                         }
-                        document.getElementById('editmodal').style.display = "none";
+                        else {
+                            ajaxMobileRequestFail(data);
+                        }
+                        
                     },
                     error: function () {
                         
@@ -164,27 +170,33 @@
                     data: input,
                     dataType: 'json',
                     success: function (data) {
-                        switch (selected.getCollection()[0].ObjectType) {
-                            case "areaOfConcern":
-                                loadList(gList, areaList, 0);
-                                break;
-                            case "subAreaOfConcern":
-                                loadList(areaList, subAreaList, 1);
-                                break;
-                            case "target":
-                                loadList(subAreaList, targetList, 2);
-                                break;
-                            case "rootCause":
-                                loadList(targetList, rootList, 3);
-                                break;
-                            case "impFocus":
-                                loadList(rootList, focusList, 4);
-                                break;
-                            case "action":
-                                loadList(focusList, actionList, 5);
-                                break;
+                        if (Boolean(data.Success)) {
+                            switch (selected.getCollection()[0].ObjectType) {
+                                case "areaOfConcern":
+                                    loadList(gList, areaList, 0);
+                                    break;
+                                case "subAreaOfConcern":
+                                    loadList(areaList, subAreaList, 1);
+                                    break;
+                                case "target":
+                                    loadList(subAreaList, targetList, 2);
+                                    break;
+                                case "rootCause":
+                                    loadList(targetList, rootList, 3);
+                                    break;
+                                case "impFocus":
+                                    loadList(rootList, focusList, 4);
+                                    break;
+                                case "action":
+                                    loadList(focusList, actionList, 5);
+                                    break;
+                            }
+                            document.getElementById('editmodal').style.display = "none";
                         }
-                        document.getElementById('editmodal').style.display = "none";
+                        else {
+                            ajaxMobileRequestFail(data);
+                        }
+                        
                     },
                     error: function () {
                        
@@ -242,22 +254,28 @@
                     data: input,
                     dataType: 'json',
                     success: function (data) {
-                        child.removeSelectOptionsExceptFirst();
-                        resetLists(order);
-                        for (var i = 0; i < data.SelectList.SelectList.length; i++) {
-                            var option = document.createElement('option');
-                            if (data.SelectList.SelectList[i].Active == 'false') {
-                                option.style.backgroundColor = "red";
+                        if (Boolean(data.Success)) {
+                            child.removeSelectOptionsExceptFirst();
+                            resetLists(order);
+                            for (var i = 0; i < data.SelectList.SelectList.length; i++) {
+                                var option = document.createElement('option');
+                                if (data.SelectList.SelectList[i].Active == 'false') {
+                                    option.style.backgroundColor = "red";
+                                }
+                                option.className = data.SelectList.SelectList[i].Active.toString();
+                                option.value = data.SelectList.SelectList[i].Id;
+                                option.innerText = data.SelectList.SelectList[i].Description; //createListItem(data.SelectList.SelectList[i]);
+                                child.appendChild(option);
                             }
-                            option.className = data.SelectList.SelectList[i].Active.toString();
-                            option.value = data.SelectList.SelectList[i].Id;
-                            option.innerText = data.SelectList.SelectList[i].Description; //createListItem(data.SelectList.SelectList[i]);
-                            child.appendChild(option);
+                            child.value = parseInt(type.value);
+                            child.name = parseInt(type.value);
+                            child.selectedIndex = 0;
+                            child.options[0].defaultSelected = true;
                         }
-                        child.value = parseInt(type.value);
-                        child.name = parseInt(type.value);
-                        child.selectedIndex = 0;
-                        child.options[0].defaultSelected = true;
+                        else {
+                            ajaxMobileRequestFail(data);
+                        }
+                        
                         
                     },
                     error: function (x) {

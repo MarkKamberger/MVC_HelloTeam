@@ -72,10 +72,7 @@
                     type: "POST",
                     dataType: 'json',
                     success: function (data) {
-                        //alert("pass");
                         hideProcessing();
-                        var message = data["Message"];
-                        var success = Boolean(data["Success"]);
                         window.location.href = "/Login";
                        
                     }

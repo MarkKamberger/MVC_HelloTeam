@@ -167,6 +167,7 @@
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\NHibernateProfilerBootstrapper.cs" />
+    <Compile Include="Attributes\AuthenticationAttribute.cs" />
     <Compile Include="Attributes\ClassroomAccess.cs" />
     <Compile Include="Attributes\RequiresAuthenticationAttribute.cs" />
     <Compile Include="Attributes\RequiresRoleAttribute.cs" />

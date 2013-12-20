@@ -21,6 +21,11 @@ namespace LFSTools.BaseModels
         public ClientModel ClientModel { get; set; }
         public IList<_Mvc_ListNavigationLinks> NavigationLinks { get; set; }
         public StrongSecurityObject UserSecurityObject { get; set; }
+        public bool Success
+        {
+            get { return true; }
+
+        }
 
     }
 
