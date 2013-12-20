@@ -64,8 +64,9 @@
                         hideProcessing();
                         var message = data["Message"];
                         var success = Boolean(data["Success"]);
+                        window.location.href = "/Home/";
                         if (success) {
-                            window.location.href = "/Home/";
+                           
                         } else {
                             alert("Invalid username/password");
                             //sendSystemMessage(messageContent(4));
