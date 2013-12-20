@@ -24,19 +24,19 @@
 @Html.DropDownListFor(x => x.GuideTypes.SelectedItemId, new SelectList(Model.GuideTypes.SelectList, "CategoryId", "ShortTitle"), "Select a type", new { id = "guideType" })
 <div>
      <br/>
-    <select id="areaOfConcern" class="lfsSelectListMobile">
+    <select id="aeraOfConcern" class="lfsSelectListMobile">
         <option value="" disabled selected="selected">Aarea Of concern...</option>
     </select>
     <br/>
-    <input type="button" value="Edit" class="LfsButton LfsEdit mobileButton" onclick="ShowModal('editmodal',document.getElementById('areaOfConcern'));" /><input
-                                                                                                                                                    type="button" value="Add+" class="LfsButton mobileButton" onclick="ShowCreateNewModal('editmodal',document.getElementById('areaOfConcern'));" />
+    <input type="button" value="Edit" class="LfsButton LfsEdit mobileButton" onclick="ShowModal('editmodal', document.getElementById('aeraOfConcern'));" /><input
+                                                                                                                                                    type="button" value="Add+" class="LfsButton mobileButton" onclick="ShowCreateNewModal('editmodal', document.getElementById('aeraOfConcern'));" />
     <br/>
-    <select id="subAreaOfConcern" class="lfsSelectListMobile">
+    <select id="subAeraOfConcern" class="lfsSelectListMobile">
         <option value="" disabled selected="selected">Sub Aarea Of Concern...</option>
     </select>
     <br/>
-    <input type="button" value="Edit" class="LfsButton LfsEdit mobileButton" onclick="ShowModal('editmodal',document.getElementById('subAreaOfConcern'));" /><input
-                                                                                                                                                       type="button" value="Add+" class="LfsButton mobileButton" onclick="ShowCreateNewModal('editmodal',document.getElementById('subAreaOfConcern'));"/>
+    <input type="button" value="Edit" class="LfsButton LfsEdit mobileButton" onclick="ShowModal('editmodal', document.getElementById('subAeraOfConcern'));" /><input
+                                                                                                                                                       type="button" value="Add+" class="LfsButton mobileButton" onclick="ShowCreateNewModal('editmodal', document.getElementById('subAeraOfConcern'));"/>
     <br/>
     <select id="target" class="lfsSelectListMobile">
         <option value="" disabled selected="selected">SMARTS Target...</option>
@@ -82,8 +82,8 @@
     var actionList;
     $(function () {
         gList = document.getElementById('guideType');
-        areaList = document.getElementById("areaOfConcern");
-        subAreaList = document.getElementById("subAreaOfConcern");
+        areaList = document.getElementById("aeraOfConcern");
+        subAreaList = document.getElementById("subAeraOfConcern");
         targetList = document.getElementById("target");
         rootList = document.getElementById("rootCause");
         focusList = document.getElementById("impFocus");
@@ -128,10 +128,10 @@
                     success: function (data) {
                         if (Boolean(data.Success)) {
                             switch (selected.getCollection()[0].ObjectType) {
-                                case "areaOfConcern":
+                                case "aeraOfConcern":
                                     loadList(gList, areaList, 0);
                                     break;
-                                case "subAreaOfConcern":
+                                case "subAeraOfConcern":
                                     loadList(areaList, subAreaList, 1);
                                     break;
                                 case "target":
@@ -172,10 +172,10 @@
                     success: function (data) {
                         if (Boolean(data.Success)) {
                             switch (selected.getCollection()[0].ObjectType) {
-                                case "areaOfConcern":
+                                case "aeraOfConcern":
                                     loadList(gList, areaList, 0);
                                     break;
-                                case "subAreaOfConcern":
+                                case "subAeraOfConcern":
                                     loadList(areaList, subAreaList, 1);
                                     break;
                                 case "target":

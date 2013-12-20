@@ -172,6 +172,7 @@
     <Compile Include="Attributes\RequiresRoleAttribute.cs" />
     <Compile Include="Attributes\ViewModelUserFilter.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\Error\OopsController.cs" />
     <Compile Include="Controllers\HiberhateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LFS\LFSController.cs" />
@@ -469,6 +470,8 @@
     <Content Include="Views\Login\MobileLogin.cshtml" />
     <Content Include="Views\Home\MobileHome.cshtml" />
     <Content Include="Views\LFS\MobileLFS.cshtml" />
+    <Content Include="Views\Shared\InsufficientPermission.cshtml" />
+    <Content Include="Views\Oops\Oops.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

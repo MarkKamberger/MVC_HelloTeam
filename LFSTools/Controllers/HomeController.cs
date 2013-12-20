@@ -8,6 +8,7 @@ using Infrastructure.ApplicationRepository;
 using Infrastructure.TWARepository;
 using LFSTools.Attributes;
 using LFSTools.Providers;
+using SALISecurityObjects;
 using Services;
 
 namespace LFSTools.Controllers

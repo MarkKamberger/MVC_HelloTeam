@@ -26,16 +26,16 @@
 </div>
 @Html.DropDownListFor(x => x.GuideTypes.SelectedItemId, new SelectList(Model.GuideTypes.SelectList, "CategoryId", "ShortTitle"), "Select a type", new { id = "guideType" })
 <div>
-    <select id="areaOfConcern" class="lfsSelectList">
-        <option value="" disabled selected="selected">Aarea Of concern...</option>
+    <select id="aeraOfConcern" class="lfsSelectList">
+        <option value="" disabled selected="selected">Aera Of concern...</option>
     </select>
-    <input type="button" value="Edit" class="LfsButton LfsEdit" onclick="ShowModal('editmodal',document.getElementById('areaOfConcern'));" /><input
-        type="button" value="Add+" class="LfsButton" onclick="ShowCreateNewModal('editmodal',document.getElementById('areaOfConcern'));" />
-    <select id="subAreaOfConcern" class="lfsSelectList">
-        <option value="" disabled selected="selected">Sub Aarea Of Concern...</option>
+    <input type="button" value="Edit" class="LfsButton LfsEdit" onclick="ShowModal('editmodal', document.getElementById('aeraOfConcern'));" /><input
+        type="button" value="Add+" class="LfsButton" onclick="ShowCreateNewModal('editmodal', document.getElementById('aeraOfConcern'));" />
+    <select id="subAeraOfConcern" class="lfsSelectList">
+        <option value="" disabled selected="selected">Sub Aera Of Concern...</option>
     </select>
-    <input type="button" value="Edit" class="LfsButton LfsEdit" onclick="ShowModal('editmodal',document.getElementById('subAreaOfConcern'));" /><input
-        type="button" value="Add+" class="LfsButton" onclick="ShowCreateNewModal('editmodal',document.getElementById('subAreaOfConcern'));"/>
+    <input type="button" value="Edit" class="LfsButton LfsEdit" onclick="ShowModal('editmodal', document.getElementById('subAeraOfConcern'));" /><input
+        type="button" value="Add+" class="LfsButton" onclick="ShowCreateNewModal('editmodal', document.getElementById('subAeraOfConcern'));"/>
     <select id="target" class="lfsSelectList">
         <option value="" disabled selected="selected">SMARTS Target...</option>
     </select>
@@ -90,8 +90,8 @@
     var actionList;
     $(function () {
         gList = document.getElementById('guideType');
-        areaList = document.getElementById("areaOfConcern");
-        subAreaList = document.getElementById("subAreaOfConcern");
+        areaList = document.getElementById("aeraOfConcern");
+        subAreaList = document.getElementById("subAeraOfConcern");
         targetList = document.getElementById("target");
         rootList = document.getElementById("rootCause");
         focusList = document.getElementById("impFocus");
@@ -151,10 +151,10 @@
                     success: function (data) {
                         if (Boolean(data.Success)) {
                             switch (selected.getCollection()[0].ObjectType) {
-                                case "areaOfConcern":
+                                case "aeraOfConcern":
                                     loadList(gList, areaList, 0);
                                     break;
-                                case "subAreaOfConcern":
+                                case "subAeraOfConcern":
                                     loadList(areaList, subAreaList, 1);
                                     break;
                                 case "target":
@@ -196,10 +196,10 @@
                     success: function (data) {
                         if (Boolean(data.Success)) {
                             switch (selected.getCollection()[0].ObjectType) {
-                                case "areaOfConcern":
+                                case "aeraOfConcern":
                                     loadList(gList, areaList, 0);
                                     break;
-                                case "subAreaOfConcern":
+                                case "subAeraOfConcern":
                                     loadList(areaList, subAreaList, 1);
                                     break;
                                 case "target":
@@ -285,7 +285,8 @@
                                 var option = document.createElement('option');
                                 option.className = data.SelectList.SelectList[i].Active.toString();
                                 option.value = data.SelectList.SelectList[i].Id;
-                                option.innerText = data.SelectList.SelectList[i].Description; //createListItem(data.SelectList.SelectList[i]);
+                                option.innerText = data.SelectList.SelectList[i].Description;
+                                option.innerHTML = data.SelectList.SelectList[i].Description;//createListItem(data.SelectList.SelectList[i]);
                                 child.appendChild(option);
                             }
                             child.value = parseInt(type.value);

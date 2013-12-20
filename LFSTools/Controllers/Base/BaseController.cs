@@ -75,15 +75,27 @@ namespace LFSTools
             {
                 if (requestContext.HttpContext.User.Identity.IsAuthenticated)
                 {
-                    string username = requestContext.HttpContext.User.Identity.Name;
-                    UserSecurityObject = Session["UserSecurityObject"] as StrongSecurityObject;
-                    _baseModel.ClientModel = Session["ClientModel"] as ClientModel;
-                    _baseModel.NavigationLinks = Session["NavigationLinks"] as List<_Mvc_ListNavigationLinks>;
-                    //string username = _baseModel.BusinessLogicObject.UserName;
-                    _baseModel.ClientModel.IsLoggedIn = true;
+
+                    if (Session["ClientModel"] as ClientModel == null)
+                    {
+                        FormsAuthentication.SignOut();
+                        _presenter.ClearPresenterCache();
+                        string loginUrl = FormsAuthentication.LoginUrl; // +redirectUrl;
+                        HttpContext.Response.Redirect(loginUrl, true);
+
+                    }
+                    else
+                    {
+                        string username = requestContext.HttpContext.User.Identity.Name;
+                        UserSecurityObject = Session["UserSecurityObject"] as StrongSecurityObject;
+                        _baseModel.ClientModel = Session["ClientModel"] as ClientModel;
+                        _baseModel.NavigationLinks = Session["NavigationLinks"] as List<_Mvc_ListNavigationLinks>;
+                        //string username = _baseModel.BusinessLogicObject.UserName;
+                        _baseModel.ClientModel.IsLoggedIn = true;
+                        ViewData["CurrentUser"] = Session["UserName"] as string;
+                        ViewData["BaseModel"] = _baseModel;
+                    }
                     
-                    ViewData["CurrentUser"] = Session["UserName"] as string;
-                    ViewData["BaseModel"] = _baseModel;
 
                 }
                 else

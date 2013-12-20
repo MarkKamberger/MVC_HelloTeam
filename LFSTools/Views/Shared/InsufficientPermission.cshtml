@@ -1,0 +1,67 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Insufficient Permission</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="message">
+                <h1>Aww you don't have permission to do this.  Check with your administrator, perhaps they will grant you the power!</h1>
+            </div>
+        </div>
+        
+        <div class="inputdiv">
+            <input type="button" id="goBack" value="Go Back" onclick="window.history.back();" />
+        </div>
+    </body>
+</html>
+<style>
+ 
+    .message {
+        width: 80%;
+        margin-left: 5em;
+        margin-top: 5em;
+        background: lightcyan;
+        padding: 1em;
+    }
+    .wrapper {
+        width: 100%;
+        padding-top: 1em;
+        padding-bottom: 5em;
+        background: lightslategray;
+    }
+    .inputdiv {
+        text-align: center;
+    }
+    #goBack {
+        background: #1e90ff;
+        margin-top: -26px;
+        margin-right: 10px;
+        padding: 5px 26px;
+        font-size: 3em;
+        line-height: 100%;
+        border-width: 0;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.1s ease-in-out;
+        -webkit-transition: background 0.1s ease-in-out;
+        -moz-transition: background 0.1s ease-in-out;
+        -ms-transition: background 0.1s ease-in-out;
+        -o-transition: background 0.1s ease-in-out;
+        color: black;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    }
+</style>
+

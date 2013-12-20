@@ -13,6 +13,14 @@ namespace LFSTools.Attributes
 {
     public class RequiresAuthenticationAttribute : System.Web.Mvc.AuthorizeAttribute
     {
+        /// <summary>
+        /// Called when [RequiresAuthentication].
+        /// </summary>
+        /// <param name="authorizationContext">The authorization context.</param>
+        /// <remarks>Using System.Web.Mvc.AuthorizeAttribute for non API controllers fires before ActionFilterAttribute
+        /// This is used only for session authentication.  Inheriting ActionFilterAttribute fires later on in execution pipe 
+        /// and should be used for role/scope/priveledge checks
+        /// If the request is ajax then retun a json model with the status/error else redirect to login page </remarks>
         public override void OnAuthorization(AuthorizationContext authorizationContext)
         {
             //redirect if not authenticated

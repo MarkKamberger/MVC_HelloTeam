@@ -106,7 +106,7 @@ namespace LFSTools.Controllers.Security
                 else
                 {
                     vm.Success = false;
-                    vm.Message = "Sorry you do not have permission to log into Member Center";
+                    vm.Message = "Invalid username/password";
                     _baseModel.BusinessLogicObject.WriteAuditHistory(AuditTypesEnum.Trace, AuditSubjectsEnum.Login,
                                                                      "User " + inputViewModel.UserName +
                                                                      " attempted to login but does not have permission");
@@ -137,7 +137,7 @@ namespace LFSTools.Controllers.Security
                 else
                 {
                     vm.Success = false;
-                    vm.Message = "Sorry you do not have permission to log into Member Center";
+                    vm.Message = "Invalid username/password";
                     _baseModel.BusinessLogicObject.WriteAuditHistory(AuditTypesEnum.Trace, AuditSubjectsEnum.Login,
                                                                      "User " + inputViewModel.UserName +
                                                                      " attempted to login but does not have permission");

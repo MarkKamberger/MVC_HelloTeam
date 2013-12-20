@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_MobileLayout.cshtml";
 }
 
-<h2>Hello Mobile User!</h2>
+<h2>Hello Mobile User!!</h2>
 <div class="loginNav">
     <dl>
         <dt><input id="userNameInput" type="text" placeholder="User Name"/></dt>
@@ -44,6 +44,7 @@
                             ajaxMobileRequestFail(data);
                         }
                     }, error: function () {
+                        hideProcessing();
                         alert("Invalid username or password");
                     }
                 });
@@ -68,6 +69,7 @@
                             ajaxMobileRequestFail(data);
                         }
                     }, error: function () {
+                        hideProcessing();
                         alert("Invalid username/password");
                     }
                 });

@@ -57,7 +57,7 @@ namespace LFSTools.Controllers.LFS
 
                             }).AsEnumerable();
                     break;
-                case "areaOfConcern":
+                case "aeraOfConcern":
                    filter.AreaOfConcernId = Id;
                     vm.SelectList.SelectList =
                         _lfsService.ListSubAreaOfConcern(filter).Select(x => new EnumerableSelectList
@@ -68,7 +68,7 @@ namespace LFSTools.Controllers.LFS
 
                             }).AsEnumerable();
                     break;
-                case "subAreaOfConcern":
+                case "subAeraOfConcern":
                     filter.SubAreaOfConcernId = Id;
                     vm.SelectList.SelectList =
                         _lfsService.ListSmartsTarget(filter).Select(x => new EnumerableSelectList
@@ -129,13 +129,13 @@ namespace LFSTools.Controllers.LFS
                     case "GuideType":
                         filter.CategoryId = id;
                         break;
-                    case "areaOfConcern":
+                    case "aeraOfConcern":
                         var areaObj = _lfsService.GetAreaOfConcern(id);
                         areaObj.AreaOfConcernDesc = text;
                         areaObj.Active = active;
                         _lfsService.SaveAreaOfConcern(areaObj);
                         break;
-                    case "subAreaOfConcern":
+                    case "subAeraOfConcern":
                         var subAreaobj = _lfsService.GetSubAreaOfConcern(id);
                         subAreaobj.SubAreaOfConcernDesc = text;
                         subAreaobj.Active = active;
@@ -189,7 +189,7 @@ namespace LFSTools.Controllers.LFS
                     case "GuideType":
                         filter.CategoryId = id;
                         break;
-                    case "areaOfConcern":
+                    case "aeraOfConcern":
                         var areaOfConcern = new AchievementPlanAreaOfConcern
                             {
                                 Active = active,
@@ -204,7 +204,7 @@ namespace LFSTools.Controllers.LFS
                         areaOfConcern.Category.Add(aerachild);
                         _lfsService.SaveAreaOfConcern(areaOfConcern);
                         break;
-                    case "subAreaOfConcern":
+                    case "subAeraOfConcern":
                         var subAreaOfConcern = new AchievementPlanSubAreaOfConcern
                             {
                                 Active = active,
