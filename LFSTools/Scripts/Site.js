@@ -100,13 +100,18 @@ function borderColor(isTrue) {
 }
 
 function ajaxRequestFail(data) {
-    
-    window.location.href = data.Url;
-    setTimeout(function() {
+    if (data.LogonRequired) {
+        window.location.href = data.Url;
+    } else {
         sendSystemMessage(data.Message);
-    }, 200);
+    }
 }
 function ajaxMobileRequestFail(data) {
-    
-    window.location.href = data.Url;
+    if (data.LogonRequired) {
+        window.location.href = data.Url;
+    } else {
+        alert(data.Message);
+    }
+
+   
 }

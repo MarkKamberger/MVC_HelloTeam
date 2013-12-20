@@ -27,14 +27,7 @@ namespace LFSTools
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var controller = filterContext.Controller as BaseController;
-            var failAuthentication = !filterContext.HttpContext.User.Identity.IsAuthenticated;
-            if (failAuthentication)
-            {
-                controller.Logout();
-                filterContext.Result = new HttpUnauthorizedResult();
-            }
-            else
-            {
+            
                 var authenticated = false;
                 if (controller.UserSecurityObject.Roles != null)
                 {
@@ -44,18 +37,32 @@ namespace LFSTools
                         authenticated = true;
                     }
                     if (authenticated) return;
-                    filterContext.Controller.TempData["Message"] = "Access Denied";
-                    filterContext.Result = new HttpUnauthorizedResult();
+                    if (filterContext.HttpContext.Request.IsAjaxRequest())
+                    {
+                        filterContext.Result = new JsonResult { Data = new { LogonRequired = false, Message = "Insufficient Permissions", Success = false, Url = FormsAuthentication.LoginUrl }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                    }
+                    else
+                    {
+                        var loginUrl = FormsAuthentication.LoginUrl;// +redirectUrl;
+                        filterContext.Result = new HttpUnauthorizedResult();
+                        filterContext.HttpContext.Response.Redirect(loginUrl, true);
+                    }
                 }
                 else
                 {
                     controller.Logout();
-                    var loginUrl = FormsAuthentication.LoginUrl;// +redirectUrl;
-                    filterContext.Result = new HttpUnauthorizedResult();
-                    filterContext.HttpContext.Response.Redirect(loginUrl, true);
-                    base.OnActionExecuting(filterContext);
+                    if (filterContext.HttpContext.Request.IsAjaxRequest())
+                    {
+                        filterContext.Result = new JsonResult { Data = new { LogonRequired = true, Message = "Session timed out due to inactivity", Success = false, Url = FormsAuthentication.LoginUrl }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                    }
+                    else
+                    {
+                        var loginUrl = FormsAuthentication.LoginUrl;// +redirectUrl;
+                        filterContext.Result = new HttpUnauthorizedResult();
+                        filterContext.HttpContext.Response.Redirect(loginUrl, true);
+                    }
                 }  
-            }
+          
            
         }
     }
